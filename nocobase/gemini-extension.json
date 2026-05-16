@@ -1,0 +1,20 @@
+{
+  "name": "nocobase",
+  "version": "1.1.0",
+  "description": "NocoBase platform development plugin. Expert guidance on collections, fields, relations, workflows, UI blocks, plugin development, MCP-powered page management, data operations, and collection inspection for NocoBase applications.",
+  "contextFileName": "GEMINI.md",
+  "mcpServers": {
+    "nocobase": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@nocobase/mcp-server"
+      ],
+      "env": {
+        "NOCOBASE_URL": "${NOCOBASE_URL}",
+        "NOCOBASE_EMAIL": "${NOCOBASE_EMAIL}",
+        "NOCOBASE_PASSWORD": "${NOCOBASE_PASSWORD}"
+      }
+    }
+  }
+}

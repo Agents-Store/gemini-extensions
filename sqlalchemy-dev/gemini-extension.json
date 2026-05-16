@@ -1,0 +1,6 @@
+{
+  "name": "sqlalchemy-dev",
+  "version": "1.0.0",
+  "description": "SQLAlchemy dev plugin for Agents Store. Model definition patterns, relationship mapping, query optimization, Alembic migrations, and troubleshooting for developers building with SQLAlchemy 2.0+.",
+  "contextFileName": "GEMINI.md"
+}

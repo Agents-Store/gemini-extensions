@@ -1,0 +1,19 @@
+{
+  "name": "dokploy-dev",
+  "version": "1.2.0",
+  "description": "Dokploy self-hosted PaaS development plugin. Deploy applications, provision databases (Postgres, MySQL, MariaDB, MongoDB, Redis, LibSQL), manage domains, Docker Compose stacks, backups, and server operations via the official @dokploy/mcp server (500+ tools across 49 categories), 463 REST API endpoints, and CLI.",
+  "contextFileName": "GEMINI.md",
+  "mcpServers": {
+    "dokploy": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@dokploy/mcp"
+      ],
+      "env": {
+        "DOKPLOY_URL": "${DOKPLOY_URL}",
+        "DOKPLOY_API_KEY": "${DOKPLOY_API_KEY}"
+      }
+    }
+  }
+}

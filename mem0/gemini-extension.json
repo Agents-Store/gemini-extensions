@@ -1,0 +1,11 @@
+{
+  "name": "mem0",
+  "version": "1.0.0",
+  "description": "Mem0 memory management plugin. Store, search, update, and organize memories with semantic search, batch operations, file attachments, and change history tracking via MCP tools.",
+  "contextFileName": "GEMINI.md",
+  "mcpServers": {
+    "mem0": {
+      "httpUrl": "https://my-mcp.mcpware.net/mcp/mem0-user"
+    }
+  }
+}

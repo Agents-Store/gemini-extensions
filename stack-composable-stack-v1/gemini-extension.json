@@ -1,0 +1,57 @@
+{
+  "name": "stack-composable-stack-v1",
+  "version": "1.2.0",
+  "description": "Composable Stack v1 dev plugin. Integrates PostgreSQL (direct MCP + PostgREST API), NocoDB, n8n, Trigger.dev, and NocoBase (prod + dev sandbox via nc-mcp) for building data-driven applications with low-code interfaces.",
+  "contextFileName": "GEMINI.md",
+  "mcpServers": {
+    "trigger-dev": {
+      "command": "npx",
+      "args": [
+        "trigger.dev@latest",
+        "mcp"
+      ],
+      "env": {
+        "TRIGGER_ACCESS_TOKEN": "${TRIGGER_SECRET_KEY}",
+        "TRIGGER_API_URL": "${TRIGGER_API_URL}"
+      }
+    },
+    "n8n-mcp-external": {
+      "command": "npx",
+      "args": [
+        "n8n-mcp"
+      ],
+      "env": {
+        "MCP_MODE": "stdio",
+        "LOG_LEVEL": "error",
+        "DISABLE_CONSOLE_OUTPUT": "true",
+        "N8N_API_URL": "${N8N_API_URL}",
+        "N8N_API_KEY": "${N8N_API_KEY}"
+      }
+    },
+    "n8n-native-mcp": {
+      "httpUrl": "${N8N_NATIVE_MCP_URL}",
+      "headers": {
+        "Authorization": "Bearer ${N8N_MCP_TOKEN}"
+      }
+    },
+    "nocodb": {
+      "httpUrl": "${NOCODB_MCP_URL}",
+      "headers": {
+        "xc-mcp-token": "${NOCODB_TOKEN}"
+      }
+    },
+    "postgresql-mcp": {
+      "httpUrl": "${POSTGRESQL_MCP_URL}",
+      "headers": {
+        "Authorization": "Bearer ${POSTGRESQL_MCP_TOKEN}"
+      }
+    },
+    "nocobase-dev": {
+      "httpUrl": "${NOCOBASE_DEV_URL}/api/mcp",
+      "headers": {
+        "Authorization": "Bearer ${NOCOBASE_DEV_API_KEY}",
+        "x-mcp-packages": "plugin-data-source-main,plugin-data-source-manager,plugin-workflow*,plugin-acl,plugin-users,plugin-auth,plugin-client,plugin-flow-engine,plugin-ai"
+      }
+    }
+  }
+}

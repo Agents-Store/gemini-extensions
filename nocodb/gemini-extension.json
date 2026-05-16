@@ -1,0 +1,14 @@
+{
+  "name": "nocodb",
+  "version": "1.0.0",
+  "description": "NocoDB database development plugin. Manage tables, records, columns, views, relations, formulas, rollups, lookups, filtering, sorting, search, aggregation, webhooks, and filter/sort management via MCP tools.",
+  "contextFileName": "GEMINI.md",
+  "mcpServers": {
+    "nocodb": {
+      "httpUrl": "${NOCODB_MCP_URL}",
+      "headers": {
+        "xc-mcp-token": "${NOCODB_MCP_TOKEN}"
+      }
+    }
+  }
+}
