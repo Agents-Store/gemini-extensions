@@ -1,6 +1,6 @@
 # openclaw-configurator
 
-> OpenClaw instance configurator and operations plugin. Scan, analyze, and optimize all workspace files (AGENTS.md, SOUL.md, USER.md, IDENTITY.md, TOOLS.md, HEARTBEAT.md, MEMORY.md, BOOT.md, BOOTSTRAP.md) plus openclaw.json. Update instances from official GitHub releases. Guided interviews, session log analysis, standing orders design, security audit, config validation, permission fix hooks, and 6 industry-specific workspace templates.
+> OpenClaw instance configurator and operations plugin. Scan, analyze, and optimize all workspace files (AGENTS.md, SOUL.md, USER.md, IDENTITY.md, TOOLS.md, HEARTBEAT.md, MEMORY.md, BOOT.md, BOOTSTRAP.md) plus openclaw.json. Update instances from official GitHub releases and reconcile config against new releases (recommend new features, migrate legacy settings, run openclaw doctor). Set up model-provider authentication with an OAuth/CLI-backend-first, cost-saving bias (Claude CLI, Codex OAuth). Migrate .env secrets into self-hosted Infisical. Guided interviews, session log analysis, standing orders design, security audit, config validation, permission fix hooks, centralized doc research, and 6 industry-specific workspace templates.
 
 Canonical: https://github.com/agents-store/claude-public-plugins/tree/main/plugins/openclaw-configurator
 
@@ -56,6 +56,10 @@ Use these skills for detailed guidance on each component:
 | Session JSONL log analysis | **session-analysis** |
 | openclaw.json configuration and editing | **openclaw-config** |
 | openclaw.json validation against docs | **config-validation** |
+| Fetching/verifying official docs (tool ladder + URL map) | **docs-research** |
+| Model-provider authentication (API key / OAuth / CLI backend) | **provider-auth** |
+| Post-update feature/config reconciliation | **release-migration** |
+| Migrating .env secrets into Infisical | **infisical-migration** |
 | Standing orders design | **standing-orders** |
 | Prompt security audit | **security-audit** |
 | Complete workspace examples | **examples** |
@@ -92,6 +96,18 @@ Use these skills for detailed guidance on each component:
 4. Generate improved version (in English)
 5. Show diff and apply with approval
 
+### When user wants to set up model-provider auth:
+
+Load **provider-auth** and use the `/provider-setup` command. Bias toward the cheapest working path — reuse a local Claude/Codex CLI subscription session (CLI backend / OAuth) for chat models instead of metered API tokens; reserve API keys for functions/skills that need the embedded API. Print interactive logins for the user to run via the `!` prefix; never attempt browser OAuth in-session.
+
+### When user just updated OpenClaw (or asks about new features / legacy settings):
+
+Load **release-migration**. Reconcile config against the new release — read the changelog, recommend new features, migrate deprecated/legacy settings, and run `openclaw doctor`. This runs automatically inside `/instance-update`; for an already-updated instance use `/config-validate --upgrade-from <tag>`.
+
+### When user wants to move secrets into Infisical:
+
+Load **infisical-migration** and use the `/infisical-migrate` command. Push `.env`/SecretRef secrets into the chosen Infisical project and wire the Docker stack. OAuth/CLI credentials stay in OpenClaw's encrypted store — out of scope.
+
 ## Working Directory & Paths
 
 The plugin runs from the OpenClaw instance root. Standard: `~/.openclaw/`. Docker multi-instance: `~/.openclaw-{name}/`. All paths are relative to CWD.
@@ -124,18 +140,7 @@ The plugin runs from the OpenClaw instance root. Standard: `~/.openclaw/`. Docke
 
 ## Official Documentation
 
-When verifying OpenClaw configuration, features, or best practices, consult official documentation:
-
-- **Official docs**: `https://docs.openclaw.ai`
-- **Source + changelog**: `https://github.com/openclaw/openclaw`
-- **Skills examples**: `https://github.com/openclaw/skills`
-
-**Tool priority for fetching docs** (use the best available):
-1. Firecrawl tools (firecrawl_scrape, firecrawl_search) — primary, best for deep scraping
-2. Exa.ai (web_search_exa) — code-aware search
-3. Perplexity (search) — synthesis and summaries
-4. Jina (read_url, search_web) — fallback reader
-5. WebFetch — basic fallback
+When verifying OpenClaw configuration, features, or best practices, consult official documentation via the **docs-research** skill — it holds the tool-priority ladder (Firecrawl → Exa → Perplexity → Jina → context7 → WebFetch) and the canonical OpenClaw documentation URL map (docs site, source/changelog, skills examples). Always verify against official docs before recommending a feature or auth change — OpenClaw evolves quickly.
 
 ## openclaw.json Editing Rules
 
@@ -254,13 +259,7 @@ The plugin runs from the OpenClaw instance root. Standard: `~/.openclaw/`. Docke
 
 ## Official Documentation
 
-When verifying configuration or features, use web search/scraping tools to check:
-
-- **Official docs**: `https://docs.openclaw.ai`
-- **Source + changelog**: `https://github.com/openclaw/openclaw`
-- **Skills examples**: `https://github.com/openclaw/skills`
-
-**Tool priority**: Firecrawl > Exa.ai > Perplexity > Jina > WebFetch
+When verifying configuration or features, fetch official docs via the **docs-research** skill — it holds the tool-priority ladder (Firecrawl → Exa → Perplexity → Jina → context7 → WebFetch) and the canonical OpenClaw documentation URL map.
 
 ## Audit Procedure
 
@@ -491,10 +490,10 @@ ls /root/openclaw-plugins-private/packages/ 2>/dev/null
 
 ### Step 12: Verify Against Official Docs
 
-Use firecrawl or other search tools to check:
-- Is the configured model still current/supported?
+Fetch docs via **docs-research** and check:
+- Is the configured model still current/supported? (auth method too — see **provider-auth**)
 - Are there new openclaw.json features not being used?
-- Are there deprecated settings in the current config?
+- Are there deprecated/legacy settings in the current config? For a version upgrade, hand off to **release-migration** to reconcile and run `openclaw doctor`.
 
 ### Step 13: Generate Report
 
@@ -587,11 +586,15 @@ Skills under `skills/` auto-load by description match:
 - **agents-md** — Guide for creating and customizing AGENTS.md — the operating rules, procedures, and behavioral guardrails for an OpenClaw agent. Use this skill whenever the user is working on agent behavior, operating procedures, session startup sequences, memory management policies, group chat rules, safety red lines, tool usage priorities, or standing order references. Even if they just say "the agent should do X differently" or "add a rule for Y", this skill applies because operational rules belong in AGENTS.md. Also use when deciding what belongs in AGENTS.md versus SOUL.md — this skill clarifies the boundary.
 - **bootstrap-boot** — Guide for BOOTSTRAP.md (first-run setup ritual) and BOOT.md (gateway restart checklist) in OpenClaw. Use this skill whenever the user is setting up a new agent for the first time, configuring onboarding flows, creating first-run discovery processes, or defining what should happen on gateway restart. Even questions like "what should happen when the agent starts for the first time", "how do I initialize a fresh agent", or "what runs on reboot" need this skill.
 - **config-validation** — Validates openclaw.json against official OpenClaw documentation and checks for latest features, deprecated settings, and security issues. Use this skill whenever the user wants to verify their configuration is correct, check if they're using the latest OpenClaw features, audit their openclaw.json for problems, or compare their config against best practices. Also applies when the user says things like "is my config OK", "what am I missing in my setup", or "check my OpenClaw configuration".
+- **docs-research** — How to fetch official OpenClaw documentation using whatever web-search/scrape tool is enabled, with a fallback ladder, plus the canonical OpenClaw doc URL map. Use whenever any openclaw-configurator skill or command needs to verify a feature, config field, auth method, or release note against official docs. Also use when the user asks to "check the latest docs", "is this still the recommended way", or before recommending any feature/auth change.
 - **examples** — Complete end-to-end workspace customization examples for different industries — legal firms, dev teams, marketing agencies, customer support, personal assistants, and content creators. Use this skill whenever the user wants to see a reference implementation, asks "how would you set up OpenClaw for X", wants to see what a complete workspace looks like, or needs a starting template for their industry. Even vague requests like "show me an example" or "what does a good workspace look like" should trigger this skill.
 - **heartbeat-md** — Guide for configuring HEARTBEAT.md — the periodic background task checklist that OpenClaw executes on a schedule. Use this skill whenever the user needs background monitoring, periodic checks, standing orders integration, quiet hours configuration, or wants to understand heartbeat mechanics and token costs. Even questions like "how do I make the agent check something periodically", "set up monitoring", or "reduce heartbeat token costs" need this skill.
 - **identity-md** — Guide for creating IDENTITY.md — the agent's name, creature type, vibe, emoji, and avatar in OpenClaw. Use this skill whenever the user is naming their agent, choosing an emoji or avatar, setting up the agent's visual identity, or asking how agent identity works. Even simple questions like "what should I name my agent", "how do I set the bot emoji", or "change the agent's avatar" need this skill.
+- **infisical-migration** — Migrate an OpenClaw instance's secrets from plaintext .env into self-hosted Infisical, then wire the Docker stack to inject them at runtime. Use when the user wants to move .env secrets into Infisical, eliminate plaintext API keys, set up SecretRef-backed config, or asks "migrate my secrets to Infisical". Pairs with the /infisical-migrate command. OAuth/CLI credentials stay in OpenClaw's encrypted store and are out of scope.
 - **memory-system** — Guide for OpenClaw's memory system — MEMORY.md curation, daily logs, memory flush, and vector search. Use this skill whenever the user asks about how the agent remembers things between sessions, wants to configure memory management, needs to understand daily logs versus long-term memory, or is setting up memory curation processes. Also applies to questions about vector search, memory security in groups, or "how does the agent remember".
 - **openclaw-config** — Comprehensive guide for openclaw.json — the central gateway configuration file controlling models, channels, tools, plugins, and sessions. Use this skill whenever the user needs to understand, modify, or troubleshoot their openclaw.json. Covers agent settings, Telegram/Discord/WhatsApp channel setup, tool profiles, plugin management, session behavior, secret handling with SecretRef, and model configuration. Even questions like "how do I add Telegram", "change the model", or "what does this config field do" need this skill.
+- **provider-auth** — How to authenticate OpenClaw model providers — API key vs OAuth vs CLI backend — with a cost-saving, OAuth/CLI-first bias for Claude and Codex. Use whenever the user is setting up or changing model-provider credentials, asks to "stop paying per-token for chat", wants OAuth keys for Claude/Codex, mentions auth-profiles.json, the Claude CLI backend, `openclaw models auth`, or "which auth method should I use". Pairs with the /provider-setup command.
+- **release-migration** — Reconcile an OpenClaw instance's configuration against a new release — read the changelog/release notes between two tags, recommend newly available features, flag and migrate deprecated/legacy settings, then run openclaw doctor. Use after updating OpenClaw (invoked by /instance-update), when the user says "I just updated OpenClaw — check my config", "what new features should I enable", "fix legacy/deprecated settings", or "migrate my config to the new version".
 - **security-audit** — Workspace prompt security audit checklist — checks for hardcoded secrets, prompt injection risks, data leakage, missing safety rules, PII exposure, and overly broad standing orders. Use this skill whenever auditing workspace security, checking for vulnerabilities, reviewing prompt safety, or as part of any workspace optimization. Even if the user doesn't explicitly ask for security, include these checks when doing a full workspace review, optimization, or pre-deployment audit.
 - **session-analysis** — Techniques for analyzing OpenClaw session JSONL logs to understand user behavior, tool effectiveness, error patterns, token costs, and active hours. Use this skill whenever the user wants to analyze how their agent is performing, what users are asking, which tools work best, what errors occur, or how to improve the workspace based on real usage data. Also applies to questions like "what do my users ask about", "is my agent working well", or "show me session stats".
 - **soul-md** — Guide for creating and refining SOUL.md — the agent's personality, values, tone, and boundaries. Use this skill whenever the user is working on who the agent should be, its communication style, persona traits, behavioral boundaries, or domain-specific character. Even requests like "make the agent more friendly", "add a boundary", "change the tone", or "the agent sounds too corporate" need this skill because personality and tone live in SOUL.md, not AGENTS.md.
@@ -602,8 +605,10 @@ Skills under `skills/` auto-load by description match:
 
 ## Custom commands
 
-- `/config-validate` — Validate openclaw.json against official documentation, check for latest features, detect inline secrets, and verify cross-references with workspace files
-- `/instance-update` — Update OpenClaw instance from official GitHub repo — fetch latest tag, merge into dev preserving local changes, rebuild Docker containers
+- `/config-validate` — Validate openclaw.json against official documentation, check for latest features, detect inline secrets, verify cross-references with workspace files, and optionally reconcile config against a newer release
+- `/infisical-migrate` — Migrate an OpenClaw instance's secrets from plaintext .env into self-hosted Infisical and wire the Docker stack to inject them at runtime. Prompts for the Infisical project id; pushes sensitive keys; patches Dockerfile/compose/wrapper; rebuilds; strips plaintext; audits.
+- `/instance-update` — Update OpenClaw instance from official GitHub repo — fetch latest tag, merge into dev preserving local changes, rebuild Docker containers, then reconcile config against the new release and run openclaw doctor
+- `/provider-setup` — Configure OpenClaw model-provider authentication with an OAuth/CLI-backend-first, cost-saving bias (Claude CLI, Codex OAuth). Detects current auth, recommends the cheapest working path, runs non-interactive config steps, and prints interactive logins for you to run.
 - `/workspace-interview` — Guided discovery session to understand goals, users, tasks, and success criteria for OpenClaw workspace customization
 - `/workspace-optimize` — Optimize a specific OpenClaw workspace file or all files at once, with security checks and optional openclaw.json editing
 - `/workspace-scan` — Quick health check of OpenClaw instance — scans all categories (A–J), checks sizes, detects inline secrets, identifies missing components, verifies language

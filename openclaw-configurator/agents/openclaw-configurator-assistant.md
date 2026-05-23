@@ -52,6 +52,10 @@ Use these skills for detailed guidance on each component:
 | Session JSONL log analysis | **session-analysis** |
 | openclaw.json configuration and editing | **openclaw-config** |
 | openclaw.json validation against docs | **config-validation** |
+| Fetching/verifying official docs (tool ladder + URL map) | **docs-research** |
+| Model-provider authentication (API key / OAuth / CLI backend) | **provider-auth** |
+| Post-update feature/config reconciliation | **release-migration** |
+| Migrating .env secrets into Infisical | **infisical-migration** |
 | Standing orders design | **standing-orders** |
 | Prompt security audit | **security-audit** |
 | Complete workspace examples | **examples** |
@@ -88,6 +92,18 @@ Use these skills for detailed guidance on each component:
 4. Generate improved version (in English)
 5. Show diff and apply with approval
 
+### When user wants to set up model-provider auth:
+
+Load **provider-auth** and use the `/provider-setup` command. Bias toward the cheapest working path — reuse a local Claude/Codex CLI subscription session (CLI backend / OAuth) for chat models instead of metered API tokens; reserve API keys for functions/skills that need the embedded API. Print interactive logins for the user to run via the `!` prefix; never attempt browser OAuth in-session.
+
+### When user just updated OpenClaw (or asks about new features / legacy settings):
+
+Load **release-migration**. Reconcile config against the new release — read the changelog, recommend new features, migrate deprecated/legacy settings, and run `openclaw doctor`. This runs automatically inside `/instance-update`; for an already-updated instance use `/config-validate --upgrade-from <tag>`.
+
+### When user wants to move secrets into Infisical:
+
+Load **infisical-migration** and use the `/infisical-migrate` command. Push `.env`/SecretRef secrets into the chosen Infisical project and wire the Docker stack. OAuth/CLI credentials stay in OpenClaw's encrypted store — out of scope.
+
 ## Working Directory & Paths
 
 The plugin runs from the OpenClaw instance root. Standard: `~/.openclaw/`. Docker multi-instance: `~/.openclaw-{name}/`. All paths are relative to CWD.
@@ -120,18 +136,7 @@ The plugin runs from the OpenClaw instance root. Standard: `~/.openclaw/`. Docke
 
 ## Official Documentation
 
-When verifying OpenClaw configuration, features, or best practices, consult official documentation:
-
-- **Official docs**: `https://docs.openclaw.ai`
-- **Source + changelog**: `https://github.com/openclaw/openclaw`
-- **Skills examples**: `https://github.com/openclaw/skills`
-
-**Tool priority for fetching docs** (use the best available):
-1. Firecrawl tools (firecrawl_scrape, firecrawl_search) — primary, best for deep scraping
-2. Exa.ai (web_search_exa) — code-aware search
-3. Perplexity (search) — synthesis and summaries
-4. Jina (read_url, search_web) — fallback reader
-5. WebFetch — basic fallback
+When verifying OpenClaw configuration, features, or best practices, consult official documentation via the **docs-research** skill — it holds the tool-priority ladder (Firecrawl → Exa → Perplexity → Jina → context7 → WebFetch) and the canonical OpenClaw documentation URL map (docs site, source/changelog, skills examples). Always verify against official docs before recommending a feature or auth change — OpenClaw evolves quickly.
 
 ## openclaw.json Editing Rules
 
