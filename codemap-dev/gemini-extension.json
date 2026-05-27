@@ -1,11 +1,18 @@
 {
   "name": "codemap-dev",
-  "version": "1.2.0",
-  "description": "Code understanding plugin for developers. Helps onboard to unfamiliar projects through beginner-friendly code review, step-by-step explanations, and visual diagrams (architecture, ERD, flows) via drawio-mcp.",
+  "version": "1.3.0",
+  "description": "Code understanding plugin for developers. Helps onboard to unfamiliar projects through beginner-friendly code review, step-by-step explanations, visual diagrams (architecture, ERD, flows) via drawio-mcp, and frontend testing via Playwright MCP.",
   "contextFileName": "GEMINI.md",
   "mcpServers": {
     "drawio": {
       "httpUrl": "https://mcp.draw.io/mcp"
+    },
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "@playwright/mcp@latest",
+        "--headless"
+      ]
     }
   }
 }
