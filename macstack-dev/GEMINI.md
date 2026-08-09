@@ -89,6 +89,7 @@ Skills under `skills/` auto-load by description match:
 - **best-practices** — This skill should be used when the user asks to "install best practice rules", "set up project rules", "add project rules and commands", "set up project conventions", or scaffold-project reaches the rules step. Installs the proven MACSTACK rule set (.claude/rules) and core commands into a project.
 - **discover-context** — This skill should be used when the user asks to "find plugins for this stack", "discover context for the project", "which plugins should I install", "find a prototype", "pick a stack prototype", or when init-project/generate-stack need context.plugins and prototype candidates. Searches Agents Store plugins and stackmakers-ai prototypes on GitHub.
 - **examples** — This skill should be used when the user asks for "macstack examples", "show a full macstack.json example", "how does a complete macstack.json look", "walk me through a macstack scenario", or needs an end-to-end scenario walkthrough for this plugin's skills.
+- **feedback** — This skill should be used when the user reports a problem with macstack-dev or the MACSTACK standard — "this skill did the wrong thing", "the schema is missing a field", "the passport for X is wrong", "send macstack feedback", "improve the schema based on my edit", "fix the macstack plugin" — and the fix must land in the right source (plugin, schema repo, or registry repo).
 - **generate-stack** — This skill should be used when the user asks to "generate macstack.json from scratch", "design a stack for…", "pick software and architecture for my need", "create a stack spec from my request", or describes a business need without an existing codebase. Designs goals, results, processes, workflows, software and architecture result-first and produces a validated macstack.json.
 - **infisical-env** — This skill should be used when the user asks to "set up Infisical for this project", "create .infisical.json", "pull the env keys", "wire the env", "sync secrets", or scaffold-project reaches the env step. Creates .infisical.json, pulls .env.prod/.env.dev, ensures every key from macstack.json resources.accesses exists, and installs the mandatory secrets scripts and commands.
 - **init-project** — This skill should be used when the user asks to "create macstack.json in this project", "add macstack.json", "init macstack", "describe this existing project as macstack.json", or an existing codebase has no macstack.json. Audits the existing project and produces a validated macstack.json draft.
@@ -99,6 +100,7 @@ Skills under `skills/` auto-load by description match:
 
 ## Custom commands
 
+- `/feedback` — Report a problem with macstack-dev, the macstack.json schema, or the registry — and fix it at the source
 - `/generate` — Generate macstack.json from scratch — result-first stack design from a business request
 - `/init` — Create macstack.json in an existing project (audit codebase → validated spec)
 - `/lint` — Validate macstack.json against the JSON Schema and referential-integrity rules
