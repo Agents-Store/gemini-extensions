@@ -46,12 +46,13 @@ curl -s "https://s.jina.ai/?q=React+hooks+best+practices" \
 ### With Filters
 
 ```bash
-curl -s "https://s.jina.ai/?q=Next.js+middleware" \
+curl -s "https://s.jina.ai/?q=Next.js+middleware&num=10" \
   -H "Authorization: Bearer ${JINA_API_KEY}" \
   -H "Accept: application/json" \
-  -H "X-Num: 10" \
   -H "X-Site: nextjs.org"
 ```
+
+Result count is controlled by the `num` field of the search request (query parameter or POST body) — there is no `X-Num` header.
 
 ## Embeddings API
 
@@ -72,7 +73,7 @@ curl -s -X POST https://api.jina.ai/v1/rerank \
   -H "Authorization: Bearer ${JINA_API_KEY}" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "jina-reranker-v3",
+    "model": "jina-reranker-v3.5",
     "query": "best database for real-time apps",
     "documents": [
       "PostgreSQL is great for complex queries",
@@ -124,14 +125,16 @@ curl -s "https://r.jina.ai/https://example.com" \
 | `X-Wait-For-Selector` | Wait for element before extraction |
 | `X-Json-Schema` | JSON schema for structured extraction |
 | `X-Instruction` | Natural language extraction instruction |
-| `X-Num` | Number of search results |
 | `X-Site` | Restrict search to a domain |
+
+Number of search results is set with the `num` request field of `s.jina.ai` (query parameter or body), not a header.
 
 ## Rate Limits
 
-| Tier | RPM |
-|------|-----|
-| No key | 20 |
-| Free | 100-500 |
-| Paid | 500 |
-| Premium | 5,000 |
+Reader (`r.jina.ai`) and Search (`s.jina.ai`) have separate limits:
+
+| Tier | Reader RPM | Search RPM |
+|------|------------|------------|
+| No key | 20 | — (search requires a key) |
+| With key | 500 | 100 |
+| Premium | 5,000 | 1,000 |

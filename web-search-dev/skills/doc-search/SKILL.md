@@ -13,12 +13,12 @@ For ANY question about a known framework or library (React, Next.js, Prisma, Tai
 
 ```
 Step 1 — Resolve library:
-Tool: contex7-resolve-library-id
+Tool: resolve-library-id
 Input: { "libraryName": "nextjs" }
 → Returns: "/vercel/next.js"
 
 Step 2 — Query docs:
-Tool: contex7-query-docs
+Tool: query-docs
 Input: {
   "libraryId": "/vercel/next.js",
   "query": "useSearchParams suspense boundary error"
@@ -32,12 +32,12 @@ If Context7 resolves the library, use its results as the primary source. Supplem
 
 | Need | Best Approach | Tool |
 |------|--------------|------|
-| Official docs for a known library | **Context7 first (mandatory)** | `contex7-resolve-library-id` → `contex7-query-docs` |
-| Find docs for unfamiliar tool | Exa semantic search | `web_search_exa` with docs domains |
-| Quick answer to "how do I..." | Context7 first, then Perplexity | `contex7-query-docs` → `perplexity_ask` |
+| Official docs for a known library | **Context7 first (mandatory)** | `resolve-library-id` → `query-docs` |
+| Find docs for unfamiliar tool | Exa semantic search | `web_search_exa` (or `web_search_advanced_exa` for domain scoping) |
+| Quick answer to "how do I..." | Context7 first, then Perplexity | `query-docs` → `perplexity_ask` |
 | Read a specific docs page | Jina reader | `read_url` |
-| Debug error with framework | Context7 first, then Perplexity | `contex7-query-docs` → `perplexity_reason` |
-| Find code examples | Exa code search | `get_code_context_exa` |
+| Debug error with framework | Context7 first, then Perplexity | `query-docs` → `perplexity_reason` |
+| Find code examples | Firecrawl developer index | `firecrawl_developer_search` (fallback: `web_search_advanced_exa` with `includeDomains: ["github.com"]`) |
 
 ## Pattern 1: Context7 — Primary for All Known Libraries
 
@@ -45,12 +45,12 @@ ALWAYS use Context7 first when the library name is known. This is the fastest pa
 
 ```
 Step 1 — Resolve library:
-Tool: contex7-resolve-library-id
+Tool: resolve-library-id
 Input: { "libraryName": "nextjs" }
 → Returns: "/vercel/next.js"
 
 Step 2 — Query docs:
-Tool: contex7-query-docs
+Tool: query-docs
 Input: {
   "libraryId": "/vercel/next.js",
   "query": "How to implement middleware for authentication"
@@ -70,15 +70,16 @@ Use when exploring documentation across multiple sources.
 Tool: web_search_exa
 Input: {
   "query": "Prisma ORM connection pooling configuration",
-  "numResults": 10,
-  "includeDomains": ["prisma.io", "github.com/prisma"]
+  "numResults": 10
 }
 ```
+
+Note: `web_search_exa` accepts only `query` and `numResults`. Domain filters require `web_search_advanced_exa`, an opt-in tool enabled via the remote MCP URL's `tools` parameter (see `mcp-patterns/references/exa-tools.md`).
 
 ### Domain-Scoped Doc Search
 
 ```
-Tool: web_search_exa
+Tool: web_search_advanced_exa
 Input: {
   "query": "server actions form validation",
   "numResults": 10,
@@ -89,9 +90,19 @@ Input: {
 ### Find Code Examples
 
 ```
-Tool: get_code_context_exa
+Tool: firecrawl_developer_search
+Input: {
+  "query": "TypeScript Prisma middleware logging example"
+}
+```
+
+Searches the developer index (GitHub issues, merged PRs, READMEs, docs). Fallback:
+
+```
+Tool: web_search_advanced_exa
 Input: {
   "query": "TypeScript Prisma middleware logging example",
+  "includeDomains": ["github.com"],
   "numResults": 5
 }
 ```
@@ -147,10 +158,10 @@ For complex questions that need multiple sources:
 
 ```
 Step 1 — Get official docs:
-Tool: contex7-resolve-library-id + contex7-query-docs
+Tool: resolve-library-id + query-docs
 
 Step 2 — Search for community patterns:
-Tool: web_search_exa (with GitHub/StackOverflow domains)
+Tool: web_search_advanced_exa (with GitHub/StackOverflow domains)
 
 Step 3 — Get AI summary:
 Tool: perplexity_search
@@ -161,7 +172,7 @@ Tool: parallel_read_url (with top URLs from steps 1-3)
 
 ## Common Documentation Domains
 
-For domain-scoped search with Exa:
+For domain-scoped search with Exa (`web_search_advanced_exa`):
 
 | Framework | Domains |
 |-----------|---------|

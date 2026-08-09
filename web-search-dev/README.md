@@ -1,6 +1,6 @@
 # web-search-dev (Gemini CLI Extension)
 
-Web search and scraping developer toolkit...
+Web search and scraping developer toolkit. MCP tool patterns, REST API reference (Firecrawl v2), SDK/CLI usage for Firecrawl, Exa, Perplexity, Jina, Pexels, Unsplash, and Context7. Practical skills for web scraping, documentation search, and media discovery in dev workflows.
 
 ## Install
 

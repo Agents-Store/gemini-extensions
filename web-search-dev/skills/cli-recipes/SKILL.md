@@ -22,7 +22,8 @@ npx -y firecrawl-cli@latest
 ```bash
 firecrawl login --browser    # Browser-based login
 firecrawl login --api-key fc-YOUR_KEY  # Direct key
-firecrawl --status           # Check auth, credits, concurrency
+firecrawl view-config        # Show current auth/config
+firecrawl logout             # Sign out
 ```
 
 ### Scrape a Page
@@ -72,14 +73,29 @@ firecrawl agent "Research React state management libraries" --wait
 firecrawl agent "Find API rate limits" --urls https://docs.stripe.com --schema schema.json
 ```
 
-### Browser Sessions
+### Interact (live browser)
+
+Drive dynamic pages with natural language or code — replaces the old `firecrawl browser` session flow:
 
 ```bash
-firecrawl browser launch-session
-firecrawl browser execute "page.goto('https://example.com'); page.screenshot()"
-firecrawl browser execute --python "from playwright.async_api import async_playwright"
-firecrawl browser list
-firecrawl browser close
+firecrawl interact https://example.com --prompt "log in and open the dashboard"
+```
+
+### Monitor Changes
+
+Recurring scrapes with change detection:
+
+```bash
+firecrawl monitor create https://example.com/pricing
+firecrawl monitor list
+```
+
+### Developer Index Search
+
+Search GitHub issues, PRs, READMEs, and docs:
+
+```bash
+firecrawl developer "nextjs hydration mismatch"
 ```
 
 ### Useful Flags
@@ -184,6 +200,8 @@ jina grep serve start  # Start local embedding server
 jina embed --local "hello world"
 jina classify --local "text" --labels positive,negative
 ```
+
+**Caveat:** `jina-grep` is not currently published on PyPI, so `pip install jina-grep` fails as of 2026-08 (upstream `jina-cli` docs give this same instruction; an npm package named `jina-grep` exists but is an empty placeholder). Check https://github.com/jina-ai/jina-grep-cli for the actual install method before relying on local mode.
 
 ### Useful Flags
 

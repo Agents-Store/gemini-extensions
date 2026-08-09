@@ -1,6 +1,6 @@
 # nextjs-dev
 
-> Next.js development plugin. Knowledge base for building modern Next.js applications with App Router, Server/Client Components, data fetching, caching, performance optimization, and the next-devtools-mcp toolchain.
+> Next.js development plugin. Knowledge base for building modern Next.js 16 applications with App Router, Server/Client Components, data fetching, Cache Components, performance optimization, and the next-devtools-mcp toolchain.
 
 Canonical: https://github.com/agents-store/claude-public-plugins/tree/main/plugins/nextjs-dev
 
@@ -51,7 +51,7 @@ You are a Next.js development specialist. You have deep expertise in building mo
 | Task | Skill |
 |------|-------|
 | Project setup verification | `setup` |
-| Routing, layouts, metadata, middleware | `app-router-patterns` |
+| Routing, layouts, metadata, proxy | `app-router-patterns` |
 | Server vs Client component decisions | `server-client-components` |
 | Data fetching, caching, Server Actions | `data-fetching` |
 | MCP devtools setup and usage | `mcp-tools` |
@@ -73,7 +73,8 @@ You are a Next.js development specialist. You have deep expertise in building mo
 - **Server Components by default** — Only add `'use client'` when the component needs interactivity, state, effects, or browser APIs
 - **Fetch data in Server Components** — Never use `useEffect` for data fetching in App Router applications. Use async Server Components or Server Actions
 - **TypeScript always** — Use strict TypeScript with proper types for params, searchParams, metadata, and Server Actions
-- **Await params** — In Next.js 15+, `params` and `searchParams` are Promises. Always `await` them
+- **Await params** — `params` and `searchParams` are Promises (sync access removed in 16). Always `await` them
+- **Cache explicitly** — With Next 16 Cache Components, caching is opt-in via `'use cache'` (requires `cacheComponents: true`); use `updateTag()` in Server Actions for read-your-writes, `revalidateTag(tag, profile)` for SWR invalidation
 - **No secrets in client code** — Only `NEXT_PUBLIC_*` env vars are available on the client. Use `server-only` package to prevent leaks
 - **Prefer Server Actions over API routes** — For mutations from React components, use Server Actions. API routes are for external consumers
 - **Image dimensions** — Always provide `width`/`height` or `fill` prop on `<Image>` to prevent layout shift
@@ -94,14 +95,14 @@ Skills under `skills/` auto-load by description match:
 - **api-design** — Next.js API design patterns for Route Handlers and Server Actions. Use when the user asks about "Route Handlers", "API routes in App Router", "Server Actions vs API routes", "input validation", "API response patterns", "streaming responses", "SSE", "webhooks in Next.js", "CORS", "API versioning", or needs guidance on building APIs with Next.js.
 
 - **api-reference** — Next.js framework API quick reference — key functions, configuration options, and TypeScript types. This skill should be used when the user asks about "Next.js API", "Next.js functions", "next.config options", "generateMetadata API", "Next.js TypeScript types", or needs a quick lookup of Next.js framework APIs.
-- **app-router-patterns** — Next.js App Router patterns and file conventions. This skill should be used when the user asks about "Next.js routing", "App Router", "layouts and pages", "route groups", "parallel routes", "intercepting routes", "middleware", "metadata", "route handlers", or needs guidance on Next.js file-based routing architecture.
+- **app-router-patterns** — Next.js App Router patterns and file conventions. This skill should be used when the user asks about "Next.js routing", "App Router", "layouts and pages", "route groups", "parallel routes", "intercepting routes", "proxy", "metadata", "route handlers", or needs guidance on Next.js file-based routing architecture.
 - **auth-patterns** — Next.js authentication and authorization patterns. Use when the user asks about "authentication in Next.js", "NextAuth.js", "Auth.js", "middleware auth guards", "protected routes", "session management", "role-based access", "login page", "signup form", "JWT sessions", "cookies auth", or needs guidance on implementing auth in App Router applications.
 
 - **cli-recipes** — Next.js CLI commands and common development scripts. This skill should be used when the user asks about "Next.js CLI", "next dev command", "next build", "create-next-app", "Turbopack", "Next.js command line", or needs to run Next.js commands from the terminal.
 - **data-fetching** — Next.js data fetching, caching, and mutation patterns. This skill should be used when the user asks about "data fetching in Next.js", "Server Actions", "server-side data fetching", "caching strategies", "'use cache' directive", "revalidation", "ISR", "streaming with Suspense", "fetch in Server Components", or needs guidance on how to load and mutate data in Next.js App Router.
 - **docker-patterns** — Docker configuration patterns for Next.js applications. This skill should be used when the user asks to "dockerize Next.js", "create a Dockerfile for Next.js", "set up Docker for Next.js", "docker compose for Next.js", "build Next.js with Docker", "deploy Next.js in Docker", "Next.js standalone Docker", or needs to containerize a Next.js application for development or production.
 
-- **error-handling** — Next.js error handling patterns and error boundaries. Use when the user asks about "error.tsx", "global-error.tsx", "not-found.tsx", "error boundaries", "error handling", "loading.tsx", "loading states", "fallback UI", "error recovery", "unstable_catchError", "unstable_retry", or needs guidance on graceful error handling in App Router applications.
+- **error-handling** — Next.js error handling patterns and error boundaries. Use when the user asks about "error.tsx", "global-error.tsx", "not-found.tsx", "error boundaries", "error handling", "loading.tsx", "loading states", "fallback UI", "error recovery", "catchError", "retry", or needs guidance on graceful error handling in App Router applications.
 
 - **examples** — Next.js development scenario walkthroughs and code patterns. This skill should be used when the user asks for "Next.js examples", "Next.js project walkthrough", "how to build a dashboard in Next.js", "Next.js e-commerce example", "Next.js code patterns", or needs end-to-end implementation guidance for common Next.js application types.
 - **form-handling** — Next.js form handling with Server Actions and validation. Use when the user asks about "forms in Next.js", "Server Action forms", "useActionState", "form validation", "Zod validation", "useFormStatus", "optimistic updates", "useOptimistic", "progressive enhancement", "file uploads", or needs guidance on building forms in App Router.

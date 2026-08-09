@@ -1,6 +1,6 @@
 # nextjs-provision
 
-> Next.js provisioning plugin. Set up shadcn/ui and shadcn studio — component installation, theme configuration, MCP server setup, project scaffolding, and multi-registry component search across 30+ free community registries.
+> Next.js provisioning plugin. Set up shadcn/ui and shadcn studio — component installation, theme configuration, MCP server setup, project scaffolding, and multi-registry component search across 260+ registries from the official directory.
 
 Canonical: https://github.com/agents-store/claude-public-plugins/tree/main/plugins/nextjs-provision
 
@@ -40,7 +40,7 @@ Context: User wants animated components from community registries
 user: "I need some cool animated components for my landing page — shimmer buttons, animated beams, parallax scroll"
 assistant: "I'll use the nextjs-provisioner agent to search community registries for animation components and install them."
 <commentary>
-User needs specialty components not in the standard shadcn/ui registry — agent searches community registries (MagicUI, Aceternity UI) and installs matching components.
+User needs specialty components not in the standard shadcn/ui registry — agent searches community registries (MagicUI, Aceternity, COSS…) and installs matching components.
 </commentary>
 </example>
 
@@ -55,7 +55,7 @@ You are a Next.js UI provisioner specializing in shadcn/ui and shadcn studio set
 4. **Scaffold architecture** -- Plan component organization, project structure, composition patterns
 5. **Set up tooling** -- Configure shadcn MCP servers for AI-assisted component work
 6. **Debug issues** -- Diagnose and fix setup problems, dependency conflicts, configuration errors
-7. **Search community registries** -- Find and install components from 30+ free community registries (MagicUI, Aceternity, Origin UI, etc.)
+7. **Search community registries** -- Find and install components from the 260+ registries in the official directory (MagicUI, Aceternity, COSS, etc.)
 
 ## Approach
 
@@ -81,7 +81,10 @@ You are a Next.js UI provisioner specializing in shadcn/ui and shadcn studio set
 
 - Verify `components.json` exists before installing any component -- run `setup` skill first if missing
 - Never modify existing components in `components/ui/` without explicit user approval -- these are user-owned files
-- Always use the correct registry flag: `--registry @ss-components` for studio components, no flag for standard shadcn/ui
+- Always use namespaced addresses: `@ss-components/name` for studio, `@registry/name` for community, bare name for standard shadcn/ui -- the `--registry` flag no longer exists in CLI v4
+- Check the project base (base-ui vs radix vs aria) via `npx shadcn@latest info` before writing composition code -- Base UI uses `render` props, Radix uses `asChild`
+- For button-styled links use `buttonVariants()` + `<a>`, never `Button render={<a/>}`
+- Prefer `--dry-run` / `shadcn view` before bulk installs
 - Check Tailwind version (v3 vs v4) before suggesting configuration -- the syntax differs significantly
 - Premium shadcn studio components require EMAIL and LICENSE_KEY in `.env` -- check before attempting premium installs
 - Do not hardcode color values -- always use CSS custom properties via the theme system
@@ -102,7 +105,7 @@ Skills under `skills/` auto-load by description match:
 
 - **component-registry** — Browse, search, install, and use shadcn/ui and shadcn studio components, blocks, and templates. This skill should be used when the user asks to "install a shadcn component", "add a button", "list shadcn blocks", "find a form block", "browse shadcn studio components", "add a card component", "install a navigation block", "what components are available", "write code with shadcn components", "use Button component", "render shadcn component as link", "Button as a link", "shadcn component patterns", or needs to discover, install, or use UI components from shadcn registries correctly.
 
-- **component-search** — Search and install UI components from 30+ free community shadcn registries. This skill should be used when the user asks to "search for shadcn components", "find a calendar component", "browse community registries", "install from magicui", "what shadcn registries are available", "add animated components", "search for a date picker", "find UI blocks for landing page", "install from aceternity", "what community components exist", or needs to discover and install components from community registries beyond the standard shadcn/ui and shadcn studio registries.
+- **component-search** — Search and install UI components from 260+ registries in the official shadcn directory. This skill should be used when the user asks to "search for shadcn components", "find a calendar component", "browse community registries", "install from magicui", "what shadcn registries are available", "add animated components", "search for a date picker", "find UI blocks for landing page", "install from aceternity", "what community components exist", or needs to discover and install components from community registries beyond the standard shadcn/ui and shadcn studio registries.
 
 - **examples** — End-to-end scenario walkthroughs for setting up Next.js projects with shadcn/ui and shadcn studio. This skill should be used when the user asks for "shadcn setup walkthrough", "how to set up a project with shadcn from scratch", "add shadcn to existing project example", "full shadcn setup guide", "shadcn studio tutorial", "step-by-step shadcn setup", or needs a complete example of provisioning a Next.js project with shadcn components.
 
@@ -119,6 +122,6 @@ Skills under `skills/` auto-load by description match:
 
 ## Custom commands
 
-- `/add-registries` — Fetch all 180+ shadcn registries from the official endpoint and add them to components.json
-- `/search-components` — Search across 30+ free community shadcn registries for UI components, blocks, and templates
+- `/add-registries` — Fetch all 260+ shadcn registries from the official endpoint and add them to components.json
+- `/search-components` — Search across 260+ shadcn registries for UI components, blocks, and templates
 - `/setup-registries` — Set up community shadcn registries, MCP servers, and CLAUDE.md section for a project

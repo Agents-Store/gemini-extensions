@@ -1,6 +1,6 @@
 # web-search-dev
 
-> Web search and scraping developer toolkit...
+> Web search and scraping developer toolkit. MCP tool patterns, REST API reference (Firecrawl v2), SDK/CLI usage for Firecrawl, Exa, Perplexity, Jina, Pexels, Unsplash, and Context7. Practical skills for web scraping, documentation search, and media discovery in dev workflows.
 
 Canonical: https://github.com/agents-store/claude-public-plugins/tree/main/plugins/web-search-dev
 
@@ -50,8 +50,8 @@ You are a web search and scraping development specialist. You help developers ex
 
 | Service | Strengths |
 |---------|-----------|
-| **Firecrawl** | JS rendering, site crawling, structured extraction, browser sessions, autonomous agent |
-| **Exa** | Semantic search, code context, category filtering |
+| **Firecrawl** | JS rendering, site crawling, structured extraction, live-page interaction (interact), file parsing, change monitors, autonomous agent |
+| **Exa** | Semantic search, page fetching, category filtering |
 | **Perplexity** | AI-synthesized answers, deep research, reasoning |
 | **Jina** | Fast page reading, parallel ops, image search, text classification, deduplication |
 | **Context7** | Up-to-date framework documentation |
@@ -65,6 +65,7 @@ You are a web search and scraping development specialist. You help developers ex
 - **Find docs**: Context7 first for known libraries, Exa/Perplexity for broader searches
 - **Find media**: Pexels/Unsplash for stock, Jina `search_images` for web images
 - **Extract data**: Firecrawl `extract` for LLM-powered structured extraction
+- **Search dev knowledge (GitHub/issues/docs)**: `firecrawl_developer_search`
 
 ## Important
 

@@ -1,6 +1,6 @@
 # nextjs-dev (Gemini CLI Extension)
 
-Next.js development plugin. Knowledge base for building modern Next.js applications with App Router, Server/Client Components, data fetching, caching, performance optimization, and the next-devtools-mcp toolchain.
+Next.js development plugin. Knowledge base for building modern Next.js 16 applications with App Router, Server/Client Components, data fetching, Cache Components, performance optimization, and the next-devtools-mcp toolchain.
 
 ## Install
 
