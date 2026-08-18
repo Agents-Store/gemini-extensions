@@ -1,13 +1,5 @@
-description = "Manage Plane cycles beyond planning — list, archive, transfer, delete"
+description = "Manage Plane cycles beyond planning — list, archive, transfer, delete Arguments: <action> <project> [args...]."
 prompt = """
-# Arguments
-
-<action> <project> [args...]
-
-User input: {{args}}
-
----
-
 # Cycles
 
 Operate on cycles (sprints) beyond create/plan/close. For sprint planning use `/plan-sprint` and `/create-sprint`; for status use `/sprint-status`; for closing use `/close-sprint`.
@@ -22,7 +14,7 @@ Format: `<action> <project> [args...]`
 - For `transfer`: `--from <cycle>` `--to <cycle>` (incomplete items only by default; `--all` for everything)
 - For `update`: `--name`, `--description`, `--start <date>`, `--end <date>`
 
-Parse from `"$ARGUMENTS"`.
+Parse from `"{{args}}"`.
 
 ## Process
 

@@ -1,13 +1,5 @@
-description = "Analyze a workflow JSON or template before importing"
+description = "Analyze a workflow JSON or template before importing Arguments: <template-id-or-url>."
 prompt = """
-# Arguments
-
-<template-id-or-url>
-
-User input: {{args}}
-
----
-
 # Analyze Workflow
 
 Analyze an n8n workflow before importing — check complexity, credentials, compatibility, and security.
@@ -17,7 +9,7 @@ Format: `<template-id-or-url>`
 - Numeric ID: treated as an official template ID (fetched via `~~template_get`)
 - URL: treated as a community source (fetched via `~~scrape`)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

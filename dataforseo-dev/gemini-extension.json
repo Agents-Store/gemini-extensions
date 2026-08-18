@@ -15,5 +15,19 @@
         "DATAFORSEO_PASSWORD": "${DATAFORSEO_PASSWORD}"
       }
     }
-  }
+  },
+  "settings": [
+    {
+      "name": "DATAFORSEO PASSWORD",
+      "description": "Required by dataforseo-dev's MCP server(s).",
+      "envVar": "DATAFORSEO_PASSWORD",
+      "sensitive": true
+    },
+    {
+      "name": "DATAFORSEO USERNAME",
+      "description": "Required by dataforseo-dev's MCP server(s).",
+      "envVar": "DATAFORSEO_USERNAME",
+      "sensitive": false
+    }
+  ]
 }

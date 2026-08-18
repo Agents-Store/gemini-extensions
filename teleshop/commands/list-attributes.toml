@@ -1,13 +1,5 @@
-description = "List all product attributes with their values"
+description = "List all product attributes with their values Arguments: --search <query>."
 prompt = """
-# Arguments
-
---search <query>
-
-User input: {{args}}
-
----
-
 # List Attributes
 
 List all product attributes in the Teleshop store.
@@ -16,7 +8,7 @@ List all product attributes in the Teleshop store.
 Format: `[--search <query>]`
 - --search: Search attributes by name (optional)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

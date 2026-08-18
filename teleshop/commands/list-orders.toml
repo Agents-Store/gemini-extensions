@@ -1,13 +1,5 @@
-description = "List orders with optional status, payment type, and search filters"
+description = "List orders with optional status, payment type, and search filters Arguments: [--status <status>] [--payment <type>] [--search <query>]."
 prompt = """
-# Arguments
-
-[--status <status>] [--payment <type>] [--search <query>]
-
-User input: {{args}}
-
----
-
 # List Orders
 
 List orders from the Teleshop store with optional filters.
@@ -18,7 +10,7 @@ Format: `[--status <status>] [--payment <type>] [--search <query>]`
 - --payment: Filter by payment type (offlineCard, offlineCash, onlinePayment, cardPrepay, cardPartialPrepay, telegramStars)
 - --search: Search by customer name, phone, or email
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

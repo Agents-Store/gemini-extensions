@@ -1,20 +1,12 @@
-description = "Look up a Dify API endpoint — HTTP method, path, parameters, response shape, and a ready curl example"
+description = "Look up a Dify API endpoint — HTTP method, path, parameters, response shape, and a ready curl example Arguments: [endpoint-or-keyword]."
 prompt = """
-# Arguments
-
-[endpoint-or-keyword]
-
-User input: {{args}}
-
----
-
 # Dify API Lookup
 
 Look up one or more Dify API endpoints and return a precise, copy-paste-ready answer.
 
 ## Argument
 
-- `$ARGUMENTS` — an endpoint path or a keyword. Examples: `chat-messages`, `run a workflow`,
+- `{{args}}` — an endpoint path or a keyword. Examples: `chat-messages`, `run a workflow`,
   `upload file`, `retrieve`, `delete conversation`, `annotation reply`, `text-to-audio`,
   `create dataset`. If empty, list the endpoint groups and ask which one.
 

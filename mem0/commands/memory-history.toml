@@ -1,13 +1,5 @@
-description = "View the change history of a memory"
+description = "View the change history of a memory Arguments: <memory_id>."
 prompt = """
-# Arguments
-
-<memory_id>
-
-User input: {{args}}
-
----
-
 # Memory History
 
 View the complete change history of a memory over time.

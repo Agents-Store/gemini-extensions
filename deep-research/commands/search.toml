@@ -1,13 +1,5 @@
-description = "Search the web using optimal provider with automatic fallback"
+description = "Search the web using optimal provider with automatic fallback Arguments: <query> [--type <web|code|academic>]."
 prompt = """
-# Arguments
-
-<query> [--type <web|code|academic>]
-
-User input: {{args}}
-
----
-
 # Web Search
 
 Search the web with automatic fallback between providers. See CONNECTORS.md for provider mapping.

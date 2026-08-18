@@ -1,13 +1,5 @@
-description = "Send a transactional email via SMTP"
+description = "Send a transactional email via SMTP Arguments: <to-email> <subject> <body>."
 prompt = """
-# Arguments
-
-<to-email> <subject> <body>
-
-User input: {{args}}
-
----
-
 # Send SMTP Email
 
 Send a transactional email via SMTP with delivery checks.
@@ -18,7 +10,7 @@ Format: `<to-email> <subject> <body>`
 - subject: Email subject line
 - body: Email body (HTML or plain text)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

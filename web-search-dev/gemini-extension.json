@@ -49,5 +49,37 @@
         "${CONTEXT7_API_KEY}"
       ]
     }
-  }
+  },
+  "settings": [
+    {
+      "name": "CONTEXT7 API KEY",
+      "description": "Required by web-search-dev's MCP server(s).",
+      "envVar": "CONTEXT7_API_KEY",
+      "sensitive": true
+    },
+    {
+      "name": "EXA API KEY",
+      "description": "Required by web-search-dev's MCP server(s).",
+      "envVar": "EXA_API_KEY",
+      "sensitive": true
+    },
+    {
+      "name": "FIRECRAWL API TOKEN",
+      "description": "Required by web-search-dev's MCP server(s).",
+      "envVar": "FIRECRAWL_API_TOKEN",
+      "sensitive": true
+    },
+    {
+      "name": "JINA API KEY",
+      "description": "Required by web-search-dev's MCP server(s).",
+      "envVar": "JINA_API_KEY",
+      "sensitive": true
+    },
+    {
+      "name": "PERPLEXITY API KEY",
+      "description": "Required by web-search-dev's MCP server(s).",
+      "envVar": "PERPLEXITY_API_KEY",
+      "sensitive": true
+    }
+  ]
 }

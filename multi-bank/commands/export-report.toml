@@ -1,13 +1,5 @@
-description = "Export financial report as CSV or PDF"
+description = "Export financial report as CSV or PDF Arguments: <format> [date-range]."
 prompt = """
-# Arguments
-
-<format> [date-range]
-
-User input: {{args}}
-
----
-
 # Export Report
 
 Generate and export a financial report in CSV or PDF format.
@@ -17,7 +9,7 @@ Format: `<format> [date-range]`
 - format: `csv` or `pdf`
 - date-range: Time period — `30d`, `90d`, `ytd`, `last-month`, `2026-Q1`, `2026-03`, or explicit `YYYY-MM-DD to YYYY-MM-DD`
 
-Parse from "$ARGUMENTS". Default date-range: `90d`.
+Parse from "{{args}}". Default date-range: `90d`.
 
 ## Process
 

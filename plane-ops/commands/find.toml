@@ -1,13 +1,5 @@
-description = "Search Plane work items by query, identifier, or filter"
+description = "Search Plane work items by query, identifier, or filter Arguments: <query> [--project name] [--state name] [--assignee user] [--label name]."
 prompt = """
-# Arguments
-
-<query> [--project name] [--state name] [--assignee user] [--label name]
-
-User input: {{args}}
-
----
-
 # Find
 
 Quick search for Plane work items. Accepts a free-text query, an identifier (`PROJ-42`), or filter flags.
@@ -23,7 +15,7 @@ Format: `<query> [flags...]`
 - `--label <name>`: filter by label
 - `--limit <n>`: max results (default 20)
 
-Parse from `"$ARGUMENTS"`.
+Parse from `"{{args}}"`.
 
 ## Process
 

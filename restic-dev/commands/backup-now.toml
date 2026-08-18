@@ -1,18 +1,10 @@
-description = "Run an ad-hoc restic backup now and show the resulting snapshot"
+description = "Run an ad-hoc restic backup now and show the resulting snapshot Arguments: [--dry-run]."
 prompt = """
-# Arguments
-
-[--dry-run]
-
-User input: {{args}}
-
----
-
 # restic Backup Now
 
 Trigger an immediate, off-schedule backup using the existing configured script — useful before a risky change or to confirm a freshly-set-up backup works.
 
-Parse `[--dry-run]` from "$ARGUMENTS".
+Parse `[--dry-run]` from "{{args}}".
 
 ## Process
 

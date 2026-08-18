@@ -1,13 +1,5 @@
-description = "Browse electronic documents (EDO) — inbox, outbox, all documents"
+description = "Browse electronic documents (EDO) — inbox, outbox, all documents Arguments: <inbox|outbox|all> [date-range]."
 prompt = """
-# Arguments
-
-<inbox|outbox|all> [date-range]
-
-User input: {{args}}
-
----
-
 # Electronic Document Journal
 
 Browse electronic documents exchanged with bank counterparties via MCP tools.
@@ -20,7 +12,7 @@ Format: `<view> [start-date] [end-date]`
 
 Optional date range: `2026-03-01 2026-03-31` (defaults to last 30 days)
 
-Parse from "$ARGUMENTS". If empty, default to "all" for last 30 days.
+Parse from "{{args}}". If empty, default to "all" for last 30 days.
 
 ## Process
 

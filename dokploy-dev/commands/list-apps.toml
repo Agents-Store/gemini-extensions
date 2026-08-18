@@ -1,13 +1,5 @@
-description = "List all applications and services in a Dokploy project"
+description = "List all applications and services in a Dokploy project Arguments: <project-name-or-id>."
 prompt = """
-# Arguments
-
-<project-name-or-id>
-
-User input: {{args}}
-
----
-
 # List Applications
 
 List all applications, databases, and compose services in a Dokploy project.
@@ -16,7 +8,7 @@ List all applications, databases, and compose services in a Dokploy project.
 Format: `<project-name-or-id>`
 - project-name-or-id: Project name or ID (required). If a name is given, resolve it to ID via `project-all` first.
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

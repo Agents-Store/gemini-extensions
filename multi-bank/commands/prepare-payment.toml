@@ -1,13 +1,5 @@
-description = "Prepare a payment to a recipient via bank MCP tools"
+description = "Prepare a payment to a recipient via bank MCP tools Arguments: <recipient-iban> <amount-uah> <destination>."
 prompt = """
-# Arguments
-
-<recipient-iban> <amount-uah> <destination>
-
-User input: {{args}}
-
----
-
 # Prepare Payment
 
 Prepare a payment through the bank's MCP server. The payment will be sent to the user's mobile app for signing.
@@ -15,7 +7,7 @@ Prepare a payment through the bank's MCP server. The payment will be sent to the
 ## Arguments
 Format: `<recipient-iban> <amount-uah> <destination>` or interactive (no arguments).
 
-Parse from "$ARGUMENTS". If empty or incomplete, ask user for each field.
+Parse from "{{args}}". If empty or incomplete, ask user for each field.
 
 ## Process
 

@@ -1,13 +1,5 @@
-description = "Generate daily standup summary for current sprint"
+description = "Generate daily standup summary for current sprint Arguments: <project>."
 prompt = """
-# Arguments
-
-<project>
-
-User input: {{args}}
-
----
-
 # Standup
 
 Generate a daily standup summary — per-person status, sprint progress, and blockers.
@@ -16,7 +8,7 @@ Generate a daily standup summary — per-person status, sprint progress, and blo
 Format: `<project>`
 - project: Project name or identifier (required)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

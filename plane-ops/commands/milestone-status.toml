@@ -1,13 +1,5 @@
-description = "Show status and risk for a Plane milestone (release/launch tracking)"
+description = "Show status and risk for a Plane milestone (release/launch tracking) Arguments: <project> [milestone name or id]."
 prompt = """
-# Arguments
-
-<project> [milestone name or id]
-
-User input: {{args}}
-
----
-
 # Milestone Status
 
 Report the health of a milestone: remaining work, velocity-based ETA, and Red/Yellow/Green risk.
@@ -16,7 +8,7 @@ Report the health of a milestone: remaining work, velocity-based ETA, and Red/Ye
 
 Format: `<project> [milestone name or id]`
 
-Parse from `"$ARGUMENTS"`. If no milestone is specified, list all active milestones with their status.
+Parse from `"{{args}}"`. If no milestone is specified, list all active milestones with their status.
 
 ## Process
 

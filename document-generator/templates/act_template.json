@@ -1,0 +1,65 @@
+{
+  "type": "act",
+  "engine": "puppeteer",
+  "description": "Act of Completed Works",
+  "requiredFields": ["contractor", "customer", "services", "date"],
+  "optionalFields": ["actNumber", "city", "contractRef", "vatRate", "currencySymbol", "notes", "language"],
+  "styling": {
+    "primaryColor": "#1E293B",
+    "accentColor": "#0F172A",
+    "textColor": "#1E293B",
+    "mutedColor": "#64748B",
+    "borderColor": "#E2E8F0",
+    "backgroundColor": "#F8FAFC",
+    "fontBody": "Source Serif 4",
+    "fontMeta": "Inter",
+    "lineSpacing": 1.7,
+    "pageSize": "A4",
+    "margins": {
+      "top": "28mm",
+      "bottom": "22mm",
+      "left": "20mm",
+      "right": "20mm"
+    }
+  },
+  "sampleData": {
+    "actNumber": "ACT-001",
+    "date": "March 19, 2026",
+    "city": "Kyiv",
+    "contractRef": "Contract No. 001 dated 01.01.2026",
+    "currencySymbol": "$",
+    "vatRate": 0,
+    "contractor": {
+      "name": "Acme Consulting LLC",
+      "representative": "John Smith",
+      "title": "Managing Director",
+      "reg": "Company No.: 1234567890",
+      "address": "10 Innovation Street, London, EC2A 4BX"
+    },
+    "customer": {
+      "name": "Global Client Corp.",
+      "representative": "Jane Doe",
+      "title": "Director",
+      "reg": "Company No.: 98765432",
+      "address": "500 Enterprise Blvd, New York, NY 10001"
+    },
+    "services": [
+      {
+        "description": "Web application development",
+        "unit": "hrs",
+        "quantity": 40,
+        "unitPrice": 150,
+        "total": 6000
+      },
+      {
+        "description": "Technical support and testing",
+        "unit": "hrs",
+        "quantity": 10,
+        "unitPrice": 100,
+        "total": 1000
+      }
+    ],
+    "totalAmount": 7000,
+    "notes": "All work completed within the agreed timeline."
+  }
+}

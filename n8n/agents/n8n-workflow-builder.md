@@ -9,7 +9,6 @@ description: |
   <example>
   user: "Create a scheduled workflow that syncs data from an API every hour"
   </example>
-model: sonnet
 ---
 
 # n8n Workflow Builder

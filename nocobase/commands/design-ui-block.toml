@@ -1,13 +1,5 @@
-description = "Design a NocoBase UI block layout"
+description = "Design a NocoBase UI block layout Arguments: <collection> <block-type>."
 prompt = """
-# Arguments
-
-<collection> <block-type>
-
-User input: {{args}}
-
----
-
 # Design UI Block
 
 Design a NocoBase UI block for a collection — table, form, details, kanban, calendar, or chart.
@@ -17,7 +9,7 @@ Format: `<collection> <block-type>`
 - collection: Target collection name (required)
 - block-type: Block type — table, form, details, kanban, calendar, gantt, chart (required)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

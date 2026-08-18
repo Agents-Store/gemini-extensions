@@ -1,13 +1,5 @@
-description = "Check Dokploy application or deployment status"
+description = "Check Dokploy application or deployment status Arguments: <app-name-or-id> [--project <project>]."
 prompt = """
-# Arguments
-
-<app-name-or-id> [--project <project>]
-
-User input: {{args}}
-
----
-
 # Check Status
 
 Check the current status of a Dokploy application and its recent deployments.
@@ -17,7 +9,7 @@ Format: `<app-name-or-id> [--project <project>]`
 - app-name-or-id: Application name or ID (required)
 - --project: Project name or ID (helps resolve app by name)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

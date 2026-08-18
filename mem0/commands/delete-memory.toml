@@ -1,13 +1,5 @@
-description = "Delete a memory by its ID"
+description = "Delete a memory by its ID Arguments: <memory_id>."
 prompt = """
-# Arguments
-
-<memory_id>
-
-User input: {{args}}
-
----
-
 # Delete Memory
 
 Delete a specific memory permanently.

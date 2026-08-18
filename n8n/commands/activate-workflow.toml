@@ -1,13 +1,5 @@
-description = "Activate or deactivate an n8n workflow"
+description = "Activate or deactivate an n8n workflow Arguments: <workflow> [--off]."
 prompt = """
-# Arguments
-
-<workflow> [--off]
-
-User input: {{args}}
-
----
-
 # Activate Workflow
 
 Activate a workflow (or deactivate with --off flag).
@@ -17,7 +9,7 @@ Format: `<workflow> [--off]`
 - workflow: Workflow name or ID (required)
 - --off: Deactivate instead of activate (optional)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

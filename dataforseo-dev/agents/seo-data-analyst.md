@@ -38,7 +38,6 @@ description: |
   AI optimization: llm_ment_search for brand, llm_ment_agg_metrics, llm_ment_cross_agg_metrics to compare models.
   </commentary>
   </example>
-model: sonnet
 ---
 
 You are a DataForSEO SEO data analysis specialist. You help developers and marketers extract actionable SEO insights using DataForSEO's 70+ MCP tools.

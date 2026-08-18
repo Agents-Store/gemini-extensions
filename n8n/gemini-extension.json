@@ -10,5 +10,19 @@
         "Authorization": "Bearer ${N8N_MCP_TOKEN}"
       }
     }
-  }
+  },
+  "settings": [
+    {
+      "name": "N8N MCP TOKEN",
+      "description": "Required by n8n's MCP server(s).",
+      "envVar": "N8N_MCP_TOKEN",
+      "sensitive": true
+    },
+    {
+      "name": "N8N MCP URL",
+      "description": "Required by n8n's MCP server(s).",
+      "envVar": "N8N_MCP_URL",
+      "sensitive": false
+    }
+  ]
 }

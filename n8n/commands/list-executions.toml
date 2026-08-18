@@ -1,13 +1,5 @@
-description = "List recent workflow executions"
+description = "List recent workflow executions Arguments: [--workflow <name>] [--status <success|error|waiting>] [--limit <n>]."
 prompt = """
-# Arguments
-
-[--workflow <name>] [--status <success|error|waiting>] [--limit <n>]
-
-User input: {{args}}
-
----
-
 # List Executions
 
 List recent workflow executions with optional filters.
@@ -18,7 +10,7 @@ Format: `[--workflow <name>] [--status <success|error|waiting>] [--limit <n>]`
 - --status: Filter by status — success, error, waiting (optional)
 - --limit: Max results, default 20 (optional)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

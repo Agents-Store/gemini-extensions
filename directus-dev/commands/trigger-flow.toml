@@ -1,13 +1,5 @@
-description = "Trigger a Directus automation flow"
+description = "Trigger a Directus automation flow Arguments: <flow-name-or-id> <collection> [--keys <id1,id2>] [--data <json>]."
 prompt = """
-# Arguments
-
-<flow-name-or-id> <collection> [--keys <id1,id2>] [--data <json>]
-
-User input: {{args}}
-
----
-
 # Trigger Flow
 
 ## Arguments

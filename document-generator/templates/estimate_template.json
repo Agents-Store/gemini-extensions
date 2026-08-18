@@ -1,0 +1,36 @@
+{
+  "type": "estimate",
+  "format": "pdf",
+  "engine": "puppeteer",
+  "structure": {
+    "header": { "companyInfo": true, "logo": true },
+    "estimateMeta": ["estimateNumber", "date", "validUntil"],
+    "clientBlock": true,
+    "scopeOfWork": true,
+    "itemsTable": {
+      "columns": [
+        { "key": "description", "label": "Description", "width": "50%", "align": "left" },
+        { "key": "quantity", "label": "Qty", "width": "10%", "align": "center" },
+        { "key": "unitPrice", "label": "Unit Price", "width": "20%", "align": "right" },
+        { "key": "total", "label": "Amount", "width": "20%", "align": "right" }
+      ]
+    },
+    "totalsBlock": ["subtotal", "tax", "discount", "total"],
+    "validity": true,
+    "timeline": true,
+    "terms": true,
+    "notes": true
+  },
+  "styling": {
+    "primaryColor": "#0F172A",
+    "accentColor": "#6366F1",
+    "backgroundColor": "#F8FAFC",
+    "textColor": "#1E293B",
+    "mutedColor": "#64748B",
+    "borderColor": "#E2E8F0",
+    "pageSize": "A4",
+    "margins": { "top": "28mm", "bottom": "22mm", "left": "18mm", "right": "18mm" }
+  },
+  "currency": "USD",
+  "currencySymbol": "$"
+}

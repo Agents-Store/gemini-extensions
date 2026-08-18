@@ -1,13 +1,5 @@
-description = "Create a relation between two Plane work items (block, duplicate, relates-to)"
+description = "Create a relation between two Plane work items (block, duplicate, relates-to) Arguments: <relation> <project> <from-item> <to-item>."
 prompt = """
-# Arguments
-
-<relation> <project> <from-item> <to-item>
-
-User input: {{args}}
-
----
-
 # Relate
 
 Create or remove a typed relation between two work items.
@@ -21,7 +13,7 @@ Format: `<relation> <project> <from-item> <to-item>`
 - `from-item`: source work item identifier (`PROJ-42`)
 - `to-item`: target work item identifier (`PROJ-43`)
 
-Parse from `"$ARGUMENTS"`.
+Parse from `"{{args}}"`.
 
 ## Process
 

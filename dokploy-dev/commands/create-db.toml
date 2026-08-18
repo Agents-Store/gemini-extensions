@@ -1,13 +1,5 @@
-description = "Create and deploy a database in a Dokploy project"
+description = "Create and deploy a database in a Dokploy project Arguments: <name> --project <project> --type <postgres|mysql|mariadb|mongo|redis|libsql> [--password <pass>]."
 prompt = """
-# Arguments
-
-<name> --project <project> --type <postgres|mysql|mariadb|mongo|redis|libsql> [--password <pass>]
-
-User input: {{args}}
-
----
-
 # Create Database
 
 Create and deploy a database instance in a Dokploy project.
@@ -19,7 +11,7 @@ Format: `<name> --project <project> --type <postgres|mysql|mariadb|mongo|redis|l
 - --type: Database type — postgres, mysql, mariadb, mongo, redis, libsql (required)
 - --password: Database password (generated if omitted — the API requires one)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

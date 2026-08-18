@@ -12,7 +12,6 @@ description: |
   <example>
   user: "What should we include in the next sprint based on our velocity?"
   </example>
-model: sonnet
 ---
 
 # Plane Sprint Planner

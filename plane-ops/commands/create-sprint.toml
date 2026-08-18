@@ -1,13 +1,5 @@
-description = "Create a new sprint cycle in Plane"
+description = "Create a new sprint cycle in Plane Arguments: <project> <name> --start <YYYY-MM-DD> --end <YYYY-MM-DD>."
 prompt = """
-# Arguments
-
-<project> <name> --start <YYYY-MM-DD> --end <YYYY-MM-DD>
-
-User input: {{args}}
-
----
-
 # Create Sprint
 
 Quickly create a new sprint cycle with specified dates.
@@ -19,7 +11,7 @@ Format: `<project> <name> --start <YYYY-MM-DD> --end <YYYY-MM-DD>`
 - --start: Start date in ISO format (required)
 - --end: End date in ISO format (required)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

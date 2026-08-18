@@ -1,0 +1,115 @@
+{
+  "SessionStart": [
+    {
+      "matcher": "startup|resume|clear|compact",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "node \"${extensionPath}/hooks/session-start-seen-skills.mjs\""
+        },
+        {
+          "type": "command",
+          "command": "node \"${extensionPath}/hooks/session-start-profiler.mjs\""
+        },
+        {
+          "type": "command",
+          "command": "node \"${extensionPath}/hooks/inject-claude-md.mjs\""
+        }
+      ]
+    }
+  ],
+  "BeforeTool": [
+    {
+      "matcher": "Read|Edit|Write|Bash",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "node \"${extensionPath}/hooks/pretooluse-skill-inject.mjs\"",
+          "timeout": 5000
+        }
+      ]
+    },
+    {
+      "matcher": "Agent",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "node \"${extensionPath}/hooks/pretooluse-subagent-spawn-observe.mjs\"",
+          "timeout": 5000
+        }
+      ]
+    }
+  ],
+  "BeforeAgent": [
+    {
+      "hooks": [
+        {
+          "type": "command",
+          "command": "node \"${extensionPath}/hooks/user-prompt-submit-telemetry.mjs\"",
+          "timeout": 5000
+        }
+      ]
+    },
+    {
+      "hooks": [
+        {
+          "type": "command",
+          "command": "node \"${extensionPath}/hooks/user-prompt-submit-skill-inject.mjs\"",
+          "timeout": 5000
+        }
+      ]
+    }
+  ],
+  "AfterTool": [
+    {
+      "matcher": "Bash",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "node \"${extensionPath}/hooks/posttooluse-shadcn-font-fix.mjs\"",
+          "timeout": 5000
+        },
+        {
+          "type": "command",
+          "command": "node \"${extensionPath}/hooks/posttooluse-verification-observe.mjs\"",
+          "timeout": 5000
+        },
+        {
+          "type": "command",
+          "command": "node \"${extensionPath}/hooks/posttooluse-telemetry.mjs\"",
+          "timeout": 5000
+        },
+        {
+          "type": "command",
+          "command": "node \"${extensionPath}/hooks/posttooluse-bash-chain.mjs\"",
+          "timeout": 5000
+        }
+      ]
+    },
+    {
+      "matcher": "Write|Edit",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "node \"${extensionPath}/hooks/posttooluse-validate.mjs\"",
+          "timeout": 5000
+        },
+        {
+          "type": "command",
+          "command": "node \"${extensionPath}/hooks/posttooluse-telemetry.mjs\"",
+          "timeout": 5000
+        }
+      ]
+    }
+  ],
+  "SessionEnd": [
+    {
+      "hooks": [
+        {
+          "type": "command",
+          "command": "node \"${extensionPath}/hooks/session-end-cleanup.mjs\""
+        }
+      ]
+    }
+  ]
+}

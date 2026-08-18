@@ -1,13 +1,5 @@
-description = "Manage custom properties on Plane work items (severity, customer impact, etc.)"
+description = "Manage custom properties on Plane work items (severity, customer impact, etc.) Arguments: <action> <project> [args...]."
 prompt = """
-# Arguments
-
-<action> <project> [args...]
-
-User input: {{args}}
-
----
-
 # Property
 
 Define and manage custom properties on work items. Properties are typed fields beyond the built-ins (state, priority, points). Examples: severity, customer impact, environment, root cause.
@@ -21,7 +13,7 @@ Format: `<action> <project> [args...]`
 - For `create`: `--name`, `--type <text|number|select|multi-select|date|boolean|user|url>`, `--required`, `--type-id <work_item_type_id>` (scope to a specific work item type), `--options "a,b,c"` (for select)
 - For `update`: same flags
 
-Parse from `"$ARGUMENTS"`.
+Parse from `"{{args}}"`.
 
 ## Process
 

@@ -1,20 +1,12 @@
-description = "Create a new view for a NocoDB table"
+description = "Create a new view for a NocoDB table Arguments: <table-name> <view-type> [title]."
 prompt = """
-# Arguments
-
-<table-name> <view-type> [title]
-
-User input: {{args}}
-
----
-
 # Create View
 
 Describe how to create a new view for a NocoDB table. Since NocoDB MCP does not expose view management tools directly, guide the user through the NocoDB web interface or CLI.
 
 ## Arguments
 
-Parse from "$ARGUMENTS":
+Parse from "{{args}}":
 - `table-name` (required): Name or ID of the table
 - `view-type` (required): grid, kanban, gallery, form, or calendar
 - `title` (optional): Name for the new view

@@ -1,13 +1,5 @@
-description = "Create a new application in a Dokploy project"
+description = "Create a new application in a Dokploy project Arguments: <name> --project <project> [--env <environment>] [--build <nixpacks|dockerfile|static>]."
 prompt = """
-# Arguments
-
-<name> --project <project> [--env <environment>] [--build <nixpacks|dockerfile|static>]
-
-User input: {{args}}
-
----
-
 # Create Application
 
 Create a new application in an existing Dokploy project.
@@ -19,7 +11,7 @@ Format: `<name> --project <project> [--env <environment-name>] [--build <nixpack
 - --env: Environment name within the project (optional, default: `production`)
 - --build: Build type — nixpacks, dockerfile, heroku, paketo, railpack, or static (default: nixpacks)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

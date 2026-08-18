@@ -1,13 +1,5 @@
-description = "Debug a failed or stuck Dokploy deployment with full decision-tree analysis"
+description = "Debug a failed or stuck Dokploy deployment with full decision-tree analysis Arguments: app-name-or-id|compose-id."
 prompt = """
-# Arguments
-
-app-name-or-id|compose-id
-
-User input: {{args}}
-
----
-
 # Debug Failed Deployment
 
 Run the full `debug-deploy` workflow against an application or compose stack — locate the failed run, read build logs, inspect container state, check Traefik, optionally AI-summarise, and recover.
@@ -20,11 +12,11 @@ Format: `[app-name-or-id|compose-id]` (optional)
 - If a name is passed, call `project-all` to resolve.
 - If **no argument** is passed, call `mcp__dokploy__deployment-allCentralized` and `mcp__dokploy__deployment-queueList`, list the recent `error` / stuck deployments, and ask the user which to investigate.
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 
-Read `${CLAUDE_PLUGIN_ROOT}/skills/debug-deploy/SKILL.md` and follow every step in order. Do not skip.
+Read `${extensionPath}/skills/debug-deploy/SKILL.md` and follow every step in order. Do not skip.
 
 Key checkpoints:
 

@@ -47,7 +47,6 @@ description: |
   User needs to create a Directus flow with operations.
   </commentary>
   </example>
-model: sonnet
 ---
 
 # Directus Assistant

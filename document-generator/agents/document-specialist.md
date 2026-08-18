@@ -27,7 +27,6 @@ description: |
   <example>
   user: "Convert this markdown file to PDF"
   </example>
-model: sonnet
 ---
 
 # Document Specialist

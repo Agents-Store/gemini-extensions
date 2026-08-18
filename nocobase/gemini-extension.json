@@ -16,5 +16,25 @@
         "NOCOBASE_PASSWORD": "${NOCOBASE_PASSWORD}"
       }
     }
-  }
+  },
+  "settings": [
+    {
+      "name": "NOCOBASE EMAIL",
+      "description": "Required by nocobase's MCP server(s).",
+      "envVar": "NOCOBASE_EMAIL",
+      "sensitive": false
+    },
+    {
+      "name": "NOCOBASE PASSWORD",
+      "description": "Required by nocobase's MCP server(s).",
+      "envVar": "NOCOBASE_PASSWORD",
+      "sensitive": true
+    },
+    {
+      "name": "NOCOBASE URL",
+      "description": "Required by nocobase's MCP server(s).",
+      "envVar": "NOCOBASE_URL",
+      "sensitive": false
+    }
+  ]
 }

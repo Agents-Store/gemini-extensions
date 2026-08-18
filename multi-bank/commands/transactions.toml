@@ -1,13 +1,5 @@
-description = "List and search transaction history across all accounts"
+description = "List and search transaction history across all accounts Arguments: <days> [category] [bank]."
 prompt = """
-# Arguments
-
-<days> [category] [bank]
-
-User input: {{args}}
-
----
-
 # Transactions
 
 List recent transactions with optional filtering by time range, category, and bank.
@@ -18,7 +10,7 @@ Format: `<days> [category] [bank]`
 - category: Optional category filter (e.g., "Dining", "Groceries")
 - bank: Optional bank filter — "monobank" or "privatbank"
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

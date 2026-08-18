@@ -9,7 +9,6 @@ description: |
   <example>
   user: "Import 50 sample contacts into NocoBase"
   </example>
-model: sonnet
 ---
 
 # NocoBase Builder

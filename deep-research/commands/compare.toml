@@ -1,13 +1,5 @@
-description = "Compare multiple products, companies, or technologies"
+description = "Compare multiple products, companies, or technologies Arguments: <item1> vs <item2> [vs <item3>...] [--criteria <criteria>]."
 prompt = """
-# Arguments
-
-<item1> vs <item2> [vs <item3>...] [--criteria <criteria>]
-
-User input: {{args}}
-
----
-
 # Compare
 
 Comparative analysis of multiple items using the Comparison Table template. See CONNECTORS.md for provider mapping.

@@ -29,7 +29,6 @@ description: |
   Auth integration touches every layer — User model, login routes, @login_required decorators, template conditionals, and query filtering by user_id.
   </commentary>
   </example>
-model: sonnet
 ---
 
 You are a Flask + SQLAlchemy stack orchestrator. You help developers build complete features that span database models, route handlers, and Jinja2 templates in Flask applications.

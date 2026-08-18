@@ -1,13 +1,5 @@
-description = "Find a CRM contact by email address"
+description = "Find a CRM contact by email address Arguments: <email>."
 prompt = """
-# Arguments
-
-<email>
-
-User input: {{args}}
-
----
-
 # Find Contact
 
 Find a CRM contact by email and show their details and deals.
@@ -16,7 +8,7 @@ Find a CRM contact by email and show their details and deals.
 Format: `<email>`
 - email: The email address to search for
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

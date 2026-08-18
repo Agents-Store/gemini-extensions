@@ -1,13 +1,5 @@
-description = "Log work time on a Plane work item (create a work log entry)"
+description = "Log work time on a Plane work item (create a work log entry) Arguments: <project> <item> <duration> [description]."
 prompt = """
-# Arguments
-
-<project> <item> <duration> [description]
-
-User input: {{args}}
-
----
-
 # Log Time
 
 Create a work log entry against a Plane work item. Time is stored as **integer minutes** in the API — convert human input.
@@ -21,7 +13,7 @@ Format: `<project> <item> <duration> [description]`
 - `duration`: human form (`2h`, `2h30m`, `45m`, `1.5h`, `PT2H30M`) — convert to integer minutes
 - `description` (optional): free text — what was done
 
-Parse from `"$ARGUMENTS"`.
+Parse from `"{{args}}"`.
 
 ## Process
 

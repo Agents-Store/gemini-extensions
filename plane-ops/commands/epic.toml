@@ -1,13 +1,5 @@
-description = "Manage Plane epics — list, get, update, delete (complement to /create-epic)"
+description = "Manage Plane epics — list, get, update, delete (complement to /create-epic) Arguments: <action> <project> [args...]."
 prompt = """
-# Arguments
-
-<action> <project> [args...]
-
-User input: {{args}}
-
----
-
 # Epic
 
 Operate on epics beyond creation. For creation use `/create-epic`. For breaking an epic into stories use `/decompose`.
@@ -21,7 +13,7 @@ Format: `<action> <project> [args...]`
 - For `get`/`update`/`status`/`delete`: epic name or ID
 - For `update`: `--name`, `--description`, `--lead <user>`, `--target <date>`, `--initiative <name>`
 
-Parse from `"$ARGUMENTS"`.
+Parse from `"{{args}}"`.
 
 ## Process
 

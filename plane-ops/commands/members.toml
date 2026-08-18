@@ -1,13 +1,5 @@
-description = "List Plane workspace or project members and their roles"
+description = "List Plane workspace or project members and their roles Arguments: [scope] [project]."
 prompt = """
-# Arguments
-
-[scope] [project]
-
-User input: {{args}}
-
----
-
 # Members
 
 List members of the workspace or a specific project.
@@ -21,7 +13,7 @@ Format: `[scope] [project]`
 - `--role <admin|member|viewer|guest>`: filter
 - `--active`: only active members
 
-Parse from `"$ARGUMENTS"`.
+Parse from `"{{args}}"`.
 
 ## Process
 

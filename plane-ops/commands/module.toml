@@ -1,13 +1,5 @@
-description = "Manage Plane modules — list, get, update, add items, archive (complement to /create-module)"
+description = "Manage Plane modules — list, get, update, add items, archive (complement to /create-module) Arguments: <action> <project> [args...]."
 prompt = """
-# Arguments
-
-<action> <project> [args...]
-
-User input: {{args}}
-
----
-
 # Module
 
 Operate on modules (feature workstreams) beyond creation. For initial creation use `/create-module`.
@@ -22,7 +14,7 @@ Format: `<action> <project> [args...]`
 - For `update`: `--name`, `--description`, `--lead <user>`, `--target <date>`, `--status <planned|in-progress|paused|completed|cancelled>`
 - For `add-items`/`remove-items`: item identifiers as remaining args
 
-Parse from `"$ARGUMENTS"`.
+Parse from `"{{args}}"`.
 
 ## Process
 

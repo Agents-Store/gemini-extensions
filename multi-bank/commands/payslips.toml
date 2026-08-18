@@ -1,13 +1,5 @@
-description = "Manage payslips — upload, send to employees, check status, generate PDF"
+description = "Manage payslips — upload, send to employees, check status, generate PDF Arguments: <upload|send|status|pdf|delete> <period> [identification]."
 prompt = """
-# Arguments
-
-<upload|send|status|pdf|delete> <period> [identification]
-
-User input: {{args}}
-
----
-
 # Payslips (Розрахункові листки)
 
 Manage employee payslips through bank MCP tools.
@@ -20,7 +12,7 @@ Format: `<action> <period> [identification]`
 - `pdf <YYYY-MM> <identification>` — generate PDF for specific employee
 - `delete <YYYY-MM>` — delete import for a period
 
-Parse from "$ARGUMENTS". If empty, show available actions and ask for period.
+Parse from "{{args}}". If empty, show available actions and ask for period.
 
 ## Process
 

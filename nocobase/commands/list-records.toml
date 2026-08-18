@@ -1,13 +1,5 @@
-description = "List records from a NocoBase collection"
+description = "List records from a NocoBase collection Arguments: <collection> [--limit <n>] [--filter <field=value>]."
 prompt = """
-# Arguments
-
-<collection> [--limit <n>] [--filter <field=value>]
-
-User input: {{args}}
-
----
-
 # List Records
 
 List records from a NocoBase collection with optional filtering.
@@ -18,7 +10,7 @@ Format: `<collection> [--limit <n>] [--filter <field=value>]`
 - --limit: Maximum records to return (optional, default: 20)
 - --filter: Filter by field value (optional)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

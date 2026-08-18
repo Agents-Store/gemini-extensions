@@ -1,13 +1,5 @@
-description = "Manage Plane initiatives — strategic groupings above epics"
+description = "Manage Plane initiatives — strategic groupings above epics Arguments: <action> [args...]."
 prompt = """
-# Arguments
-
-<action> [args...]
-
-User input: {{args}}
-
----
-
 # Initiative
 
 Initiatives are the highest-level planning unit in Plane — they group multiple epics across multiple projects under a single strategic theme. See the `epics-initiatives-milestones` skill for the conceptual model.
@@ -20,7 +12,7 @@ Format: `<action> [args...]`
 - For `create`: `--name`, `--description`, `--lead <user>`, `--start <date>`, `--target <date>`
 - For `link-epic`: `--initiative <name|id>`, `--epic <project>:<id>`
 
-Parse from `"$ARGUMENTS"`.
+Parse from `"{{args}}"`.
 
 ## Process
 

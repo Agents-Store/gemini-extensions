@@ -1,13 +1,5 @@
-description = "List records from a NocoDB table with optional filters"
+description = "List records from a NocoDB table with optional filters Arguments: <table> [--where <filter>] [--sort <field>] [--limit <n>]."
 prompt = """
-# Arguments
-
-<table> [--where <filter>] [--sort <field>] [--limit <n>]
-
-User input: {{args}}
-
----
-
 # List Records
 
 List records from a NocoDB table with optional filtering, sorting, and pagination.
@@ -19,7 +11,7 @@ Format: `<table> [--where <filter>] [--sort <field>] [--limit <n>]`
 - --sort: Sort field, prefix with `-` for DESC (optional)
 - --limit: Max records to return, default 25 (optional)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

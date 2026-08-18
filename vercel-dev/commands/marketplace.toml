@@ -19,7 +19,7 @@ Discover, install, and apply Vercel Marketplace integrations with guided setup a
 The marketplace command follows an **apply-guide loop**:
 
 1. **Discover** — Search the Marketplace catalog via `vercel integration discover`.
-2. **Select** — User picks an integration (or specifies one in "$ARGUMENTS").
+2. **Select** — User picks an integration (or specifies one in "{{args}}").
 3. **Guide** — Fetch the agent-friendly setup guide via `vercel integration guide <name> --framework <fw>`.
 4. **Install** — Run `vercel integration add <name>` for the automated happy path.
 5. **Confirm env vars provisioned** — Explicitly verify required environment variables are set after provisioning.
@@ -27,7 +27,7 @@ The marketplace command follows an **apply-guide loop**:
 7. **Verify drain** — For observability integrations, confirm drain was auto-created and data is flowing.
 8. **Run local health check** — Verify the integration works locally before deploying.
 
-If "$ARGUMENTS" specifies an integration name, skip directly to the **Guide** step.
+If "{{args}}" specifies an integration name, skip directly to the **Guide** step.
 
 For observability integrations (Datadog, Sentry, Axiom, etc.), the flow extends with drain verification — see Step 7.
 
@@ -68,7 +68,7 @@ Common replacements for sunset packages:
 
 ### 2. Select — User Picks an Integration
 
-If the user hasn't specified one in "$ARGUMENTS", ask which integration to set up. Accept the integration name or slug.
+If the user hasn't specified one in "{{args}}", ask which integration to set up. Accept the integration name or slug.
 
 ### 3. Guide — Fetch Setup Steps
 

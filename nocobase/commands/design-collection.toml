@@ -1,13 +1,5 @@
-description = "Design a NocoBase collection schema"
+description = "Design a NocoBase collection schema Arguments: <collection-name> [--fields <field1:type,field2:type>]."
 prompt = """
-# Arguments
-
-<collection-name> [--fields <field1:type,field2:type>]
-
-User input: {{args}}
-
----
-
 # Design Collection
 
 Design a NocoBase collection (data model) schema with fields and relations.
@@ -17,7 +9,7 @@ Format: `<collection-name> [--fields <field1:type,field2:type>]`
 - collection-name: Name of the collection (required)
 - --fields: Comma-separated field definitions as name:type pairs (optional)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

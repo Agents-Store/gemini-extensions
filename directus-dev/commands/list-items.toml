@@ -1,13 +1,5 @@
-description = "List items from a Directus collection with optional filters"
+description = "List items from a Directus collection with optional filters Arguments: <collection> [--filter <field=value>] [--sort <field>] [--limit <n>]."
 prompt = """
-# Arguments
-
-<collection> [--filter <field=value>] [--sort <field>] [--limit <n>]
-
-User input: {{args}}
-
----
-
 # List Items
 
 ## Arguments

@@ -1,20 +1,12 @@
-description = "List records from a NocoDB table with optional filtering"
+description = "List records from a NocoDB table with optional filtering Arguments: <table-name> [where-filter]."
 prompt = """
-# Arguments
-
-<table-name> [where-filter]
-
-User input: {{args}}
-
----
-
 # List Records
 
 Query records from a NocoDB table with optional filtering and sorting.
 
 ## Arguments
 
-Parse from "$ARGUMENTS":
+Parse from "{{args}}":
 - `table-name` (required): Name or ID of the table
 - `where-filter` (optional): Filter in NocoDB syntax, e.g. `(Status,eq,Active)`
 

@@ -1,13 +1,5 @@
-description = "Update the status of an order (created, processing, shipped, completed, etc.)"
+description = "Update the status of an order (created, processing, shipped, completed, etc.) Arguments: <order-id> <status>."
 prompt = """
-# Arguments
-
-<order-id> <status>
-
-User input: {{args}}
-
----
-
 # Update Order Status
 
 Change the status of an order in the Teleshop store.
@@ -17,7 +9,7 @@ Format: `<order-id> <status>`
 - order-id: The order ID (required)
 - status: New status — created, processing, awaiting, shipped, ready, completed, canceled (required)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

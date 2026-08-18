@@ -1,13 +1,5 @@
-description = "Close current sprint — review completion, transfer incomplete items, archive"
+description = "Close current sprint — review completion, transfer incomplete items, archive Arguments: <project> [--transfer-to <next-cycle-name>]."
 prompt = """
-# Arguments
-
-<project> [--transfer-to <next-cycle-name>]
-
-User input: {{args}}
-
----
-
 # Close Sprint
 
 Close the active sprint — review completion metrics, handle incomplete items, and archive.
@@ -17,7 +9,7 @@ Format: `<project> [--transfer-to <next-cycle-name>]`
 - project: Project name or identifier (required)
 - --transfer-to: Name of next sprint to transfer incomplete items (optional)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

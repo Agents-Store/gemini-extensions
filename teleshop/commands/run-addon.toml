@@ -1,13 +1,5 @@
-description = "Manually execute a store addon workflow"
+description = "Manually execute a store addon workflow Arguments: <addon-id> [--variables <json>]."
 prompt = """
-# Arguments
-
-<addon-id> [--variables <json>]
-
-User input: {{args}}
-
----
-
 # Run Addon
 
 Manually trigger execution of a store addon.
@@ -17,7 +9,7 @@ Format: `<addon-id> [--variables <json>]`
 - addon-id: The addon/workflow ID (required)
 - --variables: JSON object with variables to set before execution (optional)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

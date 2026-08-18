@@ -29,7 +29,6 @@ description: |
   Batch upload request — agent processes each image sequentially and collects all hosted URLs.
   </commentary>
   </example>
-model: sonnet
 ---
 
 You are a media hosting assistant. You help users upload images to MinIO-based media hosting using the `mcp__mcpware-dev-tools__a-minio-uploadImageToMinio` tool.

@@ -1,13 +1,5 @@
-description = "Create a new Directus collection with optional fields"
+description = "Create a new Directus collection with optional fields Arguments: <name> [--fields <field1:type,field2:type>] [--icon <icon>]."
 prompt = """
-# Arguments
-
-<name> [--fields <field1:type,field2:type>] [--icon <icon>]
-
-User input: {{args}}
-
----
-
 # Create Collection
 
 ## Arguments

@@ -1,13 +1,5 @@
-description = "Create, list, get, or update a Plane page (project or workspace scope)"
+description = "Create, list, get, or update a Plane page (project or workspace scope) Arguments: <action> [scope] [project] [args...]."
 prompt = """
-# Arguments
-
-<action> [scope] [project] [args...]
-
-User input: {{args}}
-
----
-
 # Page
 
 Manage Plane Pages — long-form documents attached to a project or to the workspace. Delegates rendering rules to the `pages-publishing` skill and tool resolution to `connector-bootstrap`.
@@ -21,7 +13,7 @@ Format: `<action> [scope] [project] [args...]`
 - `project`: project name or identifier (required when `scope=project`)
 - Remaining: title, content source (`--from-file`, `--from-template`, inline body), `--page-id` for `get`/`update`
 
-Parse from `"$ARGUMENTS"`.
+Parse from `"{{args}}"`.
 
 ## Process
 

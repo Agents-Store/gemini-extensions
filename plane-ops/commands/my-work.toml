@@ -1,13 +1,5 @@
-description = "List Plane work items assigned to the current user"
+description = "List Plane work items assigned to the current user Arguments: [--project name] [--state name] [--cycle current|next|all] [--limit n]."
 prompt = """
-# Arguments
-
-[--project name] [--state name] [--cycle current|next|all] [--limit n]
-
-User input: {{args}}
-
----
-
 # My Work
 
 Show open work items assigned to the current user across all projects, or filtered.
@@ -23,7 +15,7 @@ Format: `[flags...]`
 - `--limit <n>`: max items (default 25)
 - `--all`: include completed and cancelled
 
-Parse from `"$ARGUMENTS"`.
+Parse from `"{{args}}"`.
 
 ## Process
 

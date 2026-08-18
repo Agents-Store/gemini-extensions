@@ -1,13 +1,5 @@
-description = "Quick health check of OpenClaw instance — scans all categories (A–J), checks sizes, detects inline secrets, identifies missing components, verifies language"
+description = "Quick health check of OpenClaw instance — scans all categories (A–J), checks sizes, detects inline secrets, identifies missing components, verifies language Arguments: [quick|full|security]."
 prompt = """
-# Arguments
-
-[quick|full|security]
-
-User input: {{args}}
-
----
-
 # Workspace Scan
 
 Perform a quick health check of the current OpenClaw instance.

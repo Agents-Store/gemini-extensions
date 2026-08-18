@@ -1,13 +1,5 @@
-description = "Run a full instance provisioning session with multiple workflows"
+description = "Run a full instance provisioning session with multiple workflows Arguments: [--preset <startup|devops|marketing|custom>] [--dry-run]."
 prompt = """
-# Arguments
-
-[--preset <startup|devops|marketing|custom>] [--dry-run]
-
-User input: {{args}}
-
----
-
 # Provision Instance
 
 Batch-provision an n8n instance with a suite of workflows.
@@ -21,7 +13,7 @@ Format: `[--preset <startup|devops|marketing|custom>] [--dry-run]`
   - custom: interactive — user describes what they need, agent searches and proposes
 - --dry-run: Analyze and plan without actually deploying
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

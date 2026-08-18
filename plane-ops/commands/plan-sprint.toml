@@ -1,13 +1,5 @@
-description = "Plan a new sprint — calculate capacity, select items from backlog, set sprint goal"
+description = "Plan a new sprint — calculate capacity, select items from backlog, set sprint goal Arguments: <project> [--duration <days>] [--goal <sprint goal>]."
 prompt = """
-# Arguments
-
-<project> [--duration <days>] [--goal <sprint goal>]
-
-User input: {{args}}
-
----
-
 # Plan Sprint
 
 Run a complete sprint planning ceremony — capacity calculation, backlog selection, and sprint creation.
@@ -18,7 +10,7 @@ Format: `<project> [--duration <days>] [--goal <sprint goal>]`
 - --duration: Sprint length in days (default: 5)
 - --goal: Sprint goal description (optional, will be suggested)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

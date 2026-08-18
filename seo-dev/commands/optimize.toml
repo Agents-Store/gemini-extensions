@@ -1,13 +1,5 @@
-description = "Full SEO optimization — audit, fix, and enhance SEO across Next.js and Directus"
+description = "Full SEO optimization — audit, fix, and enhance SEO across Next.js and Directus Arguments: [--skip-directus] [--skip-build] [--report-only]."
 prompt = """
-# Arguments
-
-[--skip-directus] [--skip-build] [--report-only]
-
-User input: {{args}}
-
----
-
 # SEO Optimize
 
 End-to-end SEO optimization for a Directus + Next.js project. Audits the current state, implements all fixes, extends Directus schema with SEO fields, and produces a final report.

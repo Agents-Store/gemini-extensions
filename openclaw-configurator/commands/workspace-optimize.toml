@@ -1,13 +1,5 @@
-description = "Optimize a specific OpenClaw workspace file or all files at once, with security checks and optional openclaw.json editing"
+description = "Optimize a specific OpenClaw workspace file or all files at once, with security checks and optional openclaw.json editing Arguments: <soul|agents|user|tools|heartbeat|identity|memory|bootstrap|boot|config|all>."
 prompt = """
-# Arguments
-
-<soul|agents|user|tools|heartbeat|identity|memory|bootstrap|boot|config|all>
-
-User input: {{args}}
-
----
-
 # Workspace Optimize
 
 Optimize a specific OpenClaw workspace file following best practices. Files are read from and written to `./workspace/` under the resolved instance dir.
@@ -24,7 +16,7 @@ Optimize a specific OpenClaw workspace file following best practices. Files are 
 ## Arguments
 - file-type: `soul`, `agents`, `user`, `tools`, `heartbeat`, `identity`, `memory`, `bootstrap`, `boot`, `config`, or `all` (required)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

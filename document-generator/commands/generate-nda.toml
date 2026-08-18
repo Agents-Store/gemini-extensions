@@ -1,13 +1,5 @@
-description = "Generate a Non-Disclosure Agreement (NDA) — PDF"
+description = "Generate a Non-Disclosure Agreement (NDA) — PDF Arguments: [--type <mutual|unilateral>] [--party1 <name>] [--party2 <name>]."
 prompt = """
-# Arguments
-
-[--type <mutual|unilateral>] [--party1 <name>] [--party2 <name>]
-
-User input: {{args}}
-
----
-
 # Generate NDA
 
 Generate a professional Non-Disclosure Agreement with standard legal clauses and signature blocks.
@@ -19,7 +11,7 @@ Format: `[--type <mutual|unilateral>] [--party1 <name>] [--party2 <name>]`
 - --party1: Disclosing party name (optional)
 - --party2: Receiving party name (optional)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

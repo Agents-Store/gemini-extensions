@@ -1,13 +1,5 @@
-description = "Read and extract content from a URL with fallback"
+description = "Read and extract content from a URL with fallback Arguments: <url> [--format <markdown|json|screenshot>]."
 prompt = """
-# Arguments
-
-<url> [--format <markdown|json|screenshot>]
-
-User input: {{args}}
-
----
-
 # Read URL
 
 Read and extract content from a web page or PDF. See CONNECTORS.md for provider mapping.

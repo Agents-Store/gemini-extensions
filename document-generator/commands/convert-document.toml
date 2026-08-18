@@ -1,13 +1,5 @@
-description = "Convert between document formats (MD/DOCX/PDF/HTML/PPTX)"
+description = "Convert between document formats (MD/DOCX/PDF/HTML/PPTX) Arguments: <input-file> --to <format>."
 prompt = """
-# Arguments
-
-<input-file> --to <format>
-
-User input: {{args}}
-
----
-
 # Convert Document
 
 Convert a document between formats using pandoc.
@@ -18,7 +10,7 @@ Format: `<input-file> --to <format>`
 - input-file: Path to the source file (required)
 - --to: Target format -- pdf, docx, html, md, pptx (required)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Supported Conversions
 

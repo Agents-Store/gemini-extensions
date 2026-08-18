@@ -1,13 +1,5 @@
-description = "Search items across a Directus collection using full-text search"
+description = "Search items across a Directus collection using full-text search Arguments: <collection> <query>."
 prompt = """
-# Arguments
-
-<collection> <query>
-
-User input: {{args}}
-
----
-
 # Search Items
 
 ## Arguments

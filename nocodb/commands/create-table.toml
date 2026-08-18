@@ -1,13 +1,5 @@
-description = "Create a new table in NocoDB"
+description = "Create a new table in NocoDB Arguments: <table-name> [--columns <col1:type,col2:type>]."
 prompt = """
-# Arguments
-
-<table-name> [--columns <col1:type,col2:type>]
-
-User input: {{args}}
-
----
-
 # Create Table
 
 Create a new table in NocoDB.
@@ -17,7 +9,7 @@ Format: `<table-name> [--columns <col1:type,col2:type>]`
 - table-name: Name of the table to create (required)
 - --columns: Comma-separated column definitions as name:type pairs (optional)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

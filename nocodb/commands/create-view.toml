@@ -1,13 +1,5 @@
-description = "Create a new view for a NocoDB table"
+description = "Create a new view for a NocoDB table Arguments: <table> <view-name> <type> [--group-by <field>]."
 prompt = """
-# Arguments
-
-<table> <view-name> <type> [--group-by <field>]
-
-User input: {{args}}
-
----
-
 # Create View
 
 Create a new view (Grid, Kanban, Gallery, Form, Calendar) for a NocoDB table.
@@ -19,7 +11,7 @@ Format: `<table> <view-name> <type> [--group-by <field>]`
 - type: View type — Grid, Kanban, Gallery, Form, Calendar (required)
 - --group-by: For Kanban — the SingleSelect field to group by (optional)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

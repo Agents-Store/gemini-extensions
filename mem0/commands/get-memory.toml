@@ -1,13 +1,5 @@
-description = "Get a specific memory by its ID"
+description = "Get a specific memory by its ID Arguments: <memory_id>."
 prompt = """
-# Arguments
-
-<memory_id>
-
-User input: {{args}}
-
----
-
 # Get Memory
 
 Retrieve a specific memory by its ID.

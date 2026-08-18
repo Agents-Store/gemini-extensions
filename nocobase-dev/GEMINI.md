@@ -2,11 +2,9 @@
 
 > NocoBase v2 development plugin. Build, manage, and operate NocoBase through the `nb` CLI (primary) or REST API (fallback). Bundles 11 official upstream skills from nocobase/skills (auto-synced weekly via GitHub Action), 5 custom REST-API skills (overview, auth, cli-recipes, api-reference, examples), and the full OpenAPI 3.0.3 spec for NocoBase v2.1.0-beta.29 (272 endpoints across 19 tag groups). No MCP server. Env vars match upstream naming: NB_URL + NB_USER + NB_PASSWORD for sign-in flow, or NB_URL + NB_TOKEN for the long-lived API Key path.
 
-Canonical: https://github.com/agents-store/claude-public-plugins/tree/main/plugins/nocobase-dev
+Canonical source: https://github.com/agents-store/claude-public-plugins/tree/main/plugins/nocobase-dev
 
-## Available skills
-
-Skills under `skills/` auto-load by description match:
+## Skills
 
 - **api-reference** — Reference-only skill (loaded on demand) that maps the NocoBase v2 REST API surface — base URL, authentication, action-style endpoint convention, and pointers into the bundled OpenAPI 3.0.3 specification. Loaded by the model when it needs an exact endpoint path or schema; not auto-triggered.
 - **auth** — Use when the user wants to authenticate to a NocoBase v2 instance, asks "how do I get a token for NocoBase", "how do I log in via API", "why is my request returning 401 from NocoBase", or needs working curl/Node samples that send the bearer token. Covers the upstream login flow (NB_USER + NB_PASSWORD → auth:signIn → token), the long-lived API Key path, and the OAuth IdP path.

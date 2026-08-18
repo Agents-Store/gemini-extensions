@@ -1,13 +1,5 @@
-description = "Explore the Directus schema — list all collections or get detailed field info for a specific collection"
+description = "Explore the Directus schema — list all collections or get detailed field info for a specific collection Arguments: collection-name."
 prompt = """
-# Arguments
-
-collection-name
-
-User input: {{args}}
-
----
-
 # Explore Schema
 
 Explore the Directus data model.

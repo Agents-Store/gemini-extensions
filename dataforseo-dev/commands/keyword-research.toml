@@ -1,13 +1,5 @@
-description = "Run keyword research for a topic or domain using DataForSEO"
+description = "Run keyword research for a topic or domain using DataForSEO Arguments: <keyword or domain>."
 prompt = """
-# Arguments
-
-<keyword or domain>
-
-User input: {{args}}
-
----
-
 # Keyword Research
 
 Run a comprehensive keyword research workflow using DataForSEO MCP tools.

@@ -1,13 +1,5 @@
-description = "List store customers with optional search"
+description = "List store customers with optional search Arguments: --search <query>."
 prompt = """
-# Arguments
-
---search <query>
-
-User input: {{args}}
-
----
-
 # List Customers
 
 List customers of the Teleshop store.
@@ -16,7 +8,7 @@ List customers of the Teleshop store.
 Format: `[--search <query>]`
 - --search: Search by name, phone, email, or Telegram username (optional)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

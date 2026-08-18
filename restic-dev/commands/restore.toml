@@ -1,18 +1,10 @@
-description = "Guided restore / disaster recovery from a restic repository"
+description = "Guided restore / disaster recovery from a restic repository Arguments: [--what <path>] [--snapshot <id|latest>] [--target <dir>]."
 prompt = """
-# Arguments
-
-[--what <path>] [--snapshot <id|latest>] [--target <dir>]
-
-User input: {{args}}
-
----
-
 # restic Restore
 
 Guided restore of files, volumes, or databases. Restore is destructive when applied in place — confirm before overwriting anything.
 
-Parse `[--what <path>] [--snapshot <id|latest>] [--target <dir>]` from "$ARGUMENTS" (defaults: snapshot `latest`, target `/restore`).
+Parse `[--what <path>] [--snapshot <id|latest>] [--target <dir>]` from "{{args}}" (defaults: snapshot `latest`, target `/restore`).
 
 ## Process
 

@@ -1,27 +1,19 @@
-description = "Guided Dify API connect — find your app API key, set the base URL, send a first test call, verify the response"
+description = "Guided Dify API connect — find your app API key, set the base URL, send a first test call, verify the response Arguments: [base-url]."
 prompt = """
-# Arguments
-
-[base-url]
-
-User input: {{args}}
-
----
-
 # Dify API Quickstart
 
 Walk the user from zero to a verified first API call against their Dify app.
 
 ## Argument
 
-- `$ARGUMENTS` — optional base URL (e.g. `https://api.dify.ai/v1` or `https://dify.example.com/v1`).
+- `{{args}}` — optional base URL (e.g. `https://api.dify.ai/v1` or `https://dify.example.com/v1`).
   If empty, ask whether they're on Dify Cloud or self-hosted.
 
 ## Process
 
 ### Step 1 — Base URL
 Confirm the base URL. Cloud is `https://api.dify.ai/v1`; self-hosted is `https://{host}/v1`
-(must end in `/v1`). If `$ARGUMENTS` was given, validate it ends with `/v1`.
+(must end in `/v1`). If `{{args}}` was given, validate it ends with `/v1`.
 
 ### Step 2 — API key
 Explain where to get the key, then ask the user to provide it (or to export it as an env var

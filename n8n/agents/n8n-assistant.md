@@ -12,7 +12,6 @@ description: |
   <example>
   user: "Set up API credentials for my Slack integration"
   </example>
-model: sonnet
 ---
 
 # n8n Assistant

@@ -1,13 +1,5 @@
-description = "Batch delete multiple memories at once (up to 100)"
+description = "Batch delete multiple memories at once (up to 100) Arguments: <memory_id1> <memory_id2> ...."
 prompt = """
-# Arguments
-
-<memory_id1> <memory_id2> ...
-
-User input: {{args}}
-
----
-
 # Batch Delete
 
 Delete multiple memories in a single operation (max 100).

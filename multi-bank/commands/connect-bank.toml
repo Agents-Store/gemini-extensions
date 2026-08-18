@@ -1,13 +1,5 @@
-description = "Connect a bank account — verify MCP server connectivity"
+description = "Connect a bank account — verify MCP server connectivity Arguments: <bank-name>."
 prompt = """
-# Arguments
-
-<bank-name>
-
-User input: {{args}}
-
----
-
 # Connect Bank
 
 Verify connectivity to a bank's MCP server and list available accounts.
@@ -16,7 +8,7 @@ Verify connectivity to a bank's MCP server and list available accounts.
 Format: `<bank-name>`
 - bank-name: "monobank" or "privatbank"
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

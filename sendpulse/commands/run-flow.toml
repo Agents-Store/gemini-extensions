@@ -1,13 +1,5 @@
-description = "Run a chatbot automation flow for a contact"
+description = "Run a chatbot automation flow for a contact Arguments: <flow-id> <contact-id>."
 prompt = """
-# Arguments
-
-<flow-id> <contact-id>
-
-User input: {{args}}
-
----
-
 # Run Flow
 
 Run a chatbot automation flow for a specific contact.
@@ -17,7 +9,7 @@ Format: `<flow-id> <contact-id>`
 - flow-id: The automation flow ID (optional — lists flows if omitted)
 - contact-id: The chatbot contact ID
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

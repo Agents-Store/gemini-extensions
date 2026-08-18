@@ -29,7 +29,6 @@ description: |
   Schema refactoring requires understanding current state and planning improvements.
   </commentary>
   </example>
-model: sonnet
 ---
 
 # Directus Schema Architect

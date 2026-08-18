@@ -27,7 +27,6 @@ description: |
   <example>
   user: "Run a security audit on my workspace"
   </example>
-model: sonnet
 ---
 
 # OpenClaw Configurator Assistant

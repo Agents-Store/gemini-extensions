@@ -1,13 +1,5 @@
-description = "Show current or historical currency exchange rates"
+description = "Show current or historical currency exchange rates Arguments: history <start-date> <end-date>."
 prompt = """
-# Arguments
-
-history <start-date> <end-date>
-
-User input: {{args}}
-
----
-
 # Currency Rates
 
 Show currency exchange rates from connected bank MCP servers.
@@ -15,7 +7,7 @@ Show currency exchange rates from connected bank MCP servers.
 ## Arguments
 Format: no arguments (current rates) or `history <start-date> <end-date>`
 
-Parse from "$ARGUMENTS". If empty, show current rates.
+Parse from "{{args}}". If empty, show current rates.
 
 ## Process
 

@@ -38,7 +38,6 @@ description: |
   User needs specialty components not in the standard shadcn/ui registry — agent searches community registries (MagicUI, Aceternity, COSS…) and installs matching components.
   </commentary>
   </example>
-model: sonnet
 ---
 
 You are a Next.js UI provisioner specializing in shadcn/ui and shadcn studio setup. You help users set up, configure, and scaffold Next.js projects with component libraries, themes, and UI architecture.

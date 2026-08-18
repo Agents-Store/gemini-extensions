@@ -1,13 +1,5 @@
-description = "Execute an n8n workflow"
+description = "Execute an n8n workflow Arguments: <workflow> [--data <json>]."
 prompt = """
-# Arguments
-
-<workflow> [--data <json>]
-
-User input: {{args}}
-
----
-
 # Execute Workflow
 
 Execute a workflow manually with optional input data.
@@ -17,7 +9,7 @@ Format: `<workflow> [--data <json>]`
 - workflow: Workflow name or ID (required)
 - --data: JSON input data for the trigger node (optional)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

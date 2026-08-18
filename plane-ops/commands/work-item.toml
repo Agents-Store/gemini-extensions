@@ -1,13 +1,5 @@
-description = "Create, update, or inspect a work item (issue/task/ticket) in Plane"
+description = "Create, update, or inspect a work item (issue/task/ticket) in Plane Arguments: <action> <project> [args...]."
 prompt = """
-# Arguments
-
-<action> <project> [args...]
-
-User input: {{args}}
-
----
-
 # Work Item
 
 Create, update, or inspect a single work item in Plane. Delegates all tool resolution to the `connector-bootstrap` skill and all field rules to the `work-items` skill.
@@ -20,7 +12,7 @@ Format: `<action> <project> [args...]`
 - `project`: project name or identifier
 - Remaining args depend on action (see examples)
 
-Parse from `"$ARGUMENTS"`.
+Parse from `"{{args}}"`.
 
 ## Process
 

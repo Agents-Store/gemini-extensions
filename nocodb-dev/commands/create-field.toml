@@ -1,13 +1,5 @@
-description = "Add a field of any of the 30 supported types to a NocoDB table"
+description = "Add a field of any of the 30 supported types to a NocoDB table Arguments: [table-name-or-id] [field-title] [field-type]."
 prompt = """
-# Arguments
-
-[table-name-or-id] [field-title] [field-type]
-
-User input: {{args}}
-
----
-
 # Create NocoDB Field
 
 Add a field to an existing table. Choose any of the 30 supported types — see the **field-management** skill and `api-reference/references/field-types.md` for per-type payloads.

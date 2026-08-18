@@ -1,13 +1,5 @@
-description = "Show current balances across all connected bank accounts"
+description = "Show current balances across all connected bank accounts Arguments: bank-name."
 prompt = """
-# Arguments
-
-bank-name
-
-User input: {{args}}
-
----
-
 # Balances
 
 Display current balances for all connected bank accounts, grouped by bank.
@@ -16,7 +8,7 @@ Display current balances for all connected bank accounts, grouped by bank.
 Format: `[bank-name]`
 - bank-name: Optional filter — "monobank", "privatbank", or omit for all
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

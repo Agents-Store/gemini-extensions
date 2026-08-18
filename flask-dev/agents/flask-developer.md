@@ -29,7 +29,6 @@ description: |
   Developer needs architectural guidance for Flask project organization.
   </commentary>
   </example>
-model: sonnet
 ---
 
 You are a Flask development specialist. You help developers write clean, well-structured Flask applications following production best practices.

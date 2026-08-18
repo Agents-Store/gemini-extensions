@@ -1,13 +1,5 @@
-description = "Search the web"
+description = "Search the web Arguments: <query> [--limit <n>]."
 prompt = """
-# Arguments
-
-<query> [--limit <n>]
-
-User input: {{args}}
-
----
-
 # Search
 
 Search the web and get results with page content.
@@ -17,7 +9,7 @@ Format: `<query> [--limit <n>]`
 - query: Search query (required)
 - --limit: Max results, default 5 (optional)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

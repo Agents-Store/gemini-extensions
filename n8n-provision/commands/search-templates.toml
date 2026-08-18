@@ -1,13 +1,5 @@
-description = "Search the official n8n template library for ready-made workflows"
+description = "Search the official n8n template library for ready-made workflows Arguments: <query> [--category <name>] [--nodes <nodeTypes>] [--mode <keyword|by_nodes|by_task>]."
 prompt = """
-# Arguments
-
-<query> [--category <name>] [--nodes <nodeTypes>] [--mode <keyword|by_nodes|by_task>]
-
-User input: {{args}}
-
----
-
 # Search Templates
 
 Search the n8n.io official template library (9,166+ templates) for workflows matching a query.
@@ -19,7 +11,7 @@ Format: `<query> [--category <name>] [--nodes <nodeTypes>] [--mode <keyword|by_n
 - --nodes: Search by node types used (comma-separated, e.g., Slack,GitHub)
 - --mode: Search mode — keyword (default), by_nodes, by_task
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

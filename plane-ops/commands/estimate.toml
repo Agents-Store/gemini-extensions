@@ -1,13 +1,5 @@
-description = "Estimate unestimated work items using Fibonacci story points"
+description = "Estimate unestimated work items using Fibonacci story points Arguments: <project> [--cycle <cycle-name>] [--scale fibonacci|tshirt]."
 prompt = """
-# Arguments
-
-<project> [--cycle <cycle-name>] [--scale fibonacci|tshirt]
-
-User input: {{args}}
-
----
-
 # Estimate
 
 Batch estimate unestimated work items in the backlog or a specific sprint.
@@ -18,7 +10,7 @@ Format: `<project> [--cycle <cycle-name>] [--scale fibonacci|tshirt]`
 - --cycle: Specific sprint to estimate items in (optional, defaults to full backlog)
 - --scale: Estimation scale — fibonacci (default) or tshirt
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

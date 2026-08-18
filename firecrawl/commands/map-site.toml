@@ -1,13 +1,5 @@
-description = "Map a site's URL structure"
+description = "Map a site's URL structure Arguments: <url>."
 prompt = """
-# Arguments
-
-<url>
-
-User input: {{args}}
-
----
-
 # Map Site
 
 Discover all URLs on a website.
@@ -16,7 +8,7 @@ Discover all URLs on a website.
 Format: `<url>`
 - url: Site URL to map (required)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

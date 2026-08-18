@@ -1,13 +1,5 @@
-description = "Show the change history (activity log) of a Plane work item"
+description = "Show the change history (activity log) of a Plane work item Arguments: <project> <item> [--limit n]."
 prompt = """
-# Arguments
-
-<project> <item> [--limit n]
-
-User input: {{args}}
-
----
-
 # History
 
 Render the activity timeline of a work item — every state change, assignment, label, comment, link, and field edit.
@@ -21,7 +13,7 @@ Format: `<project> <item> [--limit n]`
 - `--limit <n>`: max events (default 50, newest-first)
 - `--since <date>`: only events after a given date
 
-Parse from `"$ARGUMENTS"`.
+Parse from `"{{args}}"`.
 
 ## Process
 

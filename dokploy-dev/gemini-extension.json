@@ -15,5 +15,19 @@
         "DOKPLOY_API_KEY": "${DOKPLOY_API_KEY}"
       }
     }
-  }
+  },
+  "settings": [
+    {
+      "name": "DOKPLOY API KEY",
+      "description": "Required by dokploy-dev's MCP server(s).",
+      "envVar": "DOKPLOY_API_KEY",
+      "sensitive": true
+    },
+    {
+      "name": "DOKPLOY URL",
+      "description": "Required by dokploy-dev's MCP server(s).",
+      "envVar": "DOKPLOY_URL",
+      "sensitive": false
+    }
+  ]
 }

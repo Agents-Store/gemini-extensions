@@ -10,5 +10,19 @@
     "privatbank": {
       "httpUrl": "${PRIVATBANK_MCP_URL}"
     }
-  }
+  },
+  "settings": [
+    {
+      "name": "MONOBANK MCP URL",
+      "description": "Required by multi-bank's MCP server(s).",
+      "envVar": "MONOBANK_MCP_URL",
+      "sensitive": false
+    },
+    {
+      "name": "PRIVATBANK MCP URL",
+      "description": "Required by multi-bank's MCP server(s).",
+      "envVar": "PRIVATBANK_MCP_URL",
+      "sensitive": false
+    }
+  ]
 }

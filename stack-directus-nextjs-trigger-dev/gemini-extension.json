@@ -21,5 +21,31 @@
         "TRIGGER_API_URL": "${TRIGGER_API_URL}"
       }
     }
-  }
+  },
+  "settings": [
+    {
+      "name": "DIRECTUS ADMIN TOKEN",
+      "description": "Required by stack-directus-nextjs-trigger-dev's MCP server(s).",
+      "envVar": "DIRECTUS_ADMIN_TOKEN",
+      "sensitive": true
+    },
+    {
+      "name": "NEXT PUBLIC DIRECTUS URL",
+      "description": "Required by stack-directus-nextjs-trigger-dev's MCP server(s).",
+      "envVar": "NEXT_PUBLIC_DIRECTUS_URL",
+      "sensitive": false
+    },
+    {
+      "name": "TRIGGER API URL",
+      "description": "Required by stack-directus-nextjs-trigger-dev's MCP server(s).",
+      "envVar": "TRIGGER_API_URL",
+      "sensitive": false
+    },
+    {
+      "name": "TRIGGER SECRET KEY",
+      "description": "Required by stack-directus-nextjs-trigger-dev's MCP server(s).",
+      "envVar": "TRIGGER_SECRET_KEY",
+      "sensitive": true
+    }
+  ]
 }

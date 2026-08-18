@@ -1,13 +1,5 @@
-description = "List all stored memories with optional pagination"
+description = "List all stored memories with optional pagination Arguments: [--user <user_id>] [--limit <n>] [--page <n>]."
 prompt = """
-# Arguments
-
-[--user <user_id>] [--limit <n>] [--page <n>]
-
-User input: {{args}}
-
----
-
 # List Memories
 
 List all stored memories with pagination support.

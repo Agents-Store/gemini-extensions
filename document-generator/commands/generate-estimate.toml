@@ -1,13 +1,5 @@
-description = "Generate a professional cost estimate / quotation (PDF)"
+description = "Generate a professional cost estimate / quotation (PDF) Arguments: <estimate-number> [--company <name>] [--client <name>]."
 prompt = """
-# Arguments
-
-<estimate-number> [--company <name>] [--client <name>]
-
-User input: {{args}}
-
----
-
 # Generate Estimate
 
 Generate a detailed, professional cost estimate with phase-based pricing, team composition, timeline, scope, and payment schedule.
@@ -19,7 +11,7 @@ Format: `<estimate-number> [--company <name>] [--client <name>]`
 - --company: Your company name (optional, loaded from preferences)
 - --client: Client name (optional)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

@@ -1,13 +1,5 @@
-description = "Search attached files via vector search"
+description = 'Search attached files via vector search Arguments: "<query>" --user <user_id> [--file <filename>] [--limit <n>].'
 prompt = """
-# Arguments
-
-"<query>" --user <user_id> [--file <filename>] [--limit <n>]
-
-User input: {{args}}
-
----
-
 # Search Files
 
 Search through attached files using vector search.

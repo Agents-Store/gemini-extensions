@@ -1,13 +1,5 @@
-description = "Deploy an official n8n template to your instance"
+description = "Deploy an official n8n template to your instance Arguments: <template-id> [--name <custom-name>] [--auto-fix]."
 prompt = """
-# Arguments
-
-<template-id> [--name <custom-name>] [--auto-fix]
-
-User input: {{args}}
-
----
-
 # Deploy Template
 
 Deploy an official n8n template to the connected n8n instance.
@@ -18,7 +10,7 @@ Format: `<template-id> [--name <custom-name>] [--auto-fix]`
 - --name: Custom workflow name (default: use template name)
 - --auto-fix: Enable auto-fix for minor validation issues
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

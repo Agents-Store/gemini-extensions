@@ -1,13 +1,5 @@
-description = "Run an on-page SEO audit for a URL using DataForSEO"
+description = "Run an on-page SEO audit for a URL using DataForSEO Arguments: <url>."
 prompt = """
-# Arguments
-
-<url>
-
-User input: {{args}}
-
----
-
 # Site Audit
 
 Run a comprehensive on-page SEO audit using DataForSEO MCP tools.

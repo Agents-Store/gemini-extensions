@@ -1,18 +1,10 @@
-description = "AI-summarise a failed Dokploy deployment or a crashing container via the configured ai provider"
+description = "AI-summarise a failed Dokploy deployment or a crashing container via the configured ai provider Arguments: deployment-id|app-name-or-id|compose-name-or-id."
 prompt = """
-# Arguments
-
-deployment-id|app-name-or-id|compose-name-or-id
-
-User input: {{args}}
-
----
-
 # AI-Analyse a Failure
 
 Pipeline around `ai-analyzeLogs`: fetch the relevant log text, then ask the configured AI provider for a root cause + suggested fix. `ai-analyzeLogs` takes the **log text** (not a `deploymentId`) plus an `aiId` and a `context`.
 
-Follow the `read-logs` skill (`${CLAUDE_PLUGIN_ROOT}/skills/read-logs/SKILL.md`) §5 for the analyze step.
+Follow the `read-logs` skill (`${extensionPath}/skills/read-logs/SKILL.md`) §5 for the analyze step.
 
 ## Arguments
 
@@ -22,7 +14,7 @@ Format: `[deployment-id|app-name-or-id|compose-name-or-id]` (optional)
 - App / compose name or id → fetch its current runtime log (`context: "runtime"`); for a failed build, fetch the most recent errored deployment's build log instead.
 - No argument → `deployment-allCentralized`, list recent `status: error` rows, ask which to analyse.
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

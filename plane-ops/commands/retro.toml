@@ -1,13 +1,5 @@
-description = "Run a sprint retrospective and create action items"
+description = "Run a sprint retrospective and create action items Arguments: <project> [--format start-stop-continue|daki|4ls]."
 prompt = """
-# Arguments
-
-<project> [--format start-stop-continue|daki|4ls]
-
-User input: {{args}}
-
----
-
 # Retro
 
 Run a sprint retrospective — present metrics, collect team feedback, create action items, save notes.
@@ -17,7 +9,7 @@ Format: `<project> [--format start-stop-continue|daki|4ls]`
 - project: Project name or identifier (required)
 - --format: Retro format (default: start-stop-continue)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

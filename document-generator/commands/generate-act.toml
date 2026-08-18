@@ -1,13 +1,5 @@
-description = "Generate an Act of Completed Works (PDF)"
+description = "Generate an Act of Completed Works (PDF) Arguments: <title> [--format <pdf|docx>]."
 prompt = """
-# Arguments
-
-<title> [--format <pdf|docx>]
-
-User input: {{args}}
-
----
-
 # Generate Act of Completed Works
 
 Generate a professional Act of Completed Works with a services table, totals, and two-party signature blocks. Supports any language for all data values (company names, service descriptions, labels). The document language is determined by the `language` field in the input data.
@@ -18,7 +10,7 @@ Format: `<title> [--format <pdf|docx>]`
 - title: Document title or act number (required, e.g., "ACT-001")
 - --format: Output format — pdf (default) or docx
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

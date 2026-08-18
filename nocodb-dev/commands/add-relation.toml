@@ -1,13 +1,5 @@
-description = "Set up a Link between two NocoDB tables, optionally with a Lookup"
+description = "Set up a Link between two NocoDB tables, optionally with a Lookup Arguments: [from-table] [to-table] [cardinality]."
 prompt = """
-# Arguments
-
-[from-table] [to-table] [cardinality]
-
-User input: {{args}}
-
----
-
 # Add Relation
 
 Connect two NocoDB tables with a Link field. Optionally add a Lookup so the linked record's display name is visible on the other side.

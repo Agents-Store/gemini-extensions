@@ -1,13 +1,5 @@
-description = "Get a schema snapshot — shows complete data model for one or more collections"
+description = "Get a schema snapshot — shows complete data model for one or more collections Arguments: collection1 collection2 ...."
 prompt = """
-# Arguments
-
-collection1 collection2 ...
-
-User input: {{args}}
-
----
-
 # Snapshot Schema
 
 Get a detailed view of the Directus data model.

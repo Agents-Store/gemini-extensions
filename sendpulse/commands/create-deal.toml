@@ -1,13 +1,5 @@
-description = "Create a new CRM deal in a pipeline"
+description = "Create a new CRM deal in a pipeline Arguments: <deal-name> [--pipeline <id>] [--amount <amount>]."
 prompt = """
-# Arguments
-
-<deal-name> [--pipeline <id>] [--amount <amount>]
-
-User input: {{args}}
-
----
-
 # Create Deal
 
 Create a new CRM deal in a sales pipeline.
@@ -18,7 +10,7 @@ Format: `<deal-name> [--pipeline <id>] [--amount <amount>]`
 - --pipeline: Pipeline ID (optional — lists pipelines if omitted)
 - --amount: Deal amount (optional)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

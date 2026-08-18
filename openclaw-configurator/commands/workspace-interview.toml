@@ -1,13 +1,5 @@
-description = "Guided discovery session to understand goals, users, tasks, and success criteria for OpenClaw workspace customization"
+description = "Guided discovery session to understand goals, users, tasks, and success criteria for OpenClaw workspace customization Arguments: [new|existing]."
 prompt = """
-# Arguments
-
-[new|existing]
-
-User input: {{args}}
-
----
-
 # Workspace Interview
 
 Conduct a guided discovery session to understand what the OpenClaw workspace needs to achieve. CWD is the instance root (`~/.openclaw-{name}/`).

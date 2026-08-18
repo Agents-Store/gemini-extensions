@@ -1,13 +1,5 @@
-description = "List, inspect, update, or delete Plane projects (complement to /setup-project)"
+description = "List, inspect, update, or delete Plane projects (complement to /setup-project) Arguments: <action> [args...]."
 prompt = """
-# Arguments
-
-<action> [args...]
-
-User input: {{args}}
-
----
-
 # Projects
 
 Operate on Plane projects. For initial creation with Agile defaults use `/setup-project`.
@@ -21,7 +13,7 @@ Format: `<action> [args...]`
 - For `update`: `--name`, `--identifier <SLUG>`, `--description`, `--icon`, `--lead <user>`, `--default-assignee <user>`
 - For `features`: `--enable cycles,modules,issues,inbox,pages,views` or `--disable ...`
 
-Parse from `"$ARGUMENTS"`.
+Parse from `"{{args}}"`.
 
 ## Process
 

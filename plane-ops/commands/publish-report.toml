@@ -1,13 +1,5 @@
-description = "Publish a Plane page — sprint report, retro, release notes, or roadmap"
+description = "Publish a Plane page — sprint report, retro, release notes, or roadmap Arguments: <type> <project> [args...]."
 prompt = """
-# Arguments
-
-<type> <project> [args...]
-
-User input: {{args}}
-
----
-
 # Publish Report
 
 Generate and publish a Plane project page using a template from the `pages-publishing` skill.
@@ -20,7 +12,7 @@ Format: `<type> <project> [args...]`
 - `project`: project name or identifier
 - Remaining args depend on type
 
-Parse from `"$ARGUMENTS"`.
+Parse from `"{{args}}"`.
 
 ## Process
 

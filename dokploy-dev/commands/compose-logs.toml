@@ -1,18 +1,10 @@
-description = "Read the logs of EVERY container in a Dokploy Docker Compose stack and highlight errors"
+description = "Read the logs of EVERY container in a Dokploy Docker Compose stack and highlight errors Arguments: <compose-name-or-id> [--tail <N>] [--since <1h>] [--search <term>] [--errors-only]."
 prompt = """
-# Arguments
-
-<compose-name-or-id> [--tail <N>] [--since <1h>] [--search <term>] [--errors-only]
-
-User input: {{args}}
-
----
-
 # Read All Compose Container Logs
 
 Reads the runtime logs of **every container** in a Docker Compose stack, aggregates them, and surfaces errors per container. This is the right tool when a multi-service stack is misbehaving and you don't yet know which service is at fault.
 
-Follow the `read-logs` skill (`${CLAUDE_PLUGIN_ROOT}/skills/read-logs/SKILL.md`), §2 — load it first.
+Follow the `read-logs` skill (`${extensionPath}/skills/read-logs/SKILL.md`), §2 — load it first.
 
 ## Arguments
 
@@ -24,7 +16,7 @@ Format: `<compose-name-or-id> [--tail <N>] [--since <1h>] [--search <term>] [--e
 - `--search` — server-side substring filter applied to every container's log.
 - `--errors-only` — show only lines matching the error patterns (see skill §6); hide clean output.
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

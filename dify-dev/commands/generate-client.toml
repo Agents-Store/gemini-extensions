@@ -1,13 +1,5 @@
-description = "Generate copy-paste curl scripts for a Dify operation (chat, completion, workflow, file upload, knowledge-base ingest/retrieve)"
+description = "Generate copy-paste curl scripts for a Dify operation (chat, completion, workflow, file upload, knowledge-base ingest/retrieve) Arguments: [operation]."
 prompt = """
-# Arguments
-
-[operation]
-
-User input: {{args}}
-
----
-
 # Generate Dify curl Client
 
 Generate a ready-to-run **curl** script for a chosen Dify operation, with placeholders for
@@ -15,12 +7,12 @@ the base URL and API key.
 
 ## Argument
 
-- `$ARGUMENTS` — optional operation hint (e.g. `chat`, `completion`, `workflow`,
+- `{{args}}` — optional operation hint (e.g. `chat`, `completion`, `workflow`,
   `file upload`, `kb ingest`, `kb retrieve`). If empty, ask which operation to scaffold.
 
 ## Process
 
-1. **Determine the operation.** If `$ARGUMENTS` is empty or ambiguous, use AskUserQuestion to
+1. **Determine the operation.** If `{{args}}` is empty or ambiguous, use AskUserQuestion to
    choose among: Chat message · Completion · Run workflow · Upload file → chat · Knowledge
    base ingest · Knowledge base retrieve.
 

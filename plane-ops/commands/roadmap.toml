@@ -1,13 +1,5 @@
-description = "Generate a Now / Next / Later roadmap view across cycles, modules, epics"
+description = "Generate a Now / Next / Later roadmap view across cycles, modules, epics Arguments: <project> [--horizon <weeks>]."
 prompt = """
-# Arguments
-
-<project> [--horizon <weeks>]
-
-User input: {{args}}
-
----
-
 # Roadmap
 
 Produce a Now / Next / Later / Parked roadmap view for a project, aggregating active cycles, modules, epics, and milestones.
@@ -16,7 +8,7 @@ Produce a Now / Next / Later / Parked roadmap view for a project, aggregating ac
 
 Format: `<project> [--horizon <weeks>]`
 
-Parse from `"$ARGUMENTS"`. Default horizon: 12 weeks.
+Parse from `"{{args}}"`. Default horizon: 12 weeks.
 
 ## Process
 

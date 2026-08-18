@@ -1,13 +1,5 @@
-description = "Send a chatbot campaign on a specific channel"
+description = "Send a chatbot campaign on a specific channel Arguments: <channel> <bot-id> [message]."
 prompt = """
-# Arguments
-
-<channel> <bot-id> [message]
-
-User input: {{args}}
-
----
-
 # Send Campaign
 
 Send a chatbot campaign to all subscribers on a specific channel.
@@ -18,7 +10,7 @@ Format: `<channel> <bot-id> [message]`
 - bot-id: The bot ID (optional — will list bots if omitted)
 - message: The message text to send (optional — will prompt if omitted)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

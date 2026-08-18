@@ -1,13 +1,5 @@
-description = "List CRM contacts"
+description = "List CRM contacts Arguments: --limit <number>."
 prompt = """
-# Arguments
-
---limit <number>
-
-User input: {{args}}
-
----
-
 # List Contacts
 
 List CRM contacts with optional limit.
@@ -16,7 +8,7 @@ List CRM contacts with optional limit.
 Format: `[--limit <number>]`
 - --limit: Number of contacts to return (default: 50)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

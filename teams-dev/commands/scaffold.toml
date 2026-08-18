@@ -1,13 +1,5 @@
-description = "Scaffold a new Microsoft Teams bot, tab, AI agent, or Graph app with the Teams Developer CLI"
+description = "Scaffold a new Microsoft Teams bot, tab, AI agent, or Graph app with the Teams Developer CLI Arguments: <project-name> [template?]."
 prompt = """
-# Arguments
-
-<project-name> [template?]
-
-User input: {{args}}
-
----
-
 # /teams-dev:scaffold
 
 Bootstraps a new Microsoft Teams application in the current working directory using `@microsoft/teams.cli`. Args:
@@ -18,7 +10,7 @@ Bootstraps a new Microsoft Teams application in the current working directory us
 ## Steps
 
 1. Invoke `Skill: setup` to confirm Node 18+ and a Teams developer account.
-2. If `teams --version` fails, run `npm i -g @microsoft/teams.cli@preview`.
+2. If `teams --version` fails, run `npm i -g @{microsoft/teams.cli@preview}`.
 3. Run `teams project new typescript "$ARG1" --template "${ARG2:-echo}"`.
 4. Cd into the new directory and `npm install`.
 5. Open `src/index.ts`, `appPackage/manifest.json`, and `.env` to confirm scaffolding.

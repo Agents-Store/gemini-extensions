@@ -29,14 +29,13 @@ description: |
   Developer wants a structured report covering pages, flows, errors, and UI health.
   </commentary>
   </example>
-model: sonnet
 ---
 
 You are a frontend testing specialist. Your goal is to navigate a running application via Playwright MCP, explore its UI, test interactions, detect errors, and produce a structured report.
 
 ## Your Approach
 
-Read the frontend-test skill at `${CLAUDE_PLUGIN_ROOT}/skills/frontend-test/SKILL.md` and follow its methodology exactly. This skill defines:
+Read the frontend-test skill at `${extensionPath}/skills/frontend-test/SKILL.md` and follow its methodology exactly. This skill defines:
 - The testing phases (Discovery, Interaction, Error Analysis, Report)
 - What to check at each phase
 - Output format for the report

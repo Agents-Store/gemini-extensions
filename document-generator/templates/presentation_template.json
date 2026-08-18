@@ -1,0 +1,39 @@
+{
+  "type": "presentation",
+  "format": "pptx",
+  "structure": {
+    "defaultSlides": [
+      { "type": "title", "required": true },
+      { "type": "agenda", "required": true },
+      { "type": "content", "required": true, "repeatable": true },
+      { "type": "two-column", "required": false, "repeatable": true },
+      { "type": "chart", "required": false, "repeatable": true },
+      { "type": "summary", "required": true },
+      { "type": "contact", "required": false }
+    ],
+    "slideTypes": {
+      "title": { "fields": ["title", "subtitle", "author", "date"] },
+      "agenda": { "fields": ["title", "items"] },
+      "content": { "fields": ["title", "bullets", "image", "notes"] },
+      "two-column": { "fields": ["title", "leftColumn", "rightColumn"] },
+      "chart": { "fields": ["title", "chartType", "chartData", "notes"] },
+      "summary": { "fields": ["title", "keyPoints", "nextSteps"] },
+      "contact": { "fields": ["name", "email", "phone", "website"] }
+    }
+  },
+  "styling": {
+    "primaryColor": "#0F172A",
+    "accentColor": "#6366F1",
+    "secondaryColor": "#64748B",
+    "backgroundColor": "#FFFFFF",
+    "textColor": "#1E293B",
+    "fontFamily": "Arial",
+    "fontHeading": "Georgia",
+    "titleFontSize": 40,
+    "subtitleFontSize": 22,
+    "bodyFontSize": 18,
+    "bulletFontSize": 16,
+    "slideWidth": 13.33,
+    "slideHeight": 7.5
+  }
+}

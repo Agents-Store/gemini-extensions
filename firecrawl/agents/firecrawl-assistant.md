@@ -12,7 +12,6 @@ description: |
   <example>
   user: "Search the web for recent articles about AI regulations"
   </example>
-model: sonnet
 ---
 
 # Firecrawl Assistant

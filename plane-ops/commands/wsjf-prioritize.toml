@@ -1,13 +1,5 @@
-description = "Prioritize backlog items using Weighted Shortest Job First (WSJF) scoring"
+description = "Prioritize backlog items using Weighted Shortest Job First (WSJF) scoring Arguments: <project>."
 prompt = """
-# Arguments
-
-<project>
-
-User input: {{args}}
-
----
-
 # WSJF Prioritize
 
 Prioritize backlog items using Weighted Shortest Job First scoring — balancing value, urgency, risk, and effort.
@@ -16,7 +8,7 @@ Prioritize backlog items using Weighted Shortest Job First scoring — balancing
 Format: `<project>`
 - project: Project name or identifier (required)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

@@ -1,13 +1,5 @@
-description = "Batch update multiple memories at once (up to 100)"
+description = 'Batch update multiple memories at once (up to 100) Arguments: <memory_id1>="<text>" <memory_id2>="<text>" ....'
 prompt = """
-# Arguments
-
-<memory_id1>="<text>" <memory_id2>="<text>" ...
-
-User input: {{args}}
-
----
-
 # Batch Update
 
 Update multiple memories in a single operation (max 100).

@@ -1,13 +1,5 @@
-description = "Create or update a budget threshold with alerts"
+description = "Create or update a budget threshold with alerts Arguments: <category> <amount> [period]."
 prompt = """
-# Arguments
-
-<category> <amount> [period]
-
-User input: {{args}}
-
----
-
 # Set Budget
 
 Create or update a spending budget for a category with automatic alert thresholds.
@@ -18,7 +10,7 @@ Format: `<category> <amount> [period]`
 - amount: Budget limit in UAH
 - period: Budget period — weekly, monthly (default), quarterly, yearly
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

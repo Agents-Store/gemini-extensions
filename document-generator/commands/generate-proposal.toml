@@ -1,13 +1,5 @@
-description = "Generate a professional business proposal (DOCX/PDF)"
+description = "Generate a professional business proposal (DOCX/PDF) Arguments: <title> [--format <docx|pdf>] [--company <name>]."
 prompt = """
-# Arguments
-
-<title> [--format <docx|pdf>] [--company <name>]
-
-User input: {{args}}
-
----
-
 # Generate Proposal
 
 Generate a professional business proposal with cover page, table of contents, structured sections, and branded formatting.
@@ -19,7 +11,7 @@ Format: `<title> [--format <docx|pdf>] [--company <name>]`
 - --format: Output format -- docx (default, editable) or pdf (final version)
 - --company: Your company name for branding (optional)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

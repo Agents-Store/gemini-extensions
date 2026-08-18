@@ -12,7 +12,6 @@ description: |
   <example>
   user: "Audit and clean up outdated memories"
   </example>
-model: sonnet
 ---
 
 # Mem0 Knowledge Manager

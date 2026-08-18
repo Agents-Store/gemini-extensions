@@ -1,13 +1,5 @@
-description = "List corporate cards with balances and status"
+description = "List corporate cards with balances and status Arguments: open|closed|all."
 prompt = """
-# Arguments
-
-open|closed|all
-
-User input: {{args}}
-
----
-
 # Corporate Cards
 
 List corporate cards from connected bank MCP servers.
@@ -18,7 +10,7 @@ Format: `[filter]`
 - `closed` — show only closed cards
 - `all` — show all cards
 
-Parse from "$ARGUMENTS". If empty, default to "open".
+Parse from "{{args}}". If empty, default to "open".
 
 ## Process
 

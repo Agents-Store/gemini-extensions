@@ -1,13 +1,5 @@
-description = "Add a subscriber to an email addressbook"
+description = "Add a subscriber to an email addressbook Arguments: <email> [--addressbook <id>] [--name <name>]."
 prompt = """
-# Arguments
-
-<email> [--addressbook <id>] [--name <name>]
-
-User input: {{args}}
-
----
-
 # Add Subscriber
 
 Add a subscriber to an email addressbook (mailing list).
@@ -18,7 +10,7 @@ Format: `<email> [--addressbook <id>] [--name <name>]`
 - --addressbook: Target addressbook ID (optional — lists if omitted)
 - --name: Subscriber name (optional)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

@@ -15,7 +15,6 @@ description: |
   <example>
   user: "Show me the broadcast system architecture"
   </example>
-model: sonnet
 ---
 
 # Broadcast Architect

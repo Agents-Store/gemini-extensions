@@ -1,13 +1,5 @@
-description = "List email addressbooks with subscriber counts"
+description = "List email addressbooks with subscriber counts Arguments: --limit <number>."
 prompt = """
-# Arguments
-
---limit <number>
-
-User input: {{args}}
-
----
-
 # List Addressbooks
 
 List email addressbooks (mailing lists) with subscriber counts.
@@ -16,7 +8,7 @@ List email addressbooks (mailing lists) with subscriber counts.
 Format: `[--limit <number>]`
 - --limit: Number of addressbooks to return (default: 50)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

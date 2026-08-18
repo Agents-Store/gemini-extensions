@@ -1,13 +1,5 @@
-description = "Attach files to an existing memory"
+description = "Attach files to an existing memory Arguments: <memory_id> --user <user_id> --files <file1,file2,...>."
 prompt = """
-# Arguments
-
-<memory_id> --user <user_id> --files <file1,file2,...>
-
-User input: {{args}}
-
----
-
 # Attach Files
 
 Attach files to an existing memory for vector search.

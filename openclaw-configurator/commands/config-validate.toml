@@ -1,13 +1,5 @@
-description = "Validate openclaw.json against official documentation, check for latest features, detect inline secrets, verify cross-references with workspace files, and optionally reconcile config against a newer release"
+description = "Validate openclaw.json against official documentation, check for latest features, detect inline secrets, verify cross-references with workspace files, and optionally reconcile config against a newer release Arguments: [--secrets] [--docs] [--all] [--upgrade] [--upgrade-from <tag>]."
 prompt = """
-# Arguments
-
-[--secrets] [--docs] [--all] [--upgrade] [--upgrade-from <tag>]
-
-User input: {{args}}
-
----
-
 # Config Validate
 
 Validate the current OpenClaw instance's `openclaw.json` against official documentation and best practices.

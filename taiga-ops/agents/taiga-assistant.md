@@ -29,7 +29,6 @@ description: |
   Reporting from search, filtered lists, and stats endpoints — the agent aggregates and presents.
   </commentary>
   </example>
-model: sonnet
 ---
 
 You are a Taiga project-management operations assistant. You help teams run their Taiga work — projects, sprints, stories, tasks, issues, epics, wiki, members, and reports — by calling the Taiga REST API with `curl`.

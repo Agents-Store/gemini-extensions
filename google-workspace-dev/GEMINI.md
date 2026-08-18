@@ -2,11 +2,9 @@
 
 > Google Workspace plugin powered by the official googleworkspace/cli (gws) Agent Skills. ~95 skills for Gmail, Drive, Calendar, Sheets, Docs, Chat, Meet, Tasks, Slides, Forms, Classroom and Admin — plus role personas and ready-made recipes — all driving the gws CLI. Vendored from upstream and auto-synced weekly. Requires the gws CLI (npm i -g @googleworkspace/cli) and a one-time OAuth setup.
 
-Canonical: https://github.com/agents-store/claude-public-plugins/tree/main/plugins/google-workspace-dev
+Canonical source: https://github.com/agents-store/claude-public-plugins/tree/main/plugins/google-workspace-dev
 
-## Available skills
-
-Skills under `skills/` auto-load by description match:
+## Skills
 
 - **examples** — Use when the user wants a worked end-to-end example of combining Google Workspace services with the gws CLI — e.g. "show me an example", "how do I turn emails into tasks", "build a report from a sheet and email it", "prep for my next meeting", "create events from a spreadsheet". Walks through multi-step scenarios that chain several gws-*/recipe-* skills.
 - **google-workspace-setup** — Use when installing or troubleshooting the gws (Google Workspace CLI) that powers every google-workspace-dev skill. Triggers on "install gws", "gws auth setup", "gws auth login", "set up Google Workspace CLI", "connect Gmail/Drive/Calendar", or errors like "command not found: gws", "Access blocked", "403 accessNotConfigured", "redirect_uri_mismatch", or "too many scopes".

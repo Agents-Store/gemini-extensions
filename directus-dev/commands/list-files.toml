@@ -1,13 +1,5 @@
-description = "List files in Directus with optional folder or type filter"
+description = "List files in Directus with optional folder or type filter Arguments: [--folder <name>] [--type <mime-prefix>]."
 prompt = """
-# Arguments
-
-[--folder <name>] [--type <mime-prefix>]
-
-User input: {{args}}
-
----
-
 # List Files
 
 ## Arguments

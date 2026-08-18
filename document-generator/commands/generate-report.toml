@@ -1,13 +1,5 @@
-description = "Generate a professional report (DOCX/PDF)"
+description = "Generate a professional report (DOCX/PDF) Arguments: <title> [--format <docx|pdf>] [--type <annual|quarterly|project>]."
 prompt = """
-# Arguments
-
-<title> [--format <docx|pdf>] [--type <annual|quarterly|project>]
-
-User input: {{args}}
-
----
-
 # Generate Report
 
 Generate a professional report with cover page, table of contents, structured sections, page numbers, and headers/footers.
@@ -19,7 +11,7 @@ Format: `<title> [--format <docx|pdf>] [--type <annual|quarterly|project>]`
 - --format: Output format -- docx (default, editable) or pdf (final)
 - --type: Report type hint for structure suggestions (optional)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

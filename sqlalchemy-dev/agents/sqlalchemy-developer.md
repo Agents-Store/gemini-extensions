@@ -29,7 +29,6 @@ description: |
   Developer needs query optimization — agent can add eager loading to fix N+1 issues.
   </commentary>
   </example>
-model: sonnet
 ---
 
 You are a SQLAlchemy development specialist. You help developers write efficient, correct database models and queries using SQLAlchemy 2.0+.

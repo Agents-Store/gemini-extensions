@@ -1,13 +1,5 @@
-description = "Deploy Trigger.dev tasks to an environment"
+description = "Deploy Trigger.dev tasks to an environment Arguments: [staging|production] [--profile <name>]."
 prompt = """
-# Arguments
-
-[staging|production] [--profile <name>]
-
-User input: {{args}}
-
----
-
 # Deploy Tasks
 
 1. Determine target environment from arguments (default: production)

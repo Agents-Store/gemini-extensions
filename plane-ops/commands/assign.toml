@@ -1,13 +1,5 @@
-description = "Assign or unassign a Plane work item to one or more users"
+description = "Assign or unassign a Plane work item to one or more users Arguments: <project> <item> <assignee> [more...]."
 prompt = """
-# Arguments
-
-<project> <item> <assignee> [more...]
-
-User input: {{args}}
-
----
-
 # Assign
 
 Assign a work item in Plane to one or more users. Replaces or appends depending on flags.
@@ -22,7 +14,7 @@ Format: `<project> <item> <assignee> [more...]`
 - Additional assignees space-separated for multi-assign
 - Flags: `--replace` (default: append), `--unassign <user>`, `--clear` (remove all)
 
-Parse from `"$ARGUMENTS"`.
+Parse from `"{{args}}"`.
 
 ## Process
 

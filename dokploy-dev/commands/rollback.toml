@@ -1,13 +1,5 @@
-description = "Roll a Dokploy application or compose stack back to a previous version"
+description = "Roll a Dokploy application or compose stack back to a previous version Arguments: <app-name-or-id|compose-id>."
 prompt = """
-# Arguments
-
-<app-name-or-id|compose-id>
-
-User input: {{args}}
-
----
-
 # Rollback Deployment
 
 Guided rollback to a previously-successful deployment. Lists available rollback points, asks the user to pick one, then calls `rollback-rollback`.
@@ -16,7 +8,7 @@ Guided rollback to a previously-successful deployment. Lists available rollback 
 
 Format: `<app-name-or-id|compose-id>` (required)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

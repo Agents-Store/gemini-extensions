@@ -1,13 +1,5 @@
-description = "Compare a domain against its competitors using DataForSEO"
+description = "Compare a domain against its competitors using DataForSEO Arguments: <domain>."
 prompt = """
-# Arguments
-
-<domain>
-
-User input: {{args}}
-
----
-
 # Competitor Analysis
 
 Run a comprehensive competitive analysis using DataForSEO MCP tools.

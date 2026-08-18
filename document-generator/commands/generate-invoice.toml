@@ -1,13 +1,5 @@
-description = "Generate a professional invoice (PDF)"
+description = "Generate a professional invoice (PDF) Arguments: <invoice-number> [--company <name>] [--client <name>]."
 prompt = """
-# Arguments
-
-<invoice-number> [--company <name>] [--client <name>]
-
-User input: {{args}}
-
----
-
 # Generate Invoice
 
 Generate a professional PDF invoice with company header, itemized table, tax calculation, and payment details.
@@ -19,7 +11,7 @@ Format: `<invoice-number> [--company <name>] [--client <name>]`
 - --company: Your company name (optional)
 - --client: Client name (optional)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

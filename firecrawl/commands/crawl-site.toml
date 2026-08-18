@@ -1,13 +1,5 @@
-description = "Crawl a website"
+description = "Crawl a website Arguments: <url> [--max-pages <n>] [--include <pattern>]."
 prompt = """
-# Arguments
-
-<url> [--max-pages <n>] [--include <pattern>]
-
-User input: {{args}}
-
----
-
 # Crawl Site
 
 Start crawling a website and monitor progress.
@@ -18,7 +10,7 @@ Format: `<url> [--max-pages <n>] [--include <pattern>]`
 - --max-pages: Maximum pages to crawl, default 50 (optional)
 - --include: URL pattern to include, e.g. "/blog/*" (optional)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

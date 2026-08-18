@@ -1,13 +1,5 @@
-description = "Search memories by semantic query"
+description = 'Search memories by semantic query Arguments: "<query>" [--user <user_id>] [--limit <n>].'
 prompt = """
-# Arguments
-
-"<query>" [--user <user_id>] [--limit <n>]
-
-User input: {{args}}
-
----
-
 # Search Memories
 
 Find memories using semantic search.

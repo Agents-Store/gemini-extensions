@@ -1,13 +1,5 @@
-description = "Create a new webhook for event notifications"
+description = "Create a new webhook for event notifications Arguments: <url> [<event>]."
 prompt = """
-# Arguments
-
-<url> [<event>]
-
-User input: {{args}}
-
----
-
 # Create Webhook
 
 Create a new webhook endpoint for receiving store event notifications.
@@ -17,7 +9,7 @@ Format: `<url> [<event>]`
 - url: Webhook endpoint URL (required)
 - event: Event type to subscribe to (optional — if not provided, shows available events)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

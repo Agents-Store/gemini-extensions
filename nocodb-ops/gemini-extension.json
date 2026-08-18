@@ -10,5 +10,19 @@
         "xc-mcp-token": "${NOCODB_MCP_TOKEN}"
       }
     }
-  }
+  },
+  "settings": [
+    {
+      "name": "NOCODB MCP TOKEN",
+      "description": "Required by nocodb-ops's MCP server(s).",
+      "envVar": "NOCODB_MCP_TOKEN",
+      "sensitive": true
+    },
+    {
+      "name": "NOCODB MCP URL",
+      "description": "Required by nocodb-ops's MCP server(s).",
+      "envVar": "NOCODB_MCP_URL",
+      "sensitive": false
+    }
+  ]
 }

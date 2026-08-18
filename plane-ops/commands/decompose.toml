@@ -1,13 +1,5 @@
-description = "Break down a work item into smaller stories/tasks using INVEST criteria"
+description = "Break down a work item into smaller stories/tasks using INVEST criteria Arguments: <work-item-identifier>."
 prompt = """
-# Arguments
-
-<work-item-identifier>
-
-User input: {{args}}
-
----
-
 # Decompose
 
 Break down a work item into smaller, sprint-ready stories or tasks using INVEST criteria and vertical slicing.
@@ -16,7 +8,7 @@ Break down a work item into smaller, sprint-ready stories or tasks using INVEST 
 Format: `<work-item-identifier>`
 - work-item-identifier: Item identifier like "MP-42" (required)
 
-Parse from "$ARGUMENTS". Extract project_identifier and issue_identifier number.
+Parse from "{{args}}". Extract project_identifier and issue_identifier number.
 
 ## Process
 

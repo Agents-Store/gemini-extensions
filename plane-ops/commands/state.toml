@@ -1,13 +1,5 @@
-description = "Manage Plane workflow states — list, create, update, delete, reorder"
+description = "Manage Plane workflow states — list, create, update, delete, reorder Arguments: <action> <project> [args...]."
 prompt = """
-# Arguments
-
-<action> <project> [args...]
-
-User input: {{args}}
-
----
-
 # State
 
 Manage workflow states (the columns on a board) for a Plane project.
@@ -20,7 +12,7 @@ Format: `<action> <project> [args...]`
 - `project`: project name or identifier
 - For `create`/`update`: `--name`, `--group <backlog|unstarted|started|completed|cancelled>`, `--color #hex`, `--sequence <int>`, `--default`
 
-Parse from `"$ARGUMENTS"`.
+Parse from `"{{args}}"`.
 
 ## Process
 

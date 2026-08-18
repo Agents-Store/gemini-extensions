@@ -1,13 +1,5 @@
-description = "Manage Plane labels — list, create, update, delete, or apply to a work item"
+description = "Manage Plane labels — list, create, update, delete, or apply to a work item Arguments: <action> <project> [args...]."
 prompt = """
-# Arguments
-
-<action> <project> [args...]
-
-User input: {{args}}
-
----
-
 # Label
 
 Manage labels in a Plane project. Labels drive triage, grooming, and reporting filters.
@@ -20,7 +12,7 @@ Format: `<action> <project> [args...]`
 - `project`: project name or identifier
 - Remaining: label name, `--color #hex`, `--description`, `--item PROJ-42`
 
-Parse from `"$ARGUMENTS"`.
+Parse from `"{{args}}"`.
 
 ## Process
 

@@ -12,7 +12,6 @@ description: |
   <example>
   user: "Show me the history of changes for this memory"
   </example>
-model: sonnet
 ---
 
 # Mem0 Assistant

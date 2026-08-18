@@ -1,13 +1,5 @@
-description = "Debug a failed n8n workflow execution"
+description = "Debug a failed n8n workflow execution Arguments: <workflow-id> [--execution <execution-id>]."
 prompt = """
-# Arguments
-
-<workflow-id> [--execution <execution-id>]
-
-User input: {{args}}
-
----
-
 # Debug Workflow
 
 Debug a failed n8n workflow execution — find the failing node, error message, and suggest fixes.
@@ -17,7 +9,7 @@ Format: `<workflow-id> [--execution <execution-id>]`
 - workflow-id: ID of the workflow to debug (required)
 - --execution: Specific execution ID to debug (optional, defaults to last failed)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

@@ -1,13 +1,5 @@
-description = "Run a backlog grooming session — refine, estimate, and prioritize"
+description = "Run a backlog grooming session — refine, estimate, and prioritize Arguments: <project> [--limit <n>]."
 prompt = """
-# Arguments
-
-<project> [--limit <n>]
-
-User input: {{args}}
-
----
-
 # Groom Backlog
 
 Run a structured backlog grooming session: review top items, fill missing details, estimate unestimated ones, and reprioritize.
@@ -16,7 +8,7 @@ Run a structured backlog grooming session: review top items, fill missing detail
 
 Format: `<project> [--limit <n>]`
 
-Parse from `"$ARGUMENTS"`. Default limit: top 20 items by priority.
+Parse from `"{{args}}"`. Default limit: top 20 items by priority.
 
 ## Process
 

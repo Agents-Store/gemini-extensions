@@ -10,5 +10,19 @@
         "Authorization": "Bearer ${DIRECTUS_ADMIN_TOKEN}"
       }
     }
-  }
+  },
+  "settings": [
+    {
+      "name": "DIRECTUS ADMIN TOKEN",
+      "description": "Required by stack-directus-nextjs-dev's MCP server(s).",
+      "envVar": "DIRECTUS_ADMIN_TOKEN",
+      "sensitive": true
+    },
+    {
+      "name": "NEXT PUBLIC DIRECTUS URL",
+      "description": "Required by stack-directus-nextjs-dev's MCP server(s).",
+      "envVar": "NEXT_PUBLIC_DIRECTUS_URL",
+      "sensitive": false
+    }
+  ]
 }

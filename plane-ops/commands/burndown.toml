@@ -1,13 +1,5 @@
-description = "Show sprint burndown and projected completion for the active cycle"
+description = "Show sprint burndown and projected completion for the active cycle Arguments: <project> [--cycle <current|name>]."
 prompt = """
-# Arguments
-
-<project> [--cycle <current|name>]
-
-User input: {{args}}
-
----
-
 # Burndown
 
 Compute a burndown view for a sprint: ideal line, actual points remaining, and projected end state.
@@ -16,7 +8,7 @@ Compute a burndown view for a sprint: ideal line, actual points remaining, and p
 
 Format: `<project> [--cycle <current|name>]`
 
-Parse from `"$ARGUMENTS"`. Default: current cycle.
+Parse from `"{{args}}"`. Default: current cycle.
 
 ## Process
 

@@ -1,13 +1,5 @@
-description = "Search records in a NocoDB table"
+description = "Search records in a NocoDB table Arguments: <table-name> <query>."
 prompt = """
-# Arguments
-
-<table-name> <query>
-
-User input: {{args}}
-
----
-
 # Search Records
 
 Search for records across all fields in a NocoDB table.
@@ -17,7 +9,7 @@ Format: `<table-name> <query>`
 - table-name: Name or ID of the table (required)
 - query: Search query text (required)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

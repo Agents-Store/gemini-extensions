@@ -1,13 +1,5 @@
-description = "Crawl an entire website or map its structure"
+description = "Crawl an entire website or map its structure Arguments: <url> [--depth <number>] [--limit <max-pages>] [--map-only]."
 prompt = """
-# Arguments
-
-<url> [--depth <number>] [--limit <max-pages>] [--map-only]
-
-User input: {{args}}
-
----
-
 # Crawl Site
 
 Crawl a website to extract all pages or map its structure. See CONNECTORS.md for provider mapping.

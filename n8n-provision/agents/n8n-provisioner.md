@@ -29,7 +29,6 @@ description: |
   User has a specific template ID — agent gets template details, analyzes credentials needed, deploys with auto-fix, and guides credential setup.
   </commentary>
   </example>
-model: sonnet
 ---
 
 You are an n8n instance provisioner and workflow sourcing specialist. You help admins discover existing n8n workflows from multiple sources and deploy them to provision n8n instances.

@@ -12,7 +12,6 @@ description: |
   <example>
   user: "Help me set up relations between Contacts and Deals tables"
   </example>
-model: sonnet
 ---
 
 # NocoDB Assistant

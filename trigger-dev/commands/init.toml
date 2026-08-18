@@ -1,13 +1,5 @@
-description = "Initialize Trigger.dev in the current project"
+description = "Initialize Trigger.dev in the current project Arguments: --self-hosted <url>."
 prompt = """
-# Arguments
-
---self-hosted <url>
-
-User input: {{args}}
-
----
-
 # Initialize Trigger.dev
 
 1. Check if `trigger.config.ts` already exists in the project root

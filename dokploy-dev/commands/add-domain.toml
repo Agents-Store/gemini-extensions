@@ -1,13 +1,5 @@
-description = "Add a custom domain to a Dokploy application"
+description = "Add a custom domain to a Dokploy application Arguments: <domain> --app <app-name-or-id> [--port <port>] [--https]."
 prompt = """
-# Arguments
-
-<domain> --app <app-name-or-id> [--port <port>] [--https]
-
-User input: {{args}}
-
----
-
 # Add Domain
 
 Add a custom domain to a Dokploy application with optional HTTPS.
@@ -19,7 +11,7 @@ Format: `<domain> --app <app-name-or-id> [--port <port>] [--https]`
 - --port: Application port (default: 3000)
 - --https: Enable HTTPS with Let's Encrypt certificate (optional flag)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

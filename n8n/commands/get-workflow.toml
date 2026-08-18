@@ -1,13 +1,5 @@
-description = "Get n8n workflow details"
+description = "Get n8n workflow details Arguments: <workflow-id>."
 prompt = """
-# Arguments
-
-<workflow-id>
-
-User input: {{args}}
-
----
-
 # Get Workflow
 
 Get detailed information about an n8n workflow — nodes, connections, settings, and active status.
@@ -16,7 +8,7 @@ Get detailed information about an n8n workflow — nodes, connections, settings,
 Format: `<workflow-id>`
 - workflow-id: ID of the workflow (required)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

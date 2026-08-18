@@ -1,13 +1,5 @@
-description = "Plan a NocoBase workflow automation"
+description = "Plan a NocoBase workflow automation Arguments: <description>."
 prompt = """
-# Arguments
-
-<description>
-
-User input: {{args}}
-
----
-
 # Plan Workflow
 
 Design a NocoBase workflow automation with trigger, nodes, and conditions.
@@ -16,7 +8,7 @@ Design a NocoBase workflow automation with trigger, nodes, and conditions.
 Format: `<description>`
 - description: What the workflow should do (required)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

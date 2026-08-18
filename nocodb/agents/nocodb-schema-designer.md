@@ -9,7 +9,6 @@ description: |
   <example>
   user: "Plan a project management database with tasks, teams, and milestones"
   </example>
-model: sonnet
 ---
 
 # NocoDB Schema Designer

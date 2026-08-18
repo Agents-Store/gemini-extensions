@@ -1,18 +1,10 @@
-description = "Show restic backup health — timer state, latest snapshot, freshness, recent log"
+description = "Show restic backup health — timer state, latest snapshot, freshness, recent log Arguments: [--log-lines <n>]."
 prompt = """
-# Arguments
-
-[--log-lines <n>]
-
-User input: {{args}}
-
----
-
 # restic Backup Status
 
 Answer "are my backups healthy?" at a glance. Read-only.
 
-Parse `[--log-lines <n>]` (default 20) from "$ARGUMENTS".
+Parse `[--log-lines <n>]` (default 20) from "{{args}}".
 
 ## Process
 

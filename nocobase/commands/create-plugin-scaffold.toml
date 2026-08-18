@@ -1,13 +1,5 @@
-description = "Generate NocoBase plugin scaffold structure"
+description = "Generate NocoBase plugin scaffold structure Arguments: <plugin-name> [--type <server|client|full>]."
 prompt = """
-# Arguments
-
-<plugin-name> [--type <server|client|full>]
-
-User input: {{args}}
-
----
-
 # Create Plugin Scaffold
 
 Generate the directory structure and boilerplate for a NocoBase plugin.
@@ -17,7 +9,7 @@ Format: `<plugin-name> [--type <server|client|full>]`
 - plugin-name: Name of the plugin (required)
 - --type: Plugin type — server (backend only), client (frontend only), full (both, default)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

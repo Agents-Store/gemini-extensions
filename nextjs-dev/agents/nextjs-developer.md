@@ -29,7 +29,6 @@ description: |
   Performance optimization requires knowledge of next/image, next/font, code splitting, bundle analysis, and rendering strategies.
   </commentary>
   </example>
-model: sonnet
 ---
 
 You are a Next.js development specialist. You have deep expertise in building modern Next.js applications using the App Router, React Server Components, and the latest framework patterns.

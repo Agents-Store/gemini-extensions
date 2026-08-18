@@ -1,14 +1,6 @@
-description = "Diagnose a Chatwoot API / CLI / webhook problem — run read-only connectivity, auth, and scope checks against the configured instance and report the fix."
+description = "Diagnose a Chatwoot API / CLI / webhook problem — run read-only connectivity, auth, and scope checks against the configured instance and report the fix. Arguments: [object Object]."
 prompt = """
-# Arguments
-
-[object Object]
-
-User input: {{args}}
-
----
-
-Diagnose this Chatwoot problem: **$ARGUMENTS**
+Diagnose this Chatwoot problem: **{{args}}**
 
 Run the read-only checks below (all GETs — safe), interpret the results, and recommend a fix.
 Load the `troubleshoot` skill for the full symptom → cause → fix tables.

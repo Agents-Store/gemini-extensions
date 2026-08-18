@@ -1,13 +1,5 @@
-description = "Create a record in a NocoBase collection"
+description = "Create a record in a NocoBase collection Arguments: <collection> <field1=value1> [field2=value2] ...."
 prompt = """
-# Arguments
-
-<collection> <field1=value1> [field2=value2] ...
-
-User input: {{args}}
-
----
-
 # Create Record
 
 Create a new record in a NocoBase collection.
@@ -17,7 +9,7 @@ Format: `<collection> <field1=value1> [field2=value2] ...`
 - collection: Target collection name (required)
 - field=value: Field name and value pairs (at least one required)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

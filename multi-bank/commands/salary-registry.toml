@@ -1,13 +1,5 @@
-description = "Manage salary registries — create, check status, list types"
+description = "Manage salary registries — create, check status, list types Arguments: <create|status|types> [registry-id]."
 prompt = """
-# Arguments
-
-<create|status|types> [registry-id]
-
-User input: {{args}}
-
----
-
 # Salary Registry
 
 Manage salary registries (зарплатні відомості) through bank MCP tools.
@@ -18,7 +10,7 @@ Format: `<action> [id]`
 - `create` — create a new salary registry (interactive)
 - `status <registry-id>` — check registry status
 
-Parse from "$ARGUMENTS". If empty, show available actions.
+Parse from "{{args}}". If empty, show available actions.
 
 ## Process
 

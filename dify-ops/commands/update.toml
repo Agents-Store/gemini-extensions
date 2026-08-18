@@ -1,20 +1,12 @@
-description = "Update self-hosted Dify — pull upstream, merge into dev, sync .env, rebuild Docker containers"
+description = "Update self-hosted Dify — pull upstream, merge into dev, sync .env, rebuild Docker containers Arguments: [tag-or-version]."
 prompt = """
-# Arguments
-
-[tag-or-version]
-
-User input: {{args}}
-
----
-
 # Dify Update
 
 Update a self-hosted Dify instance: pull upstream changes, merge into local dev branch, sync environment variables, and rebuild Docker containers.
 
 ## Arguments
 
-- `$ARGUMENTS` — optional tag/version (e.g., `0.15.0`, `v0.15.0`). If empty, update to latest main.
+- `{{args}}` — optional tag/version (e.g., `0.15.0`, `v0.15.0`). If empty, update to latest main.
 
 ## Process
 
@@ -85,7 +77,7 @@ git merge origin/main
 
 ```bash
 cd "$DIFY_ROOT"
-TAG="$ARGUMENTS"
+TAG="{{args}}"
 
 # Verify tag exists (try with and without 'v' prefix)
 if ! git tag -l "$TAG" | grep -q .; then

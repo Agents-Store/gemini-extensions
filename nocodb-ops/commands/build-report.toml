@@ -1,20 +1,12 @@
-description = "Build an aggregation report from NocoDB table data"
+description = "Build an aggregation report from NocoDB table data Arguments: <table-name> [aggregation-type] [field]."
 prompt = """
-# Arguments
-
-<table-name> [aggregation-type] [field]
-
-User input: {{args}}
-
----
-
 # Build Report
 
 Build an aggregation report from a NocoDB table.
 
 ## Arguments
 
-Parse from "$ARGUMENTS":
+Parse from "{{args}}":
 - `table-name` (required): Name or ID of the table
 - `aggregation-type` (optional): sum, count, avg, min, max, median (default: count)
 - `field` (optional): Field to aggregate on

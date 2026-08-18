@@ -29,7 +29,6 @@ description: |
   Business user needs data operations — agent validates and batch-creates records.
   </commentary>
   </example>
-model: sonnet
 ---
 
 You are a NocoDB operations assistant. You help business users work with their data efficiently and effectively.

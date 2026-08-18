@@ -1,13 +1,5 @@
-description = "Analyze backlog health — unestimated items, stale items, missing details"
+description = "Analyze backlog health — unestimated items, stale items, missing details Arguments: <project>."
 prompt = """
-# Arguments
-
-<project>
-
-User input: {{args}}
-
----
-
 # Backlog Health
 
 Generate a health report for the project backlog — identifying gaps and recommending actions.
@@ -16,7 +8,7 @@ Generate a health report for the project backlog — identifying gaps and recomm
 Format: `<project>`
 - project: Project name or identifier (required)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

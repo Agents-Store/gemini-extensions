@@ -1,13 +1,5 @@
-description = "Add a new memory from text"
+description = 'Add a new memory from text Arguments: "<text to remember>" [--user <user_id>].'
 prompt = """
-# Arguments
-
-"<text to remember>" [--user <user_id>]
-
-User input: {{args}}
-
----
-
 # Add Memory
 
 Store new information as a memory in Mem0.

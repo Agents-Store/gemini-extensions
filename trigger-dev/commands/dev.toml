@@ -1,13 +1,5 @@
-description = "Start the Trigger.dev dev server"
+description = "Start the Trigger.dev dev server Arguments: --profile <name>."
 prompt = """
-# Arguments
-
---profile <name>
-
-User input: {{args}}
-
----
-
 # Start Dev Server
 
 1. Verify `trigger.config.ts` exists in the project

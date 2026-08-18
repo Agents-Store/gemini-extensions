@@ -1,13 +1,5 @@
-description = "Add or list comments on a Plane work item"
+description = "Add or list comments on a Plane work item Arguments: <action> <project> <item> [body]."
 prompt = """
-# Arguments
-
-<action> <project> <item> [body]
-
-User input: {{args}}
-
----
-
 # Comment
 
 Add or list comments on a Plane work item.
@@ -21,7 +13,7 @@ Format: `<action> <project> <item> [body]`
 - `item`: work item identifier (`PROJ-42`) or UUID
 - `body`: comment text (for `add`/`update`) — supports markdown
 
-Parse from `"$ARGUMENTS"`.
+Parse from `"{{args}}"`.
 
 ## Process
 

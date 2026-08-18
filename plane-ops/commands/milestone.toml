@@ -1,13 +1,5 @@
-description = "Manage Plane milestones — create, list, add items, update, delete"
+description = "Manage Plane milestones — create, list, add items, update, delete Arguments: <action> <project> [args...]."
 prompt = """
-# Arguments
-
-<action> <project> [args...]
-
-User input: {{args}}
-
----
-
 # Milestone
 
 Create and manage milestones (release markers) on a Plane project. For status/risk reporting on an existing milestone use `/milestone-status`.
@@ -21,7 +13,7 @@ Format: `<action> <project> [args...]`
 - For `create`: `--name`, `--target <date>`, `--description`
 - For `add-items`/`remove-items`: `--milestone <name>`, item IDs as remaining args
 
-Parse from `"$ARGUMENTS"`.
+Parse from `"{{args}}"`.
 
 ## Process
 

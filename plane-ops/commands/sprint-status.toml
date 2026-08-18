@@ -1,13 +1,5 @@
-description = "Show current sprint status — progress, burndown, at-risk items"
+description = "Show current sprint status — progress, burndown, at-risk items Arguments: <project>."
 prompt = """
-# Arguments
-
-<project>
-
-User input: {{args}}
-
----
-
 # Sprint Status
 
 Display a dashboard of the current sprint — progress, burndown, WIP, and at-risk items.
@@ -16,7 +8,7 @@ Display a dashboard of the current sprint — progress, burndown, WIP, and at-ri
 Format: `<project>`
 - project: Project name or identifier (required)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

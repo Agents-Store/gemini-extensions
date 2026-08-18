@@ -24,7 +24,6 @@ description: |
   <example>
   user: "Show me the roadmap for this quarter"
   </example>
-model: sonnet
 ---
 
 # Plane Agile Coach

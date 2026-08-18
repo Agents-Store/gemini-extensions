@@ -1,7 +1,6 @@
 ---
 name: sendpulse-assistant
 description: Interactive Sendpulse assistant. Helps with chatbot management, CRM operations, email marketing, SMTP transactional emails, and multi-channel campaign orchestration.
-model: sonnet
 ---
 
 # Sendpulse Assistant

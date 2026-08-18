@@ -1,13 +1,5 @@
-description = "Manage custom work item types in a Plane project (Story, Bug, Spike, ...)"
+description = "Manage custom work item types in a Plane project (Story, Bug, Spike, ...) Arguments: <action> <project> [args...]."
 prompt = """
-# Arguments
-
-<action> <project> [args...]
-
-User input: {{args}}
-
----
-
 # Work Item Type
 
 Define and manage custom work item types — beyond the default Issue/Task. Examples: Story, Bug, Spike, Tech Debt, Incident.
@@ -20,7 +12,7 @@ Format: `<action> <project> [args...]`
 - `project`: project name or identifier
 - For `create`/`update`: `--name`, `--description`, `--icon`, `--color`, `--default`, `--enabled`
 
-Parse from `"$ARGUMENTS"`.
+Parse from `"{{args}}"`.
 
 ## Process
 

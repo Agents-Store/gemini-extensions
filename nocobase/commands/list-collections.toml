@@ -1,13 +1,5 @@
-description = "List all NocoBase collections"
+description = "List all NocoBase collections Arguments: --details."
 prompt = """
-# Arguments
-
---details
-
-User input: {{args}}
-
----
-
 # List Collections
 
 List all collections (data models) in the NocoBase instance.
@@ -16,7 +8,7 @@ List all collections (data models) in the NocoBase instance.
 Format: `[--details]`
 - --details: Show field details for each collection (optional)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

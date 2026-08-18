@@ -1,13 +1,5 @@
-description = "List all n8n workflows"
+description = "List all n8n workflows Arguments: [--active] [--tag <tag>]."
 prompt = """
-# Arguments
-
-[--active] [--tag <tag>]
-
-User input: {{args}}
-
----
-
 # List Workflows
 
 List all workflows in the n8n instance.
@@ -17,7 +9,7 @@ Format: `[--active] [--tag <tag>]`
 - --active: Show only active workflows (optional)
 - --tag: Filter by tag name (optional)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

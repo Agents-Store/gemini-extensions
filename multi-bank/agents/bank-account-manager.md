@@ -39,7 +39,6 @@ description: |
   <example>
   user: "List all corporate cards"
   </example>
-model: sonnet
 ---
 
 # Bank Account Manager

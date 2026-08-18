@@ -1,13 +1,5 @@
-description = "Apply the same change to many Plane work items at once"
+description = "Apply the same change to many Plane work items at once Arguments: <project> <items...> <changes...>."
 prompt = """
-# Arguments
-
-<project> <items...> <changes...>
-
-User input: {{args}}
-
----
-
 # Bulk Update
 
 Apply identical field changes to a list of work items. Plane has no native bulk endpoint — this command loops `update_work_item` and reports per-item success/failure.
@@ -27,7 +19,7 @@ Format: `<project> <items...> <changes...>`
   - `--module <name>` / `--module remove:<name>`
   - `--milestone <name>`
 
-Parse from `"$ARGUMENTS"`.
+Parse from `"{{args}}"`.
 
 ## Process
 

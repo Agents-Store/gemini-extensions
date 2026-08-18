@@ -1,22 +1,14 @@
-description = "Scaffold a fresh PayloadCMS v3 project with create-payload-app, walking through database adapter, template, and package manager choices."
+description = "Scaffold a fresh PayloadCMS v3 project with create-payload-app, walking through database adapter, template, and package manager choices. Arguments: project-name."
 prompt = """
-# Arguments
-
-project-name
-
-User input: {{args}}
-
----
-
 # /payloadcms-dev:scaffold
 
 Bootstrap a new PayloadCMS v3 project from zero. Wraps `npx create-payload-app@latest` with the recommended Next.js App Router defaults and walks the user through every decision before running the scaffolder.
 
 ## Step 1 — Collect Inputs
 
-Use `AskUserQuestion` to gather (skip any the user already supplied as `$ARGUMENTS`):
+Use `AskUserQuestion` to gather (skip any the user already supplied as `{{args}}`):
 
-1. **Project name** — kebab-case directory name (e.g. `my-cms`). If `$ARGUMENTS` is non-empty, use it as the default.
+1. **Project name** — kebab-case directory name (e.g. `my-cms`). If `{{args}}` is non-empty, use it as the default.
 2. **Database adapter** — options:
    - **PostgreSQL** (recommended for prod) — needs a `DATABASE_URI` connection string.
    - **MongoDB** — needs an `mongodb://` URI, ideally a replica set for transactions.
@@ -96,6 +88,6 @@ Don't auto-invoke other skills. Tell the user to invoke the relevant ones based 
 - Do not enable `db.push: false` until the user has migrations in place — for dev, `push: true` is the right default (the scaffolder sets this).
 - Do not run `pnpm migrate` on a fresh project — the dev server's auto-push handles dev schema sync.
 
-## $ARGUMENTS
+## {{args}}
 
-If $ARGUMENTS contains a project name, use it as the default for Step 1 and proceed."""
+If {{args}} contains a project name, use it as the default for Step 1 and proceed."""

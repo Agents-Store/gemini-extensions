@@ -1,13 +1,5 @@
-description = "Create a new NocoDB table with optional initial fields"
+description = "Create a new NocoDB table with optional initial fields Arguments: [base-name-or-id] [table-title]."
 prompt = """
-# Arguments
-
-[base-name-or-id] [table-title]
-
-User input: {{args}}
-
----
-
 # Create NocoDB Table
 
 Create a new table in a NocoDB base. Prompt for any missing details (base, title, initial fields).

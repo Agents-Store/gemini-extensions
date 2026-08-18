@@ -1,13 +1,5 @@
-description = "Add a column to a NocoDB table"
+description = "Add a column to a NocoDB table Arguments: <table> <column-name> <type> [--options <opt1,opt2>]."
 prompt = """
-# Arguments
-
-<table> <column-name> <type> [--options <opt1,opt2>]
-
-User input: {{args}}
-
----
-
 # Create Column
 
 Add a new column (field) to a NocoDB table.
@@ -19,7 +11,7 @@ Format: `<table> <column-name> <type> [--options <opt1,opt2>]`
 - type: Column type — SingleLineText, Number, SingleSelect, Email, URL, Date, Checkbox, Currency, LinkToAnotherRecord, Lookup, Rollup, Formula (required)
 - --options: For SingleSelect/MultiSelect — comma-separated options (optional)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

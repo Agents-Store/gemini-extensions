@@ -1,13 +1,5 @@
-description = "Bulk update records in a NocoDB table"
+description = "Bulk update records in a NocoDB table Arguments: <table-name> --where <filter> --set <field=value>."
 prompt = """
-# Arguments
-
-<table-name> --where <filter> --set <field=value>
-
-User input: {{args}}
-
----
-
 # Bulk Update
 
 Update multiple records in a NocoDB table that match a filter.
@@ -18,7 +10,7 @@ Format: `<table-name> --where <filter> --set <field=value>`
 - --where: Filter to find records (required)
 - --set: Field and value to update (required)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

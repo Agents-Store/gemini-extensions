@@ -1,13 +1,5 @@
-description = "Configure a NocoDB webhook (HookV3) on a table"
+description = "Configure a NocoDB webhook (HookV3) on a table Arguments: [table-name-or-id] [event] [destination]."
 prompt = """
-# Arguments
-
-[table-name-or-id] [event] [destination]
-
-User input: {{args}}
-
----
-
 # Add Webhook
 
 Configure a HookV3 webhook on a table — fire on insert / update / delete (or bulk variants), evaluate an optional condition, dispatch to URL / Email / Messaging / Script.

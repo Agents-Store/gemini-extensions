@@ -70,7 +70,7 @@ in the root of a Claude project).
 
 Produce (a) a compact result-first summary table (goals → results → processes), then
 (b) the full macstack.json draft, then (c) open questions. Validate mentally against
-the schema at ${CLAUDE_PLUGIN_ROOT}/skills/lint/references/macstack.schema.json and
+the schema at ${extensionPath}/skills/lint/references/macstack.schema.json and
 state which lint rules the draft satisfies. Recommend a prototype
 (github:stackmakers-ai/...) whenever one fits, and list the context plugins
 ({tool}-{dev|ops|provision} + stack-*) the stack needs.

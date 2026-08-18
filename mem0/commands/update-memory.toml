@@ -1,13 +1,5 @@
-description = "Update an existing memory's content"
+description = "Update an existing memory's content Arguments: <memory_id> \"<new content>\"."
 prompt = """
-# Arguments
-
-<memory_id> "<new content>"
-
-User input: {{args}}
-
----
-
 # Update Memory
 
 Update the content of an existing memory.

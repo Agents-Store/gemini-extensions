@@ -1,13 +1,5 @@
-description = "Deploy or redeploy a Dokploy application or Docker Compose service"
+description = "Deploy or redeploy a Dokploy application or Docker Compose service Arguments: <app-name-or-id> [--project <project>]."
 prompt = """
-# Arguments
-
-<app-name-or-id> [--project <project>]
-
-User input: {{args}}
-
----
-
 # Deploy Application
 
 Trigger a deployment for an existing Dokploy application.
@@ -17,7 +9,7 @@ Format: `<app-name-or-id> [--project <project>]`
 - app-name-or-id: Application name or ID (required)
 - --project: Project name or ID (helps resolve app by name)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

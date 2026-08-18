@@ -1,13 +1,5 @@
-description = "Generate a contract or agreement (DOCX/PDF)"
+description = "Generate a contract or agreement (DOCX/PDF) Arguments: <title> [--format <docx|pdf>] [--type <service|nda|employment>]."
 prompt = """
-# Arguments
-
-<title> [--format <docx|pdf>] [--type <service|nda|employment>]
-
-User input: {{args}}
-
----
-
 # Generate Contract
 
 Generate a professional contract with numbered clauses, party details, and signature blocks.
@@ -19,7 +11,7 @@ Format: `<title> [--format <docx|pdf>] [--type <service|nda|employment>]`
 - --format: Output format -- docx (default, editable) or pdf (final version)
 - --type: Contract type for suggested clause structure (optional)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

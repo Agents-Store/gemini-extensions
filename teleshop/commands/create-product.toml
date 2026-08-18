@@ -1,13 +1,5 @@
-description = "Create a new product in the store"
+description = "Create a new product in the store Arguments: <title> <sku> <price> [--quantity <n>] [--category <id>] [--description <text>]."
 prompt = """
-# Arguments
-
-<title> <sku> <price> [--quantity <n>] [--category <id>] [--description <text>]
-
-User input: {{args}}
-
----
-
 # Create Product
 
 Create a new product in the Teleshop store.
@@ -21,7 +13,7 @@ Format: `<title> <sku> <price> [--quantity <n>] [--category <id>] [--description
 - --category: Category ID to assign
 - --description: Product description
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

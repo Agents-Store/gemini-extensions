@@ -1,0 +1,40 @@
+{
+  "type": "proposal",
+  "format": "docx",
+  "structure": {
+    "coverPage": true,
+    "tableOfContents": true,
+    "sections": [
+      { "id": "executive_summary", "heading": "Executive Summary", "level": 1, "required": true },
+      { "id": "problem_statement", "heading": "Problem Statement", "level": 1, "required": true },
+      { "id": "proposed_solution", "heading": "Proposed Solution", "level": 1, "required": true },
+      { "id": "scope", "heading": "Scope of Work", "level": 1, "required": true },
+      { "id": "approach", "heading": "Approach & Methodology", "level": 1, "required": false },
+      { "id": "timeline", "heading": "Timeline & Milestones", "level": 1, "required": true },
+      { "id": "pricing", "heading": "Pricing", "level": 1, "required": true },
+      { "id": "terms", "heading": "Terms & Conditions", "level": 1, "required": false },
+      { "id": "about_us", "heading": "About Us", "level": 1, "required": false },
+      { "id": "contact", "heading": "Contact Information", "level": 1, "required": false }
+    ]
+  },
+  "styling": {
+    "primaryColor": "#0F172A",
+    "accentColor": "#6366F1",
+    "backgroundColor": "#F8FAFC",
+    "textColor": "#1E293B",
+    "mutedColor": "#64748B",
+    "borderColor": "#E2E8F0",
+    "highlightBg": "#EFF6FF",
+    "fontHeading": "Georgia",
+    "fontBody": "Helvetica Neue",
+    "fontBodyFallback": "Arial",
+    "fontSizeTitle": 32,
+    "fontSizeH1": 18,
+    "fontSizeH2": 14,
+    "fontSizeBody": 11,
+    "lineSpacing": 1.3,
+    "margins": { "top": 1440, "bottom": 1440, "left": 1080, "right": 1080 }
+  },
+  "footer": "{{companyName}} | Confidential",
+  "headerText": "{{title}}"
+}

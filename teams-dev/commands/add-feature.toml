@@ -1,20 +1,12 @@
-description = "Add a feature (message handler, Adaptive Card, dialog, message extension, tab, AI agent, MCP plugin, SSO, Graph call) to an existing Microsoft Teams app"
+description = "Add a feature (message handler, Adaptive Card, dialog, message extension, tab, AI agent, MCP plugin, SSO, Graph call) to an existing Microsoft Teams app Arguments: <feature>."
 prompt = """
-# Arguments
-
-<feature>
-
-User input: {{args}}
-
----
-
 # /teams-dev:add-feature
 
 Adds an incremental feature to an existing Microsoft Teams app built on `@microsoft/teams.*`. The argument selects the feature to add.
 
 ## Feature router
 
-Match `$ARGUMENTS` (case-insensitive, hyphens and spaces interchangeable):
+Match `{{args}}` (case-insensitive, hyphens and spaces interchangeable):
 
 | Argument | Skill to invoke | Outcome |
 |---|---|---|

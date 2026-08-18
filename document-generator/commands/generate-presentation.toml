@@ -1,13 +1,5 @@
-description = "Generate a professional presentation (PPTX)"
+description = "Generate a professional presentation (PPTX) Arguments: <title> [--slides <number>] [--theme <corporate|minimal|bold>]."
 prompt = """
-# Arguments
-
-<title> [--slides <number>] [--theme <corporate|minimal|bold>]
-
-User input: {{args}}
-
----
-
 # Generate Presentation
 
 Generate a professional PowerPoint presentation with title slide, agenda, content slides, and summary.
@@ -19,7 +11,7 @@ Format: `<title> [--slides <number>] [--theme <corporate|minimal|bold>]`
 - --slides: Approximate number of content slides (optional, default: auto)
 - --theme: Color theme (optional, default: corporate)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

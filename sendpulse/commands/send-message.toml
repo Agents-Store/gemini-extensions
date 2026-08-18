@@ -1,13 +1,5 @@
-description = "Send a direct message to a chatbot contact on any channel"
+description = "Send a direct message to a chatbot contact on any channel Arguments: <contact-id> <message>."
 prompt = """
-# Arguments
-
-<contact-id> <message>
-
-User input: {{args}}
-
----
-
 # Send Message
 
 Send a direct message to a chatbot contact. Auto-detects the correct channel.
@@ -17,7 +9,7 @@ Format: `<contact-id> <message>`
 - contact-id: The chatbot contact ID
 - message: The text message to send
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

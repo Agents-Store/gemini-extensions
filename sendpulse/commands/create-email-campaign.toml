@@ -1,13 +1,5 @@
-description = "Create and send an email campaign"
+description = "Create and send an email campaign Arguments: <subject> [--addressbook <id>] [--sender <email>] [--template <id>]."
 prompt = """
-# Arguments
-
-<subject> [--addressbook <id>] [--sender <email>] [--template <id>]
-
-User input: {{args}}
-
----
-
 # Create Email Campaign
 
 Create and send an email campaign with pre-flight checks.
@@ -19,7 +11,7 @@ Format: `<subject> [--addressbook <id>] [--sender <email>] [--template <id>]`
 - --sender: Sender email address (optional — lists if omitted)
 - --template: Template ID (optional — lists if omitted)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

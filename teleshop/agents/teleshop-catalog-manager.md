@@ -1,7 +1,6 @@
 ---
 name: teleshop-catalog-manager
 description: Specialized catalog management agent for Teleshop. Focused on products, categories, attributes, catalog import, and customer data.
-model: sonnet
 ---
 
 # Teleshop Catalog Manager

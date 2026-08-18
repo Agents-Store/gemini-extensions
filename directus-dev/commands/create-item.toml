@@ -1,13 +1,5 @@
-description = "Create a new item in a Directus collection"
+description = "Create a new item in a Directus collection Arguments: <collection> <field=value> [field=value...]."
 prompt = """
-# Arguments
-
-<collection> <field=value> [field=value...]
-
-User input: {{args}}
-
----
-
 # Create Item
 
 ## Arguments

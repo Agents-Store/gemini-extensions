@@ -1,13 +1,5 @@
-description = "Extract structured data from URLs"
+description = "Extract structured data from URLs Arguments: <url> [url2...] --schema <json-schema>."
 prompt = """
-# Arguments
-
-<url> [url2...] --schema <json-schema>
-
-User input: {{args}}
-
----
-
 # Extract Data
 
 Extract structured data from a URL using a JSON schema definition.
@@ -17,7 +9,7 @@ Format: `<url> [url2...] --schema <json-schema>`
 - urls: One or more URLs to extract data from (required)
 - --schema: JSON schema describing the data to extract (required)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

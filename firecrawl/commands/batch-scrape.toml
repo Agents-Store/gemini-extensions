@@ -1,13 +1,5 @@
-description = "Batch scrape multiple URLs at once"
+description = "Batch scrape multiple URLs at once Arguments: <url1> <url2> [url3] ... [--format <markdown|html>]."
 prompt = """
-# Arguments
-
-<url1> <url2> [url3] ... [--format <markdown|html>]
-
-User input: {{args}}
-
----
-
 # Batch Scrape
 
 Scrape multiple URLs in a single request with rate limiting and progress tracking.
@@ -17,7 +9,7 @@ Format: `<url1> <url2> [url3] ... [--format <markdown|html>]`
 - urls: One or more URLs to scrape (required, space-separated)
 - --format: Output format — markdown (default) or html (optional)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

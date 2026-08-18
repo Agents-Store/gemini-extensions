@@ -15,7 +15,6 @@ description: |
   <example>
   user: "Check my workspace for security issues"
   </example>
-model: sonnet
 ---
 
 # OpenClaw Workspace Auditor

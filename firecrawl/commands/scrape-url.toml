@@ -1,13 +1,5 @@
-description = "Scrape a single URL"
+description = "Scrape a single URL Arguments: <url> [--format <markdown|html>]."
 prompt = """
-# Arguments
-
-<url> [--format <markdown|html>]
-
-User input: {{args}}
-
----
-
 # Scrape URL
 
 Scrape a single URL and return its content.
@@ -17,7 +9,7 @@ Format: `<url> [--format <markdown|html>]`
 - url: The URL to scrape (required)
 - --format: Output format — markdown (default) or html (optional)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

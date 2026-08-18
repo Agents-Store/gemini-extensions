@@ -1,13 +1,5 @@
-description = "Create a NocoBase page with blocks"
+description = "Create a NocoBase page with blocks Arguments: <page-title> [--collection <name>] [--block <table|form|details|kanban>]."
 prompt = """
-# Arguments
-
-<page-title> [--collection <name>] [--block <table|form|details|kanban>]
-
-User input: {{args}}
-
----
-
 # Create Page
 
 Create a NocoBase page with configured blocks, columns, and actions.
@@ -18,7 +10,7 @@ Format: `<page-title> [--collection <name>] [--block <table|form|details|kanban>
 - --collection: Collection to bind to the block (optional)
 - --block: Block type to add — table, form, details, kanban, calendar, gantt, chart (optional)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

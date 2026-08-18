@@ -1,13 +1,5 @@
-description = "Triage the Plane intake inbox — accept, defer, or reject incoming items"
+description = "Triage the Plane intake inbox — accept, defer, or reject incoming items Arguments: <project> [--limit <n>]."
 prompt = """
-# Arguments
-
-<project> [--limit <n>]
-
-User input: {{args}}
-
----
-
 # Triage Intake
 
 Run a triage session over the Plane intake queue for a project.
@@ -16,7 +8,7 @@ Run a triage session over the Plane intake queue for a project.
 
 Format: `<project> [--limit <n>]`
 
-Parse from `"$ARGUMENTS"`. Default limit is 20 items.
+Parse from `"{{args}}"`. Default limit is 20 items.
 
 ## Process
 
@@ -43,7 +35,7 @@ Parse from `"$ARGUMENTS"`. Default limit is 20 items.
 ```
 | # | Item | Age | Decision | Result |
 |---|------|-----|----------|--------|
-| 1 | "Login 500 Safari" | 2d | Accept+escalate | PROJ-148, urgent, @alice |
+| 1 | "Login 500 Safari" | 2d | Accept+escalate | PROJ-148, urgent, @{alice} |
 | 2 | "Dark mode request" | 5d | Defer | Revisit in 2 sprints |
 | 3 | "Same login bug" | 1d | Reject | Duplicate of PROJ-148 |
 ```

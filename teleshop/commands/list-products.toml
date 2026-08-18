@@ -1,13 +1,5 @@
-description = "List products with optional search, category, status, and limit filters"
+description = "List products with optional search, category, status, and limit filters Arguments: [--search <query>] [--category <name>] [--status available|unavailable|preorder] [--limit <n>]."
 prompt = """
-# Arguments
-
-[--search <query>] [--category <name>] [--status available|unavailable|preorder] [--limit <n>]
-
-User input: {{args}}
-
----
-
 # List Products
 
 List products from the Teleshop store with optional filters.
@@ -19,7 +11,7 @@ Format: `[--search <query>] [--category <name>] [--status available|unavailable|
 - --status: Filter by sell status (available, unavailable, preorder)
 - --limit: Number of products to show (default: 20)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

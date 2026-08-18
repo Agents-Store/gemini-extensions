@@ -12,7 +12,6 @@ description: |
   <example>
   user: "Set up a workflow that sends notifications on new orders"
   </example>
-model: sonnet
 ---
 
 # NocoBase Assistant

@@ -53,5 +53,79 @@
         "x-mcp-packages": "plugin-data-source-main,plugin-data-source-manager,plugin-workflow*,plugin-acl,plugin-users,plugin-auth,plugin-client,plugin-flow-engine,plugin-ai"
       }
     }
-  }
+  },
+  "settings": [
+    {
+      "name": "N8N API KEY",
+      "description": "Required by stack-composable-stack-v1's MCP server(s).",
+      "envVar": "N8N_API_KEY",
+      "sensitive": true
+    },
+    {
+      "name": "N8N API URL",
+      "description": "Required by stack-composable-stack-v1's MCP server(s).",
+      "envVar": "N8N_API_URL",
+      "sensitive": false
+    },
+    {
+      "name": "N8N MCP TOKEN",
+      "description": "Required by stack-composable-stack-v1's MCP server(s).",
+      "envVar": "N8N_MCP_TOKEN",
+      "sensitive": true
+    },
+    {
+      "name": "N8N NATIVE MCP URL",
+      "description": "Required by stack-composable-stack-v1's MCP server(s).",
+      "envVar": "N8N_NATIVE_MCP_URL",
+      "sensitive": false
+    },
+    {
+      "name": "NOCOBASE DEV API KEY",
+      "description": "Required by stack-composable-stack-v1's MCP server(s).",
+      "envVar": "NOCOBASE_DEV_API_KEY",
+      "sensitive": true
+    },
+    {
+      "name": "NOCOBASE DEV URL",
+      "description": "Required by stack-composable-stack-v1's MCP server(s).",
+      "envVar": "NOCOBASE_DEV_URL",
+      "sensitive": false
+    },
+    {
+      "name": "NOCODB MCP URL",
+      "description": "Required by stack-composable-stack-v1's MCP server(s).",
+      "envVar": "NOCODB_MCP_URL",
+      "sensitive": false
+    },
+    {
+      "name": "NOCODB TOKEN",
+      "description": "Required by stack-composable-stack-v1's MCP server(s).",
+      "envVar": "NOCODB_TOKEN",
+      "sensitive": true
+    },
+    {
+      "name": "POSTGRESQL MCP TOKEN",
+      "description": "Required by stack-composable-stack-v1's MCP server(s).",
+      "envVar": "POSTGRESQL_MCP_TOKEN",
+      "sensitive": true
+    },
+    {
+      "name": "POSTGRESQL MCP URL",
+      "description": "Required by stack-composable-stack-v1's MCP server(s).",
+      "envVar": "POSTGRESQL_MCP_URL",
+      "sensitive": false
+    },
+    {
+      "name": "TRIGGER API URL",
+      "description": "Required by stack-composable-stack-v1's MCP server(s).",
+      "envVar": "TRIGGER_API_URL",
+      "sensitive": false
+    },
+    {
+      "name": "TRIGGER SECRET KEY",
+      "description": "Required by stack-composable-stack-v1's MCP server(s).",
+      "envVar": "TRIGGER_SECRET_KEY",
+      "sensitive": true
+    }
+  ]
 }

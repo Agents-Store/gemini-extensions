@@ -1,13 +1,5 @@
-description = "Show dependency graph and active blockers for a project or sprint"
+description = "Show dependency graph and active blockers for a project or sprint Arguments: <project> [--cycle <current|next|name>]."
 prompt = """
-# Arguments
-
-<project> [--cycle <current|next|name>]
-
-User input: {{args}}
-
----
-
 # Dependencies
 
 Inspect work item relations to find active blockers, blocking chains, and risk items.
@@ -16,7 +8,7 @@ Inspect work item relations to find active blockers, blocking chains, and risk i
 
 Format: `<project> [--cycle <current|next|name>] [--item <id>]`
 
-Parse from `"$ARGUMENTS"`. Without `--cycle` or `--item`, scan the whole active backlog.
+Parse from `"{{args}}"`. Without `--cycle` or `--item`, scan the whole active backlog.
 
 ## Process
 
@@ -51,7 +43,7 @@ Parse from `"$ARGUMENTS"`. Without `--cycle` or `--item`, scan the whole active 
     blocked_by PROJ-140 (backlog, unestimated)
 
 🟡 Single blockers
-  PROJ-155 blocked_by PROJ-147 (in progress, @alice)
+  PROJ-155 blocked_by PROJ-147 (in progress, @{alice})
 
 🟢 Clear
   PROJ-150, PROJ-151, …

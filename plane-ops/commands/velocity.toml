@@ -1,13 +1,5 @@
-description = "Calculate team velocity from historical sprint data"
+description = "Calculate team velocity from historical sprint data Arguments: <project> [--sprints <count>]."
 prompt = """
-# Arguments
-
-<project> [--sprints <count>]
-
-User input: {{args}}
-
----
-
 # Velocity
 
 Calculate team velocity from completed sprints and show trend analysis.
@@ -17,7 +9,7 @@ Format: `<project> [--sprints <count>]`
 - project: Project name or identifier (required)
 - --sprints: Number of past sprints to analyze (default: 5)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

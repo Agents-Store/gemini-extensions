@@ -1,13 +1,5 @@
-description = "Create a new Trigger.dev task file"
+description = "Create a new Trigger.dev task file Arguments: <task-name> [--type basic|schema|cron|agent]."
 prompt = """
-# Arguments
-
-<task-name> [--type basic|schema|cron|agent]
-
-User input: {{args}}
-
----
-
 # Create Task
 
 1. Parse arguments:

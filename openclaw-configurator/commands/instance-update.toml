@@ -1,20 +1,12 @@
-description = "Update OpenClaw instance from official GitHub repo — fetch latest tag, merge into dev preserving local changes, rebuild Docker containers, then reconcile config against the new release and run openclaw doctor"
+description = "Update OpenClaw instance from official GitHub repo — fetch latest tag, merge into dev preserving local changes, rebuild Docker containers, then reconcile config against the new release and run openclaw doctor Arguments: [tag-or-version]."
 prompt = """
-# Arguments
-
-[tag-or-version]
-
-User input: {{args}}
-
----
-
 # Instance Update
 
 Update an OpenClaw instance from the official GitHub repository. Fetches the latest release tag (or a specified tag), merges it into the local `dev` branch preserving local customizations, and rebuilds Docker containers.
 
 ## Arguments
 
-- `$ARGUMENTS` — optional tag/version (e.g., `v1.5.0`, `1.5.0`). If empty, update to the latest tag.
+- `{{args}}` — optional tag/version (e.g., `v1.5.0`, `1.5.0`). If empty, update to the latest tag.
 
 ## Process
 
@@ -94,7 +86,7 @@ echo "Fetched latest from origin (including all tags)"
 
 ### Step 5: Determine Target Tag
 
-**If `$ARGUMENTS` is empty (update to latest):**
+**If `{{args}}` is empty (update to latest):**
 
 ```bash
 LATEST_TAG=$(git tag --sort=-version:refname | head -1)
@@ -113,10 +105,10 @@ $(git tag --sort=-version:refname | head -5)
 ```
 Stop here — clean up backup files and exit.
 
-**If `$ARGUMENTS` is provided:**
+**If `{{args}}` is provided:**
 
 ```bash
-TAG="$ARGUMENTS"
+TAG="{{args}}"
 
 # Try exact match, then with 'v' prefix
 if ! git tag -l "$TAG" | grep -q .; then

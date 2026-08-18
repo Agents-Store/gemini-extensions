@@ -1,13 +1,5 @@
-description = "Show the current Plane user, workspace, and connector status"
+description = "Show the current Plane user, workspace, and connector status Arguments: (no arguments)."
 prompt = """
-# Arguments
-
-(no arguments)
-
-User input: {{args}}
-
----
-
 # Who Am I
 
 Print the identity and context Plane is currently operating with. Useful for verifying the right account/instance is connected before destructive operations.

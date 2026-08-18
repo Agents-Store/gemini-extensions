@@ -1,13 +1,5 @@
-description = "Create a new Dokploy project"
+description = "Create a new Dokploy project Arguments: <name> [--description <text>]."
 prompt = """
-# Arguments
-
-<name> [--description <text>]
-
-User input: {{args}}
-
----
-
 # Create Project
 
 Create a new project on the Dokploy instance.
@@ -17,7 +9,7 @@ Format: `<name> [--description <text>]`
 - name: Project name (required)
 - --description: Project description (optional)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

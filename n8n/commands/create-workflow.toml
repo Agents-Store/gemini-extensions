@@ -1,13 +1,5 @@
-description = "Create a new n8n workflow"
+description = "Create a new n8n workflow Arguments: <name> [--trigger <webhook|schedule|manual>]."
 prompt = """
-# Arguments
-
-<name> [--trigger <webhook|schedule|manual>]
-
-User input: {{args}}
-
----
-
 # Create Workflow
 
 Create a new workflow in n8n.
@@ -17,7 +9,7 @@ Format: `<name> [--trigger <webhook|schedule|manual>]`
 - name: Workflow name (required)
 - --trigger: Trigger type — webhook, schedule, or manual (default: manual)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

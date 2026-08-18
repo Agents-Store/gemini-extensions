@@ -1,13 +1,5 @@
-description = "Create a new CRM contact"
+description = "Create a new CRM contact Arguments: <email> [--name <name>] [--phone <phone>]."
 prompt = """
-# Arguments
-
-<email> [--name <name>] [--phone <phone>]
-
-User input: {{args}}
-
----
-
 # Create Contact
 
 Create a new CRM contact with email, name, and phone.
@@ -18,7 +10,7 @@ Format: `<email> [--name <name>] [--phone <phone>]`
 - --name: Contact full name (optional)
 - --phone: Contact phone number (optional)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

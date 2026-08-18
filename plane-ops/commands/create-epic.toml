@@ -1,13 +1,5 @@
-description = "Create a Plane epic for a large feature spanning multiple sprints"
+description = "Create a Plane epic for a large feature spanning multiple sprints Arguments: <project> <epic name> [--lead <user>] [--target <YYYY-MM-DD>]."
 prompt = """
-# Arguments
-
-<project> <epic name> [--lead <user>] [--target <YYYY-MM-DD>]
-
-User input: {{args}}
-
----
-
 # Create Epic
 
 Create a new epic in Plane for a large feature or theme containing many work items.
@@ -16,7 +8,7 @@ Create a new epic in Plane for a large feature or theme containing many work ite
 
 Format: `<project> <epic name> [--lead <user>] [--target <YYYY-MM-DD>] [--priority <urgent|high|medium|low>]`
 
-Parse from `"$ARGUMENTS"`.
+Parse from `"{{args}}"`.
 
 ## Process
 

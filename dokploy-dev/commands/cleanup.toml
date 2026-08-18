@@ -1,13 +1,5 @@
-description = "Reclaim disk space on the Dokploy server with a guided cleanup chain"
+description = "Reclaim disk space on the Dokploy server with a guided cleanup chain Arguments: --dry-run."
 prompt = """
-# Arguments
-
---dry-run
-
-User input: {{args}}
-
----
-
 # Dokploy Server Cleanup
 
 Guided cleanup chain to reclaim disk space. Always reports current usage first, then walks through each cleanup operation with explicit user confirmation.
@@ -20,7 +12,7 @@ Format: `[--dry-run]` (optional)
 
 - `--dry-run` — show what would be cleaned without actually executing any destructive operation.
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

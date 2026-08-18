@@ -1,23 +1,15 @@
-description = "Step-by-step explanation of a file, function, or module with mini-diagram if appropriate"
+description = "Step-by-step explanation of a file, function, or module with mini-diagram if appropriate Arguments: <file-path|module-path|symbol-name>."
 prompt = """
-# Arguments
-
-<file-path|module-path|symbol-name>
-
-User input: {{args}}
-
----
-
 # Explain Code for Beginners
 
-Provide a structured, beginner-friendly explanation. Target: $ARGUMENTS
+Provide a structured, beginner-friendly explanation. Target: {{args}}
 
 ## Instructions
 
 1. Read the primary skill:
-   - `${CLAUDE_PLUGIN_ROOT}/skills/codemap-explain/SKILL.md` — 4-layer explanation model
+   - `${extensionPath}/skills/codemap-explain/SKILL.md` — 4-layer explanation model
 
-2. Parse `$ARGUMENTS` to determine scope:
+2. Parse `{{args}}` to determine scope:
    - If it's a file path → pass the file path to the agent
    - If it's a directory → pass the directory path to the agent
    - If it's a symbol (function/class name) → pass the symbol name to the agent

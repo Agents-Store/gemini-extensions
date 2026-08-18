@@ -1,13 +1,5 @@
-description = "List CRM deals with optional pipeline filter"
+description = "List CRM deals with optional pipeline filter Arguments: [--pipeline <id>] [--limit <number>]."
 prompt = """
-# Arguments
-
-[--pipeline <id>] [--limit <number>]
-
-User input: {{args}}
-
----
-
 # List Deals
 
 List CRM deals, optionally filtered by pipeline.
@@ -17,7 +9,7 @@ Format: `[--pipeline <id>] [--limit <number>]`
 - --pipeline: Filter by pipeline ID (optional)
 - --limit: Number of deals to return (default: 50)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

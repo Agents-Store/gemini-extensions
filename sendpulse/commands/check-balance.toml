@@ -1,13 +1,5 @@
-description = "Check Sendpulse account balance and email credits"
+description = "Check Sendpulse account balance and email credits Arguments: --detailed."
 prompt = """
-# Arguments
-
---detailed
-
-User input: {{args}}
-
----
-
 # Check Balance
 
 Check Sendpulse account balance and available email credits.
@@ -16,7 +8,7 @@ Check Sendpulse account balance and available email credits.
 Format: `[--detailed]`
 - --detailed: Show detailed balance breakdown (optional)
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

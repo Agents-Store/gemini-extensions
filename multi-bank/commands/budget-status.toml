@@ -1,13 +1,5 @@
-description = "Show budget utilization and active alerts"
+description = "Show budget utilization and active alerts Arguments: category."
 prompt = """
-# Arguments
-
-category
-
-User input: {{args}}
-
----
-
 # Budget Status
 
 Display spending progress against all budgets, or a specific category.
@@ -16,7 +8,7 @@ Display spending progress against all budgets, or a specific category.
 Format: `[category]`
 - category: Optional — show only this category's budget
 
-Parse from "$ARGUMENTS".
+Parse from "{{args}}".
 
 ## Process
 

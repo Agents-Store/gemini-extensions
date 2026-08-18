@@ -1,20 +1,12 @@
-description = "Create a new record in a NocoDB table"
+description = "Create a new record in a NocoDB table Arguments: <table-name> <field=value pairs>."
 prompt = """
-# Arguments
-
-<table-name> <field=value pairs>
-
-User input: {{args}}
-
----
-
 # Create Record
 
 Create a new record in a NocoDB table.
 
 ## Arguments
 
-Parse from "$ARGUMENTS":
+Parse from "{{args}}":
 - `table-name` (required): Name or ID of the table
 - Field values: key=value pairs or JSON object
 

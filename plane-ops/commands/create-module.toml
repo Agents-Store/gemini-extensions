@@ -1,13 +1,5 @@
-description = "Create a Plane module (feature/workstream grouping across sprints)"
+description = "Create a Plane module (feature/workstream grouping across sprints) Arguments: <project> <module name> [--lead <user>] [--target <YYYY-MM-DD>]."
 prompt = """
-# Arguments
-
-<project> <module name> [--lead <user>] [--target <YYYY-MM-DD>]
-
-User input: {{args}}
-
----
-
 # Create Module
 
 Create a new module in Plane to group work items by feature or workstream across multiple sprints.
@@ -16,7 +8,7 @@ Create a new module in Plane to group work items by feature or workstream across
 
 Format: `<project> <module name> [--lead <user>] [--target <YYYY-MM-DD>] [--description <text>]`
 
-Parse from `"$ARGUMENTS"`.
+Parse from `"{{args}}"`.
 
 ## Process
 
