@@ -1,6 +1,6 @@
 # macstack-dev (Gemini CLI extension)
 
-MACSTACK dev plugin for Agents Store. Creates and maintains macstack.json — the standardized business + technical stack specification for Claude projects: init in existing projects, generate from scratch (result-first), discover context plugins and prototypes, scaffold project files in the prototype → stack plugins → dev plugins order, wire Infisical env, install best-practice rules and commands.
+MACSTACK dev plugin for Agents Store. Creates and maintains the macstack/ folder of a Claude project: macstack.json — the standardized business + technical stack specification — plus the working documents around it (user cases per role, business logic in plain words, the decision log with cost-if-wrong, open questions split into what the client owes and what we deferred, and an immutable inbox for client material). Init in existing projects, generate from scratch (result-first), discover context plugins and prototypes, scaffold project files in the prototype → stack plugins → dev plugins order, merge incoming client edits through a gated delta/rulings loop, wire Infisical env, install best-practice rules and commands.
 
 ## Status
 
