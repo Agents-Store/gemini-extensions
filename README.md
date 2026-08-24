@@ -33,7 +33,7 @@ gemini extensions link agents-store-gemini-extensions/<plugin-name>
 | [grammy-dev](./grammy-dev) | grammY (Telegram bot framework) dev plugin for Agents Store. Covers bot core, filter queries, middleware, commands, keyboards, sessions, conversations, files, p | 16 | 1 | 0 | — |
 | [image-search-dev](./image-search-dev) | Stock image and video search developer toolkit. MCP tool patterns for Pexels (9 tools) and Unsplash (4 tools) from mcpware-dev-tools. Photo search, video search | 4 | 1 | 0 | — |
 | [infisical-dev](./infisical-dev) | Infisical CLI dev plugin for Agents Store. Complete command-line coverage for secrets management — install & auth, infisical run/secrets/export, dynamic secrets | 6 | 1 | 0 | — |
-| [macstack-dev](./macstack-dev) | MACSTACK dev plugin for Agents Store. Creates and maintains the macstack/ folder of a Claude project: macstack.json — the standardized business + technical stac | 18 | 1 | 13 | — |
+| [macstack-dev](./macstack-dev) | MACSTACK dev plugin for Agents Store. Creates and maintains the macstack/ folder of a Claude project: macstack.json — the standardized business + technical stac | 20 | 1 | 15 | — |
 | [mattermost-ops](./mattermost-ops) | Mattermost collaboration ops plugin. Drive the full Mattermost REST API v4 by curl — users, teams, channels (public/private/DM/group), posts & threads, reaction | 5 | 1 | 0 | — |
 | [media-hosting-ops](./media-hosting-ops) | Media hosting operations plugin. Upload images by public URL to MinIO-based media hosting via the uploadImageToMinio MCP tool. | 2 | 1 | 0 | — |
 | [mem0](./mem0) | Mem0 memory management plugin. Store, search, update, and organize memories with semantic search, batch operations, file attachments, and change history trackin | 5 | 2 | 11 | ✓ |
