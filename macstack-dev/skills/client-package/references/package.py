@@ -110,6 +110,42 @@ def _machine_labels(contract, lang):
     return out
 
 
+_HINT = re.compile(r'_[^_\n][^_]*_|<em>.*?</em>', re.S)
+
+
+def _is_stub(body):
+    """Сущность, в которой нет ничего, кроме подсказки генератора.
+
+    `seed.py` пишет заготовку строкой курсива — `_Опишите шаги от начала до конца
+    этой процедуры._` — и рядом жирную подпись раздела. Пока никто не заполнил
+    процедуру, это ВСЁ её содержимое, и в пакет уходит заголовок с просьбой,
+    обращённой к нам, а не к клиенту. Измерено 2026-08-27 на OHAWO: раздел
+    «Как этим пользоваться» — 41 такая заготовка, ни одной отвечаемой, и поля,
+    куда клиент мог бы написать ответ, под ними нет. Раздел обещал пошаговые
+    инструкции и отдавал 41 бланк.
+
+    Условие намеренно узкое: «кроме подсказки НИЧЕГО нет». Курсивная строка
+    среди настоящего текста — это выделение автора, и она остаётся; молча
+    выбрасывать слова, которые клиент написал сам, было бы хуже показанной
+    заготовки. Вызывается только там, где у сущности нет id (`want_id=False`),
+    поэтому ни один кейс, экран или вопрос через него не проходит.
+
+    Ничего не нужно помнить и включать обратно: `collect` уже отбрасывает раздел,
+    в котором не осталось сущностей, так что раздел вернётся сам — в тот день,
+    когда в документе появится первая написанная процедура.
+    """
+    if not body:
+        return True
+    # `_entity_md` отдаёт СТРОКИ ИСХОДНИКА, а не готовый html — их ещё пройдёт md().
+    # Первая версия этой проверки звала re.sub прямо по body и падала TypeError на
+    # списке; тихо она бы не упала, поэтому проверка есть в тесте ниже по файлу.
+    t = '\n'.join(body) if isinstance(body, (list, tuple)) else body
+    t = re.sub(r'\*\*.*?\*\*|<strong>.*?</strong>', ' ', t, flags=re.S)  # подписи заготовки
+    t = _HINT.sub(' ', t)
+    t = re.sub(r'<[^>]+>', ' ', t)
+    return not t.strip()
+
+
 def collect(root, contract, lang):
     """Семь разделов, и в каждом — сущности ЦЕЛИКОМ.
 
@@ -143,7 +179,7 @@ def collect(root, contract, lang):
             if pref is not None and not (it.ref or '').startswith(pref):
                 continue
             body = _entity_md(d.lines, it, drop)
-            if not body and not it.id:
+            if not it.id and (not body or _is_stub(body)):
                 continue
             out.append(dict(id=it.id or '', title=it.title or '', section=it.section,
                             meta=_meta(it, lang), body=body))
@@ -174,7 +210,16 @@ def collect(root, contract, lang):
         ('automation', ents('AUTOMATION.md', 'processes[')
                        + ents('AUTOMATION.md', 'triggers[') + tasks),
         ('cases', ents('USER-CASES.md')),
-        ('questions', [e for e in ents('OPEN-QUESTIONS.md')
+        # Клиенту уходит §A — то, что должен ОН, — и различается это по указателю
+        # `lifecycle.needs_from_client`, которым §A связан со спекой, а §B нет.
+        # Раньше фильтром было «есть id», и §B выпадал лишь потому, что его
+        # заголовки написаны через тире (`B1 — …`), а §A через точку (`A1 · …`):
+        # разбор id не узнавал тире, id получался пустым. Работало, но случайно —
+        # первый же пункт §B, набранный по образцу соседнего раздела, ушёл бы
+        # клиенту вопросом про нашу отложенную работу. Зачёркнутое отсеивается
+        # отдельно: указатель говорит «должен заказчик», зачёркивание — «уже
+        # закрыто», и это два разных условия.
+        ('questions', [e for e in ents('OPEN-QUESTIONS.md', 'lifecycle.needs_from_client')
                        if '~~' not in (e['title'] or '')]),
         ('screens', ents('UX-UI.md', 'interfaces[')),
         ('handbook', ents('HANDBOOK.md', None, level=3, want_id=False)),
@@ -358,6 +403,19 @@ STR = {
             n_questions='На эти вопросы можем ответить только вы. Пока ответа нет, работа по ним стоит.',
             n_cases='Главное в пакете. Каждый пункт — то, что человек должен смочь сделать.',
             c_c='комментарий, если есть',
+            c_c_questions='ваш ответ',
+            howto_questions=(
+                '<p><strong>Как этим пользоваться.</strong> Ниже — вопросы, ответить на '
+                'которые можем только мы вместе: всё это либо ваши данные, либо ваши '
+                'решения. Под каждым вопросом написано, что будет, если ответа не будет.</p>'
+                '<p>Пишите ответ прямо в поле под вопросом. Отметка рядом — про сам вопрос: '
+                '«верно» — написанное верно, добавить нечего; «не так» — мы что-то поняли '
+                'неправильно; «вопрос» — непонятно, что именно от вас нужно.</p>'
+                '<p>Можно отвечать прямо в браузере, потом «Печать» → «Сохранить как PDF». '
+                'Можно распечатать и писать от руки. Можно нажать кнопку внизу и прислать '
+                'нам текст ответов.</p>'
+                '<p>Код у вопроса — например <code>A1</code> — это его постоянный адрес. Он '
+                'не меняется между версиями, на него можно сослаться письмом и через год.</p>'),
             s_handbook='Как этим пользоваться',
             n_handbook='Пошагово, для того, кто сядет работать в платформе.',
             ok='верно', no='не так', q='вопрос',
@@ -386,6 +444,19 @@ STR = {
             n_questions='Only you can answer these. Work on them is stopped until you do.',
             n_cases='The heart of the package. Each item is something a person must be able to do.',
             c_c='a comment, if you have one',
+            c_c_questions='your answer',
+            howto_questions=(
+                '<p><strong>How to use this.</strong> Below are the questions only you can '
+                'answer: each is either your data or your decision. Under each one is what '
+                'happens if the answer does not come.</p>'
+                '<p>Write your answer in the field under the question. The mark beside it is '
+                'about the question itself: "right" — it is correct and there is nothing to '
+                'add; "not so" — we got something wrong; "question" — it is unclear what is '
+                'being asked of you.</p>'
+                '<p>Answer straight in the browser and Print → Save as PDF, print it and '
+                'write by hand, or press the button at the bottom and send us the text.</p>'
+                '<p>The code on a question — <code>A1</code> — is its permanent address. It '
+                'does not change between versions and is still quotable a year from now.</p>'),
             s_handbook='How to use it',
             n_handbook='Step by step, for the person who will work in it.',
             ok='right', no='not so', q='question',
@@ -403,8 +474,20 @@ def rows(T, group, hist, since):
     """Сущность как кусок документа, и ОДИН ответ на неё."""
     ident = group['id']
     rec = hist.get(ident, []) if ident else []
+    # Сравнение НЕ строгое, и это разница между «жёлтым помечено 18 пунктов» и
+    # «жёлтым не помечено ничего». Журнал датирован днём, а пакет пересобирают в
+    # тот же день, в который правили документы: `since` — дата ПРОШЛОГО пакета,
+    # и при `>` каждая правка того же дня отбрасывается. Измерено 2026-08-27 на
+    # OHAWO: 16 сущностей реально сдвинулись (8 новых, 8 с новым текстом), `>`
+    # пометил 0 из 209, а страница при этом продолжала обещать клиенту «жёлтым
+    # помечено то, что изменилось после прошлого пакета от 2026-08-27».
+    # День — это вся точность, какая есть, поэтому ошибка неизбежна; выбрана
+    # ошибка в сторону лишней пометки. Лишняя стоит клиенту второго взгляда на
+    # пункт, который он уже видел (на том же замере — 2 пункта из 18);
+    # пропущенная стоит правки, которую клиент не прочитает никогда, а ради неё
+    # эта пометка и существует.
     moved = [r for r in rec if r.get('kind') in ('added', 'changed')
-             and (r.get('date') or '') > (since or '')]
+             and (r.get('date') or '') >= (since or '')]
     said = [r for r in rec if r.get('kind') in ('comment', 'answer')]
     # Последний ответ клиента по этому куску: он подставляется галочкой и
     # остаётся изменяемым. Клиент не должен отвечать заново на то, что уже
@@ -499,13 +582,53 @@ def _md_block(lines):
     return '\n'.join(out)
 
 
-def build(root, date, slug, lang=None, artifact=False):
+SECTION_KEYS = ('product', 'goals', 'roles', 'automation', 'cases',
+                'questions', 'screens', 'handbook')
+
+
+def _select(sections, only, skip):
+    """Разделить пакет на несколько, не потеряв ни одного раздела молча.
+
+    Открытые вопросы — единственная часть, которую заказчик читает НЕ так, как
+    остальное: там он не подтверждает наше описание, а отдаёт то, чего у нас нет,
+    и до его ответа работа стоит. Отсюда просьба владельца (2026-08-27) разложить
+    пакет надвое — документы отдельно, вопросы отдельно.
+
+    Ошибка в имени раздела — отказ, а не пустой пакет: `--only question` (без «s»)
+    иначе собрал бы файл из нуля пунктов, записал бы его в журнал как состоявшийся
+    круг и сдвинул бы точку отсчёта «что изменилось» для СЛЕДУЮЩЕГО пакета. Дороже
+    всего здесь именно последнее — про сам файл видно, что он пуст, а про сдвинутую
+    отметку не видно ничего.
+    """
+    def parse(v):
+        if v in (None, True, False):
+            return None
+        got = [x.strip() for x in str(v).replace(',', ' ').split() if x.strip()]
+        bad = [x for x in got if x not in SECTION_KEYS]
+        if bad:
+            raise SystemExit('неизвестный раздел: %s\nизвестные: %s'
+                             % (', '.join(bad), ', '.join(SECTION_KEYS)))
+        return got
+
+    only, skip = parse(only), parse(skip)
+    out = sections
+    if only:
+        out = [(k, v) for k, v in out if k in only]
+    if skip:
+        out = [(k, v) for k, v in out if k not in skip]
+    if not out:
+        raise SystemExit('выбор не оставил ни одного раздела — пакет не собран')
+    return out
+
+
+def build(root, date, slug, lang=None, artifact=False,
+          only=None, skip=None):
     spec = _spec(root)
     lang = lang or doc_lang(root)
     T = STR.get(lang, STR['en'])
     name = (spec.get('identity') or {}).get('title') or spec.get('name', '')
     contract = _contract()
-    sections = collect(root, contract, lang)
+    sections = _select(collect(root, contract, lang), only, skip)
 
     # История по пункту и точка отсчёта «что изменилось». Дата берётся из имени
     # ПРОШЛОГО пакета, а не из даты записи: комментарий несёт день, когда его
@@ -514,20 +637,46 @@ def build(root, date, slug, lang=None, artifact=False):
     hist = ledger.index(root)
     since = ledger.last_handoff(root)
 
-    version = ((spec.get('docs') or {}).get('files') or {}).get(
-        'user_cases', {}).get('version', '?')
+    # Пакет из ОДНОГО раздела называет себя этим разделом. Иначе два пакета,
+    # собранные в один день, уходят клиенту под одним и тем же именем и в галерее
+    # артефактов различаются только ссылкой — а выбирать из них будет человек.
+    solo = sections[0][0] if len(sections) == 1 else None
+    head = T.get('s_' + solo, T['title']) if solo else T['title']
+
+    # Пакет из одного раздела показывает версию СВОЕГО документа. Иначе на пакете
+    # вопросов стоит версия USER-CASES.md — чужая, и она не сдвинется, когда
+    # перепишут сами вопросы: клиент увидит ту же цифру над новым текстом.
+    DOC_OF = {'questions': 'open_questions', 'cases': 'user_cases', 'screens': 'ux_ui',
+              'automation': 'automation', 'roles': 'automation', 'handbook': 'handbook',
+              'product': 'overview', 'goals': 'overview'}
+    files = ((spec.get('docs') or {}).get('files') or {})
+    version = files.get(DOC_OF.get(solo, 'user_cases') if solo else 'user_cases',
+                        {}).get('version', '?')
+
+    # Вопросы читают не так, как остальное: там не подтверждают наше описание, а
+    # отдают то, чего у нас нет. Общая инструкция зовёт отметить «верно» — для «дайте
+    # реквизиты OHAWO» это бессмыслица, и она стоит первой строкой, которую человек
+    # читает. Своя инструкция и своя подпись поля есть только у этого раздела.
+    if solo and T.get('howto_' + solo):
+        T = dict(T)
+        T['howto'] = T['howto_' + solo]
+        if T.get('c_c_' + solo):
+            T['c_c'] = T['c_c_' + solo]
 
     if artifact:
-        P = ['<title>%s</title>' % html.escape(T['short'].format(n=name) if name
-                                                else T['title']), FONTS,
+        # Полный пакет держит короткую форму, какой была: менять имя круга,
+        # который клиент уже видел, значит терять его в галерее.
+        tab = (('%s — %s' % (name, head)) if solo else T['short'].format(n=name)) \
+            if name else head
+        P = ['<title>%s</title>' % html.escape(tab), FONTS,
              '<style>%s</style>' % CSS]
     else:
         P = ['<!doctype html><html lang="%s"><head><meta charset="utf-8">' % lang,
              '<meta name="viewport" content="width=device-width,initial-scale=1">',
              FONTS,
              '<title>%s — %s</title><style>%s</style></head><body>'
-             % (html.escape(name), html.escape(T['title']), CSS)]
-    P += ['<h1>%s</h1>' % html.escape(T['title']),
+             % (html.escape(name), html.escape(head), CSS)]
+    P += ['<h1>%s</h1>' % html.escape(head),
           '<p class="lead">%s</p>' % html.escape(T['lead'].format(n=name, v=version, d=date)),
           '<div class="howto">%s</div>' % T['howto']]
     if since:
@@ -537,7 +686,8 @@ def build(root, date, slug, lang=None, artifact=False):
     for key, groups in sections:
         if not groups:
             continue
-        P.append('<h2>%s</h2>' % html.escape(T.get('s_' + key, key)))
+        if key != solo:                      # у пакета из одного раздела это <h1>
+            P.append('<h2>%s</h2>' % html.escape(T.get('s_' + key, key)))
         note = T.get('n_' + key)
         if note:
             P.append('<p class="sec-note">%s</p>' % html.escape(note))
@@ -609,6 +759,111 @@ def read_answers(root, src, date=None):
 _VERDICT_WORD = {'ok': 'верно', 'no': 'не так', 'q': 'вопрос'}
 
 
+# Что печатается после сборки. Отдельно от STR, потому что STR — это текст
+# ДОКУМЕНТА для заказчика, а это текст ДЛЯ ТОГО, кто собрал: их читают разные
+# люди в разных местах, и смешивать их в одном словаре значит переводить их
+# вместе, когда переводить надо порознь.
+OUT = {
+ 'ru': dict(
+    items='%s к ответу',        # число + слово согласует plural_ru()
+    is_file='ФАЙЛ ДЛЯ КЛИЕНТА. Открывается в любом браузере, печатается в PDF, '
+            'внизу кнопка «Собрать мои ответы».',
+    is_artifact='ЭТО НЕ ФАЙЛ ДЛЯ КЛИЕНТА — это тело артефакта. В браузере оно не '
+                'откроется: в нём нет ни <html>, ни <body>, их дописывает издатель.',
+    next='Дальше:',
+    f1='отдайте файл клиенту;',
+    f2='клиент жмёт «Собрать мои ответы» и присылает текст;',
+    a1='опубликуйте инструментом Artifact:',
+    a2='впишите полученный URL в журнал — командой, а не руками по JSON:',
+    a3='отдайте клиенту ссылку;',
+    back='ответы вернутся так: /macstack-dev:review --read <файл> — они лягут в '
+         'журнал, и следующий пакет подставит их под теми же пунктами.'),
+ 'en': dict(
+    items='%s',                 # 'N answerable item(s)' — согласует plural_en()
+    is_file='THE FILE FOR THE CLIENT. Opens in any browser, prints to PDF, and '
+            'carries the "collect my answers" button at the bottom.',
+    is_artifact='NOT THE FILE FOR THE CLIENT — this is an artifact body. A browser '
+                'will not render it: it has no <html> and no <body>; the publisher '
+                'adds them.',
+    next='Next:',
+    f1='give the file to the client;',
+    f2='the client presses "collect my answers" and sends you the text;',
+    a1='publish it with the Artifact tool:',
+    a2='record the URL it returns — with the command, not by hand-editing JSON:',
+    a3='give the client the link;',
+    back='answers come back this way: /macstack-dev:review --read <file> — they land '
+         'in the ledger, and the next package pre-fills them under the same items.'),
+}
+
+
+def plural_ru(n, one, few, many):
+    """«24 пунктов» — это не опечатка машины, это машина, которая не умеет
+    согласовывать. Строка, которую человек читает после каждой сборки, читается
+    десятки раз, и небрежность в ней читается как небрежность во всём остальном."""
+    n = abs(int(n))
+    if n % 10 == 1 and n % 100 != 11:
+        return '%d %s' % (n, one)
+    if 2 <= n % 10 <= 4 and not 12 <= n % 100 <= 14:
+        return '%d %s' % (n, few)
+    return '%d %s' % (n, many)
+
+
+def plural_en(n, one, many):
+    return '%d %s' % (n, one if abs(int(n)) == 1 else many)
+
+
+def counted_words(lang, n):
+    if lang == 'ru':
+        return plural_ru(n, 'пункт', 'пункта', 'пунктов')
+    return plural_en(n, 'answerable item', 'answerable items')
+
+
+def lang_of(root):
+    try:
+        return doc_lang(root)
+    except Exception:                                             # noqa: BLE001
+        return 'en'
+
+
+def record_url(root, handoff, url):
+    """Вписать URL опубликованного артефакта в его строку журнала.
+
+    Руками это правка JSONL в 200 строк, и делать её приходится каждый раз после
+    публикации. Трижды за одну сессию (OHAWO, 2026-08-27) она делалась одноразовым
+    скриптом на месте — то есть кодом, который никто не проверял и который негде
+    исправить, когда он ошибётся.
+
+    Строка ищется по ИМЕНИ ФАЙЛА, а не по дате: за день собирают несколько
+    пакетов, и дата их не различает.
+    """
+    p_ = os.path.join(root, 'history', 'ledger.jsonl')
+    if not os.path.exists(p_):
+        raise SystemExit('нет %s' % p_)
+    lines, hit = [], 0
+    for ln in io.open(p_, encoding='utf-8').read().splitlines():
+        if ln.strip():
+            r = json.loads(ln)
+            if r.get('kind') == 'handoff' and os.path.basename(r.get('doc') or '') == handoff:
+                r['url'] = url
+                hit += 1
+                ln = json.dumps(r, ensure_ascii=False, sort_keys=True)
+        lines.append(ln)
+    if hit != 1:
+        raise SystemExit('строк handoff с именем %s: %d — ожидалась ровно одна'
+                         % (handoff, hit))
+    io.open(p_, 'w', encoding='utf-8').write('\n'.join(lines) + '\n')
+    return hit
+
+
+# Имена флагов, которые эта команда понимает. Неизвестный флаг — ОТКАЗ, а не
+# молчание: `--slug` без значения (и весь набор, склеенный оболочкой в одну
+# строку) раньше просто не узнавался, команда собирала пакет по умолчанию под
+# именем по умолчанию и записывала его в журнал как состоявшийся круг. Про
+# опечатку не говорилось ничего.
+FLAGS = ('date', 'slug', 'artifact', 'lang', 'only', 'skip',
+         'read', 'dry', 'record-url', 'handoff')
+
+
 def main():
     argv = sys.argv[1:]
     args, flags, i = [], {}, 0
@@ -625,9 +880,22 @@ def main():
             args.append(a)
         i += 1
     root = args[0] if args else 'macstack'
+    bad = [k for k in flags if k not in FLAGS]
+    if bad:
+        print('неизвестный ключ: %s' % ', '.join('--' + b for b in bad))
+        print('известные: %s' % ' '.join('--' + f for f in FLAGS))
+        return 2
     if not os.path.isdir(root):
         print('no macstack/ folder at %s' % root)
         return 1
+    if flags.get('record-url'):
+        h = flags.get('handoff')
+        if not h or h is True:
+            print('--record-url требует --handoff <имя файла в history/handoffs/>')
+            return 2
+        record_url(root, h, flags['record-url'])
+        print('URL записан в строку handoff: %s' % h)
+        return 0
     if flags.get('read'):
         rows_ = read_answers(root, flags['read'], flags.get('date'))
         import collections as _c
@@ -644,7 +912,8 @@ def main():
     date = flags.get('date') or _today(root)
     slug = flags.get('slug') or 'user-cases'
     artifact = flags.get('artifact') is True or flags.get('artifact') == 'true'
-    doc, version, counted, data = build(root, date, slug, flags.get('lang'), artifact)
+    doc, version, counted, data = build(root, date, slug, flags.get('lang'), artifact,
+                                       flags.get('only'), flags.get('skip'))
 
     outdir = os.path.join(root, 'history', 'handoffs')
     os.makedirs(outdir, exist_ok=True)
@@ -668,23 +937,37 @@ def main():
     except Exception as e:                                        # noqa: BLE001
         sys.stderr.write('ledger не записан: %s\n' % e)
 
-    print('%s  ·  %d answerable items' % (out, counted))
-    print('  ' + ' · '.join('%s %d' % (k, len(gs)) for k, gs in data if gs))
+    # Вывод — на языке документов, и говорит РАЗНОЕ про два разных файла.
+    # Прежняя версия печатала два подряд идущих `if artifact:` с одной и той же
+    # инструкцией на английском и на русском, а «Дальше» было русским всегда,
+    # при английской же первой строке. Читателю это не сообщало главного: что
+    # `-artifact.html` НЕЛЬЗЯ отдать клиенту и нельзя открыть в браузере — в нём
+    # нет ни <html>, ни <body>, их дописывает издатель.
+    W = OUT.get(lang_of(root), OUT['en'])
+    print('')
+    print(out)
+    print('  %s  ·  %s' % (W['items'] % counted_words(lang_of(root), counted),
+                           ' · '.join('%s %d' % (k, len(gs)) for k, gs in data if gs)))
     print('')
     if artifact:
-        print('  artifact body — publish with the Artifact tool, then record its URL below')
+        print('  ' + W['is_artifact'])
         print('')
-    if artifact:
-        print('  тело артефакта — опубликуйте его инструментом Artifact,')
-        print('  затем впишите URL в строку handoff журнала.')
+        print('  ' + W['next'])
+        print('    1. ' + W['a1'])
+        print('       file_path: %s' % out)
+        print('    2. ' + W['a2'])
+        print('       python3 <package.py> %s --record-url <URL> --handoff %s'
+              % (root, os.path.basename(out)))
+        print('    3. ' + W['a3'])
+        print('    4. ' + W['back'])
+    else:
+        print('  ' + W['is_file'])
         print('')
-    # Журнал пакет уже записал сам, строкой выше. Печатать инструкцию «допишите
-    # в log.md» значило бы отправлять человека в файл, которого больше нет.
-    print('Дальше:')
-    print('  1. отдайте файл клиенту;')
-    print('  2. клиент жмёт «Собрать мои ответы» и присылает текст;')
-    print('  3. /macstack-dev:review --read <файл> — ответы лягут в журнал,')
-    print('     и следующий пакет подставит их под теми же пунктами.')
+        print('  ' + W['next'])
+        print('    1. ' + W['f1'])
+        print('    2. ' + W['f2'])
+        print('    3. ' + W['back'])
+    print('')
     return 0
 
 
