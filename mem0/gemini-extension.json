@@ -5,7 +5,15 @@
   "contextFileName": "GEMINI.md",
   "mcpServers": {
     "mem0": {
-      "httpUrl": "https://my-mcp.mcpware.net/mcp/mem0-user"
+      "httpUrl": "${MEM0_MCP_URL}"
     }
-  }
+  },
+  "settings": [
+    {
+      "name": "MEM0 MCP URL",
+      "description": "Required by mem0's MCP server(s).",
+      "envVar": "MEM0_MCP_URL",
+      "sensitive": false
+    }
+  ]
 }

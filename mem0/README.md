@@ -19,6 +19,12 @@ git clone https://github.com/Agents-Store/gemini-extensions
 gemini extensions link gemini-extensions/mem0
 ```
 
+## Required environment variables
+
+Declared in `gemini-extension.json`'s `settings[]` and prompted for on install/link:
+
+- `MEM0_MCP_URL`
+
 ## Source
 
 Canonical: https://github.com/agents-store/claude-public-plugins/tree/main/plugins/mem0

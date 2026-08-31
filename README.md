@@ -13,7 +13,7 @@ git clone <this-repo>
 gemini extensions link agents-store-gemini-extensions/<plugin-name>
 ```
 
-## Плагины (51)
+## Плагины (52)
 
 | Плагин | Описание | Skills | Agents | Commands | MCP |
 |---|---|---|---|---|---|
@@ -48,7 +48,8 @@ gemini extensions link agents-store-gemini-extensions/<plugin-name>
 | [nocodb](./nocodb) | NocoDB database development plugin. Manage tables, records, columns, views, relations, formulas, rollups, lookups, filtering, sorting, search, aggregation, webh | 8 | 2 | 10 | ✓ |
 | [nocodb-dev](./nocodb-dev) | NocoDB schema development plugin. Full Meta API v3 coverage — tables, fields (30+ types), views, filters, sorts, hooks (HookV3), comments, scripts, dashboards & | 12 | 1 | 6 | ✓ |
 | [nocodb-ops](./nocodb-ops) | NocoDB ops plugin for Agents Store. Record management, views, reports, filtering, search, and data import/export for business users via MCP tools and CLI. | 9 | 1 | 6 | ✓ |
-| [openclaw-configurator](./openclaw-configurator) | OpenClaw instance configurator and operations plugin. Scan, analyze, and optimize all workspace files (AGENTS.md, SOUL.md, USER.md, IDENTITY.md, TOOLS.md, HEART | 19 | 2 | 7 | — |
+| [openclaw-configurator](./openclaw-configurator) | DEPRECATED — superseded by openclaw-ops, which operates instances from live Docker state instead of hard-coded paths. Kept for its workspace-authoring skills (A | 19 | 2 | 7 | — |
+| [openclaw-ops](./openclaw-ops) | Operations plugin for a fleet of self-hosted OpenClaw gateway instances running as Docker Compose projects on one host. Discovers every instance from the live D | 12 | 2 | 11 | — |
 | [outline-ops](./outline-ops) | Outline knowledge-base ops plugin. Drive the full Outline REST API by curl — documents (create, search, move, archive, trash, import/export, AI answers, members | 5 | 1 | 0 | — |
 | [payloadcms-dev](./payloadcms-dev) | PayloadCMS dev plugin for Agents Store. Covers collections, fields, globals, hooks, access control, authentication, queries, data management (trash/query preset | 23 | 1 | 1 | — |
 | [plane-ops](./plane-ops) | Plane Agile Ops knowledge plugin. Full coverage of the Plane MCP surface: sprint planning, task decomposition, estimation, backlog management, velocity tracking | 17 | 2 | 44 | — |

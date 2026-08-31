@@ -5,7 +5,15 @@
   "contextFileName": "GEMINI.md",
   "mcpServers": {
     "deep-research": {
-      "httpUrl": "https://mcp.mcpware.net/mcp/d1ab2e49-a032-4788-9ba5-3125624f2769"
+      "httpUrl": "${MCPWARE_MCP_URL}"
     }
-  }
+  },
+  "settings": [
+    {
+      "name": "MCPWARE MCP URL",
+      "description": "Required by deep-research's MCP server(s).",
+      "envVar": "MCPWARE_MCP_URL",
+      "sensitive": false
+    }
+  ]
 }

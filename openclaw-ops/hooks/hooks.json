@@ -1,0 +1,14 @@
+{
+  "AfterTool": [
+    {
+      "matcher": "Write|Edit",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "python3 \"${extensionPath}/scripts/hooks/validate-openclaw-json.py\"",
+          "timeout": 10000
+        }
+      ]
+    }
+  ]
+}
