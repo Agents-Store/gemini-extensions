@@ -1,6 +1,6 @@
 {
   "name": "stack-composable-stack-v1",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "Composable Stack v1 dev plugin. Integrates PostgreSQL (direct MCP + PostgREST API), NocoDB, n8n, Trigger.dev, and NocoBase (prod + dev sandbox via nc-mcp) for building data-driven applications with low-code interfaces.",
   "contextFileName": "GEMINI.md",
   "mcpServers": {
@@ -11,7 +11,7 @@
         "mcp"
       ],
       "env": {
-        "TRIGGER_ACCESS_TOKEN": "${TRIGGER_SECRET_KEY}",
+        "TRIGGER_ACCESS_TOKEN": "${TRIGGER_ACCESS_TOKEN}",
         "TRIGGER_API_URL": "${TRIGGER_API_URL}"
       }
     },
@@ -116,16 +116,16 @@
       "sensitive": false
     },
     {
+      "name": "TRIGGER ACCESS TOKEN",
+      "description": "Required by stack-composable-stack-v1's MCP server(s).",
+      "envVar": "TRIGGER_ACCESS_TOKEN",
+      "sensitive": true
+    },
+    {
       "name": "TRIGGER API URL",
       "description": "Required by stack-composable-stack-v1's MCP server(s).",
       "envVar": "TRIGGER_API_URL",
       "sensitive": false
-    },
-    {
-      "name": "TRIGGER SECRET KEY",
-      "description": "Required by stack-composable-stack-v1's MCP server(s).",
-      "envVar": "TRIGGER_SECRET_KEY",
-      "sensitive": true
     }
   ]
 }

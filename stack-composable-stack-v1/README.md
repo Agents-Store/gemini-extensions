@@ -33,8 +33,8 @@ Declared in `gemini-extension.json`'s `settings[]` and prompted for on install/l
 - `NOCODB_TOKEN`
 - `POSTGRESQL_MCP_TOKEN`
 - `POSTGRESQL_MCP_URL`
+- `TRIGGER_ACCESS_TOKEN`
 - `TRIGGER_API_URL`
-- `TRIGGER_SECRET_KEY`
 
 ## Source
 

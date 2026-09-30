@@ -25,8 +25,8 @@ Declared in `gemini-extension.json`'s `settings[]` and prompted for on install/l
 
 - `DIRECTUS_ADMIN_TOKEN`
 - `NEXT_PUBLIC_DIRECTUS_URL`
+- `TRIGGER_ACCESS_TOKEN`
 - `TRIGGER_API_URL`
-- `TRIGGER_SECRET_KEY`
 
 ## Source
 
