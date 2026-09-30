@@ -1,6 +1,6 @@
 # nocobase (Gemini CLI extension)
 
-DEPRECATED — superseded by nocobase-dev, which bundles the official nocobase/skills library and works through the nb CLI and REST API. The MCP server this plugin wires has no counterpart in nocobase-dev yet. NocoBase platform development plugin. Expert guidance on collections, fields, relations, workflows, UI blocks, plugin development, MCP-powered page management, data operations, and collection inspection for NocoBase applications.
+DEPRECATED — superseded by nocobase-dev, which bundles the official nocobase/skills library and works through the nb CLI and REST API. Its MCP server package (@nocobase/mcp-server) was withdrawn from npm and is no longer wired; the MCP commands and agents work only if you register your own server named `nocobase`. NocoBase platform development plugin. Expert guidance on collections, fields, relations, workflows, UI blocks, plugin development, MCP-powered page management, data operations, and collection inspection for NocoBase applications.
 
 ## Status
 
@@ -18,14 +18,6 @@ The [geminicli.com](https://geminicli.com) gallery — and the `install <url>` f
 git clone https://github.com/Agents-Store/gemini-extensions
 gemini extensions link gemini-extensions/nocobase
 ```
-
-## Required environment variables
-
-Declared in `gemini-extension.json`'s `settings[]` and prompted for on install/link:
-
-- `NOCOBASE_EMAIL`
-- `NOCOBASE_PASSWORD`
-- `NOCOBASE_URL`
 
 ## Source
 

@@ -1,40 +1,6 @@
 {
   "name": "nocobase",
-  "version": "1.2.0",
-  "description": "DEPRECATED — superseded by nocobase-dev, which bundles the official nocobase/skills library and works through the nb CLI and REST API. The MCP server this plugin wires has no counterpart in nocobase-dev yet. NocoBase platform development plugin. Expert guidance on collections, fields, relations, workflows, UI blocks, plugin development, MCP-powered page management, data operations, and collection inspection for NocoBase applications.",
-  "contextFileName": "GEMINI.md",
-  "mcpServers": {
-    "nocobase": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@nocobase/mcp-server"
-      ],
-      "env": {
-        "NOCOBASE_URL": "${NOCOBASE_URL}",
-        "NOCOBASE_EMAIL": "${NOCOBASE_EMAIL}",
-        "NOCOBASE_PASSWORD": "${NOCOBASE_PASSWORD}"
-      }
-    }
-  },
-  "settings": [
-    {
-      "name": "NOCOBASE EMAIL",
-      "description": "Required by nocobase's MCP server(s).",
-      "envVar": "NOCOBASE_EMAIL",
-      "sensitive": false
-    },
-    {
-      "name": "NOCOBASE PASSWORD",
-      "description": "Required by nocobase's MCP server(s).",
-      "envVar": "NOCOBASE_PASSWORD",
-      "sensitive": true
-    },
-    {
-      "name": "NOCOBASE URL",
-      "description": "Required by nocobase's MCP server(s).",
-      "envVar": "NOCOBASE_URL",
-      "sensitive": false
-    }
-  ]
+  "version": "1.2.1",
+  "description": "DEPRECATED — superseded by nocobase-dev, which bundles the official nocobase/skills library and works through the nb CLI and REST API. Its MCP server package (@nocobase/mcp-server) was withdrawn from npm and is no longer wired; the MCP commands and agents work only if you register your own server named `nocobase`. NocoBase platform development plugin. Expert guidance on collections, fields, relations, workflows, UI blocks, plugin development, MCP-powered page management, data operations, and collection inspection for NocoBase applications.",
+  "contextFileName": "GEMINI.md"
 }
