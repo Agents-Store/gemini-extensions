@@ -1,0 +1,28 @@
+{
+  "name": "stack-directus-nextjs",
+  "version": "2.0.0",
+  "description": "Directus + Next.js architecture plugin. How Directus (content, files, access) and a Next.js App Router frontend fit together: who holds the token, how the cache is invalidated, how assets and types cross the boundary, who owns the session, and a production checklist. Tool knowledge comes from its dependencies.",
+  "contextFileName": "GEMINI.md",
+  "mcpServers": {
+    "directus": {
+      "httpUrl": "${NEXT_PUBLIC_DIRECTUS_URL}/mcp",
+      "headers": {
+        "Authorization": "Bearer ${DIRECTUS_ADMIN_TOKEN}"
+      }
+    }
+  },
+  "settings": [
+    {
+      "name": "DIRECTUS ADMIN TOKEN",
+      "description": "Required by stack-directus-nextjs's MCP server(s).",
+      "envVar": "DIRECTUS_ADMIN_TOKEN",
+      "sensitive": true
+    },
+    {
+      "name": "NEXT PUBLIC DIRECTUS URL",
+      "description": "Required by stack-directus-nextjs's MCP server(s).",
+      "envVar": "NEXT_PUBLIC_DIRECTUS_URL",
+      "sensitive": false
+    }
+  ]
+}

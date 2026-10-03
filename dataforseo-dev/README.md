@@ -1,6 +1,6 @@
 # dataforseo-dev (Gemini CLI extension)
 
-DataForSEO data analysis plugin. Keyword research, competitor analysis, backlink auditing, SERP monitoring, on-page audits, content analysis, and AI optimization via 70+ MCP tools.
+DataForSEO data for SEO work — keywords, SERP, backlinks, on-page, AI visibility — through the v3 MCP server. Not a general web-search tool.
 
 ## Status
 

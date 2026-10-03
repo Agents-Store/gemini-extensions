@@ -1,7 +1,7 @@
 {
   "name": "stack-composable-stack-v1",
-  "version": "2.0.0",
-  "description": "Composable Stack v1 dev plugin. Integrates PostgreSQL (direct MCP + PostgREST API), NocoDB, n8n, Trigger.dev, and NocoBase (prod + dev sandbox via nc-mcp) for building data-driven applications with low-code interfaces.",
+  "version": "3.0.0",
+  "description": "Composable Stack v1 architecture plugin. How PostgreSQL (direct MCP + PostgREST API), NocoDB, n8n, Trigger.dev, and NocoBase (prod + dev sandbox) fit together for data-driven applications with low-code interfaces: layer roles, data-access selection, integration patterns between services, and project bootstrap. Tool knowledge comes from its dependencies.",
   "contextFileName": "GEMINI.md",
   "mcpServers": {
     "trigger-dev": {
@@ -37,7 +37,7 @@
     "nocodb": {
       "httpUrl": "${NOCODB_MCP_URL}",
       "headers": {
-        "xc-mcp-token": "${NOCODB_TOKEN}"
+        "xc-mcp-token": "${NOCODB_MCP_TOKEN}"
       }
     },
     "postgresql-mcp": {
@@ -92,16 +92,16 @@
       "sensitive": false
     },
     {
+      "name": "NOCODB MCP TOKEN",
+      "description": "Required by stack-composable-stack-v1's MCP server(s).",
+      "envVar": "NOCODB_MCP_TOKEN",
+      "sensitive": true
+    },
+    {
       "name": "NOCODB MCP URL",
       "description": "Required by stack-composable-stack-v1's MCP server(s).",
       "envVar": "NOCODB_MCP_URL",
       "sensitive": false
-    },
-    {
-      "name": "NOCODB TOKEN",
-      "description": "Required by stack-composable-stack-v1's MCP server(s).",
-      "envVar": "NOCODB_TOKEN",
-      "sensitive": true
     },
     {
       "name": "POSTGRESQL MCP TOKEN",

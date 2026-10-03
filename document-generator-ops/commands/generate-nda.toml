@@ -15,10 +15,14 @@ Parse from "{{args}}".
 
 ## Process
 
-1. **Resolve plugin directory:**
-   Find the plugin dir by globbing for `**/document-generator-ops/scripts/generate_pdf.js`.
+1. **Plugin directory:**
+   Scripts and templates live under `${extensionPath}/` (Claude Code substitutes it with the installed plugin path). Use it as is; do not search for the plugin.
 
-2. **Check dependencies.**
+2. **Check dependencies:**
+   ```bash
+   node "${extensionPath}/scripts/check_deps.js"
+   ```
+   If `ready` is false, show what is missing and ask permission to run the listed `installCommands`. (`ready` covers Node, the npm modules and the Playwright browser; pandoc and the PDF engines are optional extras listed in `missing`.)
 
 3. **Gather required data from user:**
    - NDA type: mutual (default) or unilateral
@@ -34,7 +38,7 @@ Parse from "{{args}}".
 
 4. **Read template:**
    ```bash
-   cat <plugin_dir>/templates/nda_template.json
+   cat "${extensionPath}/templates/nda_template.json"
    ```
 
 5. **Build JSON input:**
@@ -44,7 +48,7 @@ Parse from "{{args}}".
 
 6. **Generate PDF:**
    ```bash
-   cd <plugin_dir> && node scripts/generate_pdf.js /absolute/path/.doc_input.json
+   node "${extensionPath}/scripts/generate_pdf.js" /absolute/path/.doc_input.json
    ```
 
 7. **Deliver result:**
@@ -52,7 +56,7 @@ Parse from "{{args}}".
 
 ## Example Usage
 ```
-/generate-nda --type mutual --party1 "Acme Corp" --party2 "TechStart Inc"
-/generate-nda --type unilateral
-/generate-nda
+/document-generator-ops:generate-nda --type mutual --party1 "Acme Corp" --party2 "TechStart Inc"
+/document-generator-ops:generate-nda --type unilateral
+/document-generator-ops:generate-nda
 ```"""

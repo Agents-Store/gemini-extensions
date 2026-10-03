@@ -1,0 +1,60 @@
+{
+  "name": "stack-directus-nextjs-trigger",
+  "version": "3.0.0",
+  "description": "Directus + Next.js + Trigger.dev architecture plugin. How Directus (content, files, access), a Next.js App Router frontend and self-hosted Trigger.dev (durable and scheduled work) fit together: who holds which token, how the cache is invalidated, how a Directus change reaches a task and the result reaches the page, who owns the session, and a production checklist. Tool knowledge comes from its dependencies.",
+  "contextFileName": "GEMINI.md",
+  "mcpServers": {
+    "directus": {
+      "httpUrl": "${NEXT_PUBLIC_DIRECTUS_URL}/mcp",
+      "headers": {
+        "Authorization": "Bearer ${DIRECTUS_ADMIN_TOKEN}"
+      }
+    },
+    "trigger-dev": {
+      "command": "npx",
+      "args": [
+        "trigger.dev@${TRIGGER_CLI_VERSION:-latest}",
+        "mcp",
+        "--dev-only",
+        "--project-ref",
+        "${TRIGGER_PROJECT_REF}"
+      ],
+      "env": {
+        "TRIGGER_ACCESS_TOKEN": "${TRIGGER_ACCESS_TOKEN}",
+        "TRIGGER_API_URL": "${TRIGGER_API_URL}"
+      }
+    }
+  },
+  "settings": [
+    {
+      "name": "DIRECTUS ADMIN TOKEN",
+      "description": "Required by stack-directus-nextjs-trigger's MCP server(s).",
+      "envVar": "DIRECTUS_ADMIN_TOKEN",
+      "sensitive": true
+    },
+    {
+      "name": "NEXT PUBLIC DIRECTUS URL",
+      "description": "Required by stack-directus-nextjs-trigger's MCP server(s).",
+      "envVar": "NEXT_PUBLIC_DIRECTUS_URL",
+      "sensitive": false
+    },
+    {
+      "name": "TRIGGER ACCESS TOKEN",
+      "description": "Required by stack-directus-nextjs-trigger's MCP server(s).",
+      "envVar": "TRIGGER_ACCESS_TOKEN",
+      "sensitive": true
+    },
+    {
+      "name": "TRIGGER API URL",
+      "description": "Required by stack-directus-nextjs-trigger's MCP server(s).",
+      "envVar": "TRIGGER_API_URL",
+      "sensitive": false
+    },
+    {
+      "name": "TRIGGER PROJECT REF",
+      "description": "Required by stack-directus-nextjs-trigger's MCP server(s).",
+      "envVar": "TRIGGER_PROJECT_REF",
+      "sensitive": false
+    }
+  ]
+}
