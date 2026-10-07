@@ -1,0 +1,14 @@
+{
+  "BeforeTool": [
+    {
+      "matcher": "Bash",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "python3 \"${extensionPath}/scripts/bw_guard.py\"",
+          "timeout": 10000
+        }
+      ]
+    }
+  ]
+}
