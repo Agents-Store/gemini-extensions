@@ -2,7 +2,7 @@ description = "Compare multiple products, companies, or technologies Arguments: 
 prompt = """
 # Compare
 
-Comparative analysis of multiple items using the Comparison Table template. See CONNECTORS.md for provider mapping.
+Comparative analysis of multiple items using the Comparison Table template. Follow the competitive-analysis path of `${extensionPath}/skills/deep-research/SKILL.md` and the template in `${extensionPath}/skills/report-generation/SKILL.md`. See CONNECTORS.md for provider mapping.
 
 ## Process
 

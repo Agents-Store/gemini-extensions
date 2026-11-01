@@ -2,6 +2,8 @@ description = "Convert between document formats (MD/DOCX/PDF/HTML/PPTX) Argument
 prompt = """
 # Convert Document
 
+Follow the `document-generator` skill (`${extensionPath}/skills/document-generator/SKILL.md`), section Format Conversion, for the engines and the file naming; read it before Step 1.
+
 Convert a document between formats using pandoc.
 
 ## Arguments

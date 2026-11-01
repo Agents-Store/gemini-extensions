@@ -2,6 +2,8 @@ description = "Create a new Dokploy project Arguments: <name> [--description <te
 prompt = """
 # Create Project
 
+Follow the `mcp-patterns` skill (`${extensionPath}/skills/mcp-patterns/SKILL.md`) for the project tool parameters and usage notes; read it before the first call.
+
 Create a new project on the Dokploy instance.
 
 ## Arguments

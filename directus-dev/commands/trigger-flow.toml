@@ -2,6 +2,8 @@ description = "Trigger a Directus automation flow Arguments: <flow-name-or-id> <
 prompt = """
 # Trigger Flow
 
+Follow the `flow-automation` skill (`${extensionPath}/skills/flow-automation/SKILL.md`) for how flows, triggers and operations work; read it before the first call.
+
 ## Arguments
 
 - `flow-name-or-id` (required) — Flow name (partial match) or UUID
