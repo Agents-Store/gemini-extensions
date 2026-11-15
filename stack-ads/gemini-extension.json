@@ -1,0 +1,97 @@
+{
+  "name": "stack-ads",
+  "version": "1.0.0",
+  "description": "Paid advertising stack for any project. Researches the product and its market, derives targeting, writes ad copy, generates images, video and voice-over, launches paused campaigns on Google Ads, Meta and TikTok from a reviewed dry-run plan with budget ceilings and a rollback ledger, and reports results. Walks the user through obtaining every key. Integrates Google Ads, Search Console, Meta, TikTok, Firecrawl, Apify, DataForSEO, OpenAI, Gemini and fal.ai via MCP and one dependency-free toolkit.",
+  "contextFileName": "GEMINI.md",
+  "mcpServers": {
+    "firecrawl": {
+      "httpUrl": "https://mcp.firecrawl.dev/v2/mcp",
+      "headers": {
+        "Authorization": "Bearer ${FIRECRAWL_API_KEY}"
+      }
+    },
+    "apify": {
+      "httpUrl": "https://mcp.apify.com",
+      "headers": {
+        "Authorization": "Bearer ${APIFY_TOKEN}"
+      }
+    },
+    "dataforseo": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "dataforseo-mcp-server@3"
+      ],
+      "env": {
+        "DATAFORSEO_USERNAME": "${DATAFORSEO_USERNAME}",
+        "DATAFORSEO_PASSWORD": "${DATAFORSEO_PASSWORD}"
+      }
+    },
+    "google-ads": {
+      "command": "pipx",
+      "args": [
+        "run",
+        "--spec",
+        "google-ads-mcp==0.0.6",
+        "google-ads-mcp"
+      ],
+      "env": {
+        "GOOGLE_CLOUD_PROJECT": "${GOOGLE_CLOUD_PROJECT}",
+        "GOOGLE_APPLICATION_CREDENTIALS": "${GOOGLE_APPLICATION_CREDENTIALS}"
+      }
+    },
+    "meta-ads": {
+      "httpUrl": "https://mcp.facebook.com/ads",
+      "headers": {
+        "Authorization": "Bearer ${META_ACCESS_TOKEN}"
+      }
+    },
+    "tiktok-ads": {
+      "httpUrl": "https://business-api.tiktok.com/open_mcp/tt-ads-mcp-layer"
+    }
+  },
+  "settings": [
+    {
+      "name": "APIFY TOKEN",
+      "description": "Required by stack-ads's MCP server(s).",
+      "envVar": "APIFY_TOKEN",
+      "sensitive": true
+    },
+    {
+      "name": "DATAFORSEO PASSWORD",
+      "description": "Required by stack-ads's MCP server(s).",
+      "envVar": "DATAFORSEO_PASSWORD",
+      "sensitive": true
+    },
+    {
+      "name": "DATAFORSEO USERNAME",
+      "description": "Required by stack-ads's MCP server(s).",
+      "envVar": "DATAFORSEO_USERNAME",
+      "sensitive": false
+    },
+    {
+      "name": "FIRECRAWL API KEY",
+      "description": "Required by stack-ads's MCP server(s).",
+      "envVar": "FIRECRAWL_API_KEY",
+      "sensitive": true
+    },
+    {
+      "name": "GOOGLE APPLICATION CREDENTIALS",
+      "description": "Required by stack-ads's MCP server(s).",
+      "envVar": "GOOGLE_APPLICATION_CREDENTIALS",
+      "sensitive": false
+    },
+    {
+      "name": "GOOGLE CLOUD PROJECT",
+      "description": "Required by stack-ads's MCP server(s).",
+      "envVar": "GOOGLE_CLOUD_PROJECT",
+      "sensitive": false
+    },
+    {
+      "name": "META ACCESS TOKEN",
+      "description": "Required by stack-ads's MCP server(s).",
+      "envVar": "META_ACCESS_TOKEN",
+      "sensitive": true
+    }
+  ]
+}
