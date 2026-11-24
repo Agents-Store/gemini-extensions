@@ -46,6 +46,7 @@ Canonical source: https://github.com/agents-store/claude-public-plugins/tree/mai
 - "how do I discover NocoDB structure?"
 - "MCP for nocodb-dev"
 
+- **permissions** — Set NocoDB table and field permissions — who may see a table, add or delete records, download data, or edit one field — as grants on top of base roles, over MCP (listPermissions, setPermission, dropPermission) or REST (/bases/{baseId}/permissions). Use when access must be narrower than the base role for one table or field. Members, teams and base roles are not covered here.
 - **setup** — Verify NocoDB connection for schema-development work — MCP and REST (curl on Meta API v3). Use when:
 - "check NocoDB dev setup"
 - "verify NocoDB API access"
